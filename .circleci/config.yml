@@ -23,6 +23,10 @@ jobs:
           name: Merge-Conflict-Checker
           no_output_timeout: 20m
           command: merge_conflict_checker .
+      - run:
+          name: PHP-Code-Sniffer
+          no_output_timeout: 20m
+          command: phpcs --ignore=./vendor/,*/tests/*,*/data/* .
       - run: 
           name: Install-Check
           no_output_timeout: 20m
