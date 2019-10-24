@@ -13,7 +13,8 @@ class ContributingExistsMetric extends Metric
     {
         $this->code    = "WOSPM0004";
         $this->title   = "NO_CONTRIBUTING";
-        $this->message = "Every open source project should have a CONTRIBUTING file.";
+        $this->message = "Every open source project should " . 
+        "have a CONTRIBUTING file.";
         $this->type    = MetricType::ERROR;
     }
 
