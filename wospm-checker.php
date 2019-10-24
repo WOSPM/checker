@@ -8,12 +8,16 @@ const SUCCESS   = 0,
     FAILED      = 255;
 
 if (PHP_VERSION < '5.4.0') {
-    fwrite(STDERR,"WP Vulnerability Check requires PHP 5.4.0 and newer");
+    fwrite(STDERR, "WP Vulnerability Check requires PHP 5.4.0 and newer");
     die(FAILED);
 }
 
-function showOptions() {
-?>
+/**
+ * Shows the commandline options
+ */
+function showOptions()
+{
+    ?>
 WOSPM Checker version: <?php echo VERSION; ?>
 Options:
     --output            The format of output. Valid values JSON, READABLE,
@@ -21,7 +25,7 @@ Options:
     --no-colors         Disable the console colors. It is enabled by default.
     --version           Show version.
     --help              Print this help.
-<?php
+    <?php
 }
 
 // Help
@@ -50,18 +54,17 @@ $files = array(
 $autoloadFileFound = false;
 foreach ($files as $file) {
     if (file_exists($file)) {
-        require $file;
+        include $file;
         $autoloadFileFound = true;
         break;
     }
 }
 
 if (!$autoloadFileFound) {
-    $message = 'You need to set up the project dependencies using composer commands:' . PHP_EOL;
-    fwrite(STDERR,
-        $message
-    );
-    echo $message . PHP_EOL;
+    $message = 'Project dependencies are not installed (composer install):';
+
+    fwrite(STDERR, $message . PHP_EOL);
+    echo $message . PHP_EOL . PHP_EOL;
     die(FAILED);
 }
 
