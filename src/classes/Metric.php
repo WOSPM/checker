@@ -6,10 +6,10 @@ namespace WOSPM\Checker;
  */
 class Metric
 {
-    public $code    = "WOSPM0001";
-    public $title   = "Nothing is working";
-    public $message = "It seems nothing is working.";
-    public $type    = MetricType::INFO;
+    public $code     = "WOSPM0001";
+    public $title    = "Nothing is working";
+    public $message  = "It seems nothing is working.";
+    public $type     = MetricType::INFO;
 
     /**
      * Main check function
@@ -54,11 +54,11 @@ class Metric
     private function result($status = false)
     {
         return array(
-            "code"    => $this->code,
-            "title"   => $this->title,
-            "message" => $this->message,
-            "type"    => $this->type,
-            "status"  => $status
+            "code"     => $this->code,
+            "title"    => $this->title,
+            "message"  => $this->message,
+            "type"     => $this->type,
+            "status"   => $status
         );
     }
 }

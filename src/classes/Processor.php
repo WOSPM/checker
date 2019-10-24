@@ -14,9 +14,11 @@ class Processor
      */
     public function __construct()
     {
-        $metric = new ReadmeExistsMetric();
+        $readme = new ReadmeExistsMetric();
+        $this->metrics[$readme->code] = $readme;
 
-        $this->metrics[$metric->code] = $metric;
+        $license = new LicenseExistsMetric();
+        $this->metrics[$license->code] = $license;
     }
 
     /**
