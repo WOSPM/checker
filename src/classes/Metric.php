@@ -5,7 +5,7 @@ class Metric {
 	private $code    = "WOSPM0001";
 	private $title   = "Nothing is working";
 	private $message = "It seems nothing is working.";
-	private $type    = Metric::INFO;
+	private $type    = MetricType::INFO;
 
 	public function check($files) {
 		// do some check
