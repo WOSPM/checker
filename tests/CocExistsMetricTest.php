@@ -5,7 +5,7 @@ class CocExistsMetricTest extends PHPUnit_Framework_TestCase
     private $metric;
     public function __construct()
     {
-        $this->metric = new Checker\ContributingExistsMetric();
+        $this->metric = new Checker\CocExistsMetric();
     }
 
     public function testCocExists()
