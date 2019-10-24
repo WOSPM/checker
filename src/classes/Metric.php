@@ -15,6 +15,7 @@ class Metric
      * Main check function
      * 
      * @param array $files Array of the files in root directory
+     *
      * @return array
      */
     public function check($files)
@@ -47,6 +48,7 @@ class Metric
      * Result function that returns the result of the check with metric info
      * 
      * @param boolean $status The result of the check
+     *
      * @return array
      */
     private function result($status = false)

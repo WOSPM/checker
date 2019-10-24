@@ -21,6 +21,7 @@ class ReadmeExistsMetric extends Metric
      * Checks if there is a readme file in root directory
      * 
      * @param array $files Array of the files in root directory
+     *
      * @return array
      */
     public function check($files)

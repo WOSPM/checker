@@ -5,7 +5,8 @@ namespace WOSPM\Checker;
 /**
  * Doc comment for class Processor
  */
-class Processor {
+class Processor
+{
     private $metrics = array();
 
     /**

@@ -20,6 +20,8 @@
         <exclude name="PEAR.NamingConventions.ValidFunctionName.FunctionNameInvalid" />
         <exclude name="PEAR.NamingConventions.ValidFunctionName.FunctionNoCapital" />
         <exclude name="PEAR.NamingConventions.ValidFunctionName.NotCamelCaps" />
+        <exclude name="PEAR.Commenting.ClassComment.MissingPackageTag" />
+        <exclude name="PEAR.Commenting.ClassComment.MissingAuthorTag" />
     </rule>
 
 </ruleset>
