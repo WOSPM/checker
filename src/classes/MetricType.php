@@ -2,9 +2,9 @@
 namespace WOSPM\Checker;
 
 class MetricType {
-	CONST ERROR = 1;
+    CONST ERROR = 1;
 
-	CONST WARNING = 2;
+    CONST WARNING = 2;
 
-	CONST INFO = 3;
+    CONST INFO = 3;
 }

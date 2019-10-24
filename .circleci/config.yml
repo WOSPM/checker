@@ -24,6 +24,18 @@ jobs:
           no_output_timeout: 20m
           command: merge_conflict_checker .
       - run:
+          name: Magic-Number-Detector
+          no_output_timeout: 20m
+          command: cd ./src && phpmnd .
+      - run:
+          name: Dead-Code-Checker
+          no_output_timeout: 20m
+          command: cd ./src && phpdcd -vvv --exclude vendor --exclude tests .
+      - run:
+          name: Copy-Paste-Checker
+          no_output_timeout: 20m
+          command: cd ./src && phpcpd --exclude=vendor .
+      - run:
           name: PHP-Code-Sniffer
           no_output_timeout: 20m
           command: phpcs --ignore=./vendor/,*/tests/*,*/data/* .
