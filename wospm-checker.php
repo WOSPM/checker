@@ -70,9 +70,13 @@ if (!$autoloadFileFound) {
 
 
 try {
-    //$check  = new WPVulnerabilityCheck\Manager($settings);
-    //$status = $check->check();
+    $files     = array("README2.md");
+    $processor = new Checker\Processor();
+    $result    = $processor->process($files);
 
+    $processor->output($result);
+
+    $status = true;
     die($status ? SUCCESS : WITH_ERRORS);
 } catch (\Exception $e) {
     fwrite(STDERR, $e->getMessage() . PHP_EOL);
