@@ -1,4 +1,4 @@
-# WOSPM Checklist
+# WOSPM Checker
 
 A checker for project owners to measure their open source project.
 
