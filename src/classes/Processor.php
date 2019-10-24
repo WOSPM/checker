@@ -19,6 +19,9 @@ class Processor
 
         $license = new LicenseExistsMetric();
         $this->metrics[$license->code] = $license;
+
+        $contribute = new ContributingExistsMetric();
+        $this->metrics[$contribute->code] = $contribute;
     }
 
     /**
