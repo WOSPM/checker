@@ -15,7 +15,10 @@ class ReadmeExistsMetric extends Metric {
 			in_array("readme", $files) ||
 			in_array("readme.md", $files);
 
+		if ($check === true) {
+			return $this->success();
+		}
 
-		return parent::result($check);
+		return $this->fail();
 	}
 }

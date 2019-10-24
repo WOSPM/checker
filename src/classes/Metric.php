@@ -12,11 +12,11 @@ class Metric {
 		$this->success();
 	}
 
-	private function success() {
+	public function success() {
 		return $this->result(true);
 	}
 
-	private function fail() {
+	public function fail() {
 		return $this->result();
 	}
 
