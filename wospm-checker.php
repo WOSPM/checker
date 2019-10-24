@@ -46,6 +46,21 @@ function output($array)
         echo "$code - " . $metric["title"] . ": " .$metric["message"] . PHP_EOL;
     }
 }
+
+/**
+ * Prints banner
+ *
+ * @return void
+ */
+function banner() {
+    echo "------------------------------------------" . PHP_EOL;
+    echo " Welcoming Open Source Project Metrics " . PHP_EOL;
+    echo PHP_EOL;
+    echo " Checker is analysing your project..." . PHP_EOL;
+    echo "------------------------------------------" . PHP_EOL;
+    echo PHP_EOL;
+    echo "Here is the result;" . PHP_EOL . PHP_EOL;
+}
 // Help
 if (!isset($_SERVER['argv'][1]) || in_array('--help', $_SERVER['argv'])) {
     showOptions();
@@ -91,9 +106,9 @@ try {
     $files     = scandir(".");
     $processor = new Checker\Processor();
     $result    = $processor->process($files);
-
+    banner();
     output($result);
-
+    echo PHP_EOL;
     $status = true;
     die($status ? SUCCESS : WITH_ERRORS);
 } catch (\Exception $e) {
