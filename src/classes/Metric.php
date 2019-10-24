@@ -2,11 +2,10 @@
 namespace WOSPM\Checker;
 
 class Metric {
-	private $code  = "WOSPM0001";
-
-	private $title = "Nothing is working";
-
+	private $code    = "WOSPM0001";
+	private $title   = "Nothing is working";
 	private $message = "It seems nothing is working.";
+	private $type    = Metric::INFO;
 
 	public function check($files) {
 		// do some check
@@ -26,6 +25,7 @@ class Metric {
 			"code"    => $this->code,
 			"title"   => $this->title,
 			"message" => $this->message,
+			"type"    => $this->type,
 			"status"  => $status
 		);
 	}
