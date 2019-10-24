@@ -1,7 +1,7 @@
 {
     "name": "wospm/checker",
-    "description": "A checker for project owners to measure their open source project.",
     "type": "project",
+    "description": "A checker for project owners to measure their open source project.",
     "license": "MIT",
     "require": {},
     "require-dev": {
