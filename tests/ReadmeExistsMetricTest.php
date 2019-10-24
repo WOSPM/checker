@@ -37,6 +37,16 @@ class ReadmeExistsMetricTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertTrue($this->metric->check($files)["status"]);
-        
+    
     }
+
+    public function testReadmeNotExists()
+    {
+        $files = array(
+            "NOREADME"
+        );
+
+        $this->assertFalse($this->metric->check($files)["status"]);
+    }
+
 }
