@@ -1,7 +1,11 @@
 <?php
 namespace WOSPM\Checker;
 
-class MetricType {
+/**
+ * Doc comment for class MetricType
+ */
+class MetricType
+{
     CONST ERROR = 1;
 
     CONST WARNING = 2;
