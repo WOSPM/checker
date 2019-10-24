@@ -1,6 +1,5 @@
 <?php
-namespace WOSPM\Checker
-namespace UmutPHP\WPVulnerabilityCheck;
+namespace WOSPM\Checker;
 
 class Metric {
 	private $code  = "WOSPM0001";
