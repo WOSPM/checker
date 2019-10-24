@@ -1,0 +1,21 @@
+{
+    "name": "wospm/checker",
+    "description": "A checker for project owners to measure their open source project.",
+    "type": "project",
+    "license": "MIT",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "~4.5"
+    },
+    "config": {
+        "bin-dir": "vendor/bin/"
+    },
+    "autoload": {
+        "psr-4": {
+            "WOSPM\\Checker\\": "src/classes"
+        }
+    },
+    "bin": [
+        "wospm-checker"
+    ]
+}
