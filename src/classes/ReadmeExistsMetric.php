@@ -1,16 +1,21 @@
 <?php
 namespace WOSPM\Checker;
 
-class Metric {
-	private $code  = "WOSPM0001";
+class ReadmeExistsMetric {
+	private $code  = "WOSPM0002";
 
-	private $title = "Nothing is working";
+	private $title = "README file shoud be created";
 
-	private $message = "It seems nothing is working.";
+	private $message = "Every open source project should have a README file.";
 
 	public function check($files) {
-		// do some check
-		$this->success();
+		$check = in_array("README", $files) ||
+			in_array("README.md", $files) ||
+			in_array("readme", $files) ||
+			in_array("readme.md", $files);
+
+
+		return $this->result($check);
 	}
 
 	private function success() {
