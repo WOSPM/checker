@@ -22,6 +22,9 @@ class Processor
 
         $contribute = new ContributingExistsMetric();
         $this->metrics[$contribute->code] = $contribute;
+
+        $coc = new CocExistsMetric();
+        $this->metrics[$coc->code] = $coc;
     }
 
     /**
@@ -40,24 +43,5 @@ class Processor
         }
 
         return $array;
-    }
-
-    /**
-     * Prints the result array
-     *
-     * @param array $array Array of metric results
-     *
-     * @return array
-     */
-    public function output($array)
-    {
-        foreach ($array as $code => $metric) {
-            if ($metric["status"] === true) {
-                echo "\e[0;41;30mX\e[0m ";
-            } else {
-                echo "\e[0;42;30m+\e[0m ";
-            }
-            echo "$code - " . $metric["title"] . ": " .$metric["message"] . PHP_EOL;
-        }
     }
 }

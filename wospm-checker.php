@@ -28,6 +28,24 @@ Options:
     <?php
 }
 
+/**
+ * Prints the result array
+ *
+ * @param array $array Array of metric results
+ *
+ * @return array
+ */
+function output($array)
+{
+    foreach ($array as $code => $metric) {
+        if ($metric["status"] === true) {
+            echo "\e[0;42;30m+\e[0m ";
+        } else {
+            echo "\e[0;41;30mX\e[0m ";
+        }
+        echo "$code - " . $metric["title"] . ": " .$metric["message"] . PHP_EOL;
+    }
+}
 // Help
 if (!isset($_SERVER['argv'][1]) || in_array('--help', $_SERVER['argv'])) {
     showOptions();
@@ -70,11 +88,11 @@ if (!$autoloadFileFound) {
 
 
 try {
-    $files     = array("README2.md");
+    $files     = scandir(".");
     $processor = new Checker\Processor();
     $result    = $processor->process($files);
 
-    $processor->output($result);
+    output($result);
 
     $status = true;
     die($status ? SUCCESS : WITH_ERRORS);
