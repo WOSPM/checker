@@ -16,6 +16,6 @@ class ReadmeExistsMetric extends Metric {
 			in_array("readme.md", $files);
 
 
-		return $this->result($check);
+		return parent::result($check);
 	}
 }
