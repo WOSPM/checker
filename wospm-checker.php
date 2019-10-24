@@ -52,7 +52,8 @@ function output($array)
  *
  * @return void
  */
-function banner() {
+function banner()
+{
     echo "------------------------------------------" . PHP_EOL;
     echo " Welcoming Open Source Project Metrics " . PHP_EOL;
     echo PHP_EOL;
