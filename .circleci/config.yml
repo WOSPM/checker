@@ -10,7 +10,7 @@ jobs:
       - run:
           name: Markdown-Lint
           no_output_timeout: 20m
-          command: npm install remark-lint && remark .
+          command: npm install remark-lint && remark-lint .
   code-lint:
     docker:
       - image: umutphp/php-docker-images-for-ci:7.1
