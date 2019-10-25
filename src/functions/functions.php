@@ -17,13 +17,36 @@ Options:
 }
 
 /**
- * Prints the result array
+ * Prints the result array in according to the argument
+ *
+ * @param array $array Array of metric results
+ * @param Arguments $arguments Arguments object containing the commandline arguments
+ *
+ * @return void
+ */
+function output($array, $arguments)
+{
+    if ($arguments->output === 'JSON') {
+        outputJSON($array);
+        return;
+    }
+
+    if ($arguments->output === 'NO') {
+        return;
+    }
+
+    banner();
+    outputREADABLE($array);
+}
+
+/**
+ * Prints the result array in readable format
  *
  * @param array $array Array of metric results
  *
- * @return array
+ * @return void
  */
-function output($array)
+function outputREADABLE($array)
 {
     foreach ($array as $code => $metric) {
         if ($metric["status"] === true) {
@@ -33,6 +56,20 @@ function output($array)
         }
         echo "$code - " . $metric["title"] . ": " .$metric["message"] . PHP_EOL;
     }
+    echo PHP_EOL;
+}
+
+/**
+ * Prints the result json
+ *
+ * @param array $array Array of metric results
+ *
+ * @return void
+ */
+function outputJSON($array)
+{
+    echo json_encode(array_values($array), true);
+    echo PHP_EOL;
 }
 
 /**

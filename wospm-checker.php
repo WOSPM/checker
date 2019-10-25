@@ -62,9 +62,9 @@ try {
     $files     = scandir($arguments->path);
     $processor = new Checker\Processor();
     $result    = $processor->process($files);
-    banner();
-    output($result);
-    echo PHP_EOL;
+
+    output($result, $arguments);
+    
     $status = true;
     die($status ? SUCCESS : WITH_ERRORS);
 } catch (\Exception $e) {
