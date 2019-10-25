@@ -8,9 +8,13 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Markdown-Lint
+          name: Project-Markdown-Lint
           no_output_timeout: 20m
-          command: npm install remark-lint && remark-lint .
+          command: npm install -g markdownlint && markdownlint *.md LICENSE CODE_OF_CONDUCT
+      - run:
+          name: Metrics-Markdown-Lint
+          no_output_timeout: 20m
+          command: npm install -g markdownlint && markdownlint mdocs/*.md
   code-lint:
     docker:
       - image: umutphp/php-docker-images-for-ci:7.1
