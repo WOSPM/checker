@@ -19,7 +19,7 @@ Options:
 /**
  * Prints the result array in according to the argument
  *
- * @param array $array Array of metric results
+ * @param array     $array     Array of metric results
  * @param Arguments $arguments Arguments object containing the commandline arguments
  *
  * @return void
