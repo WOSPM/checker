@@ -12,7 +12,8 @@ if (PHP_VERSION < '5.4.0') {
     die(FAILED);
 }
 
-require_once __DIR__ . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "functions" . 
+require_once __DIR__ . DIRECTORY_SEPARATOR . "src" .
+DIRECTORY_SEPARATOR . "functions" . 
 DIRECTORY_SEPARATOR . "functions.php";
 
 // Help

@@ -28,7 +28,9 @@ class Arguments
     public $output = 'READABLE';
 
     /**
-     * @param array $arguments
+     * PArsing arguments from command line option
+     *
+     * @param array $arguments The argument paramater array
      *
      * @return Settings
      *
@@ -44,14 +46,14 @@ class Arguments
                 throw new \Exception("Invalid argument $argument");
             } else {
                 switch ($argument) {
-                    case '--output':
-                        $setting->output = trim($arguments->getNext());
-                        break;
-                    case '--no-colors':
-                        $setting->colors = false;
-                        break;
-                    default:
-                        throw new \Exception("Invalid argument $argument");
+                case '--output':
+                    $setting->output = trim($arguments->getNext());
+                    break;
+                case '--no-colors':
+                    $setting->colors = false;
+                    break;
+                default:
+                    throw new \Exception("Invalid argument $argument");
                 }
             }
         }
