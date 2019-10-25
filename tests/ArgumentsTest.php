@@ -20,4 +20,26 @@ class ArgumentsTest extends PHPUnit_Framework_TestCase
         $this->assertEquals("JSON", $arguments->output);
         $this->assertFalse($arguments->colors);
     }
+
+    public function testParserArgumentsInvalidArgumentFormat()
+    {
+        $inputs = array(
+            'wospm-checker', 'invalidformat'
+        );
+
+        $this->setExpectedException(\Exception::class);
+        
+        Checker\Arguments::parseArguments($inputs);
+    }
+
+    public function testParserArgumentsInvalidArgument()
+    {
+        $inputs = array(
+            'wospm-checker', '--invalid'
+        );
+
+        $this->setExpectedException(\Exception::class);
+        
+        Checker\Arguments::parseArguments($inputs);
+    }
 }
