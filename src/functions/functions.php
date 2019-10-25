@@ -59,15 +59,15 @@ function outputREADABLE($array, $colors = true)
             $fail   = "\e[0;41;30mX\e[0m ";
 
             switch ($metric["type"]) {
-                case Checker\MetricType::WARNING:
-                    $fail   = "\e[0;43;30mX\e[0m ";
-                    break;
-                case Checker\MetricType::INFO:
-                    $fail   = "\e[0;44;30mX\e[0m ";
-                    break;
-                default:
-                    $fail   = "\e[0;41;30mX\e[0m ";
-                    break;
+            case Checker\MetricType::WARNING:
+                $fail   = "\e[0;43;30mX\e[0m ";
+                break;
+            case Checker\MetricType::INFO:
+                $fail   = "\e[0;44;30mX\e[0m ";
+                break;
+            default:
+                $fail   = "\e[0;41;30mX\e[0m ";
+                break;
             }
         }
         if ($metric["status"] === true) {
