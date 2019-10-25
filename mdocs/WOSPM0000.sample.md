@@ -1,6 +1,7 @@
 # WOSPM0000
 
 ## Idenditiy
+
 | Property        | Value           |
 | ------------- |-------------|
 | code      | WOSPM0000 |
@@ -9,4 +10,5 @@
 | type | MetricType::ERROR,MetricType::WARNING,MetricType::INFO      |
 
 ## Rationale
+
 Explain why we use such a metric.

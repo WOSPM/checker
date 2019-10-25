@@ -8,7 +8,7 @@ A checker for project owners to measure their open source project.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table Of Contents**
+## Table Of Contents
 
 - [Introduction](#introduction)
 - [How To Use](#how-to-use)
@@ -17,16 +17,16 @@ A checker for project owners to measure their open source project.
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
---- 
+---
 
 ## Introduction
 
 ## How To Use
 
-
 ## Contributing
+
 See [CONTRIBUTING.md](CONTRIBUTING.md) for information.
 
-
 ## Code of Conduct
+
 See [CODE_OF_CONDUCT](CODE_OF_CONDUCT) for information.
