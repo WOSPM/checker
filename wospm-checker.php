@@ -8,62 +8,15 @@ const SUCCESS   = 0,
     FAILED      = 255;
 
 if (PHP_VERSION < '5.4.0') {
-    fwrite(STDERR, "WP Vulnerability Check requires PHP 5.4.0 and newer");
+    fwrite(STDERR, "WOSPM Checker requires PHP 5.4.0 and newer");
     die(FAILED);
 }
 
-/**
- * Shows the commandline options
- */
-function showOptions()
-{
-    ?>
-WOSPM Checker version: <?php echo VERSION; ?>
-Options:
-    --output            The format of output. Valid values JSON, READABLE,
-                        NO (Default).
-    --no-colors         Disable the console colors. It is enabled by default.
-    --version           Show version.
-    --help              Print this help.
-    <?php
-}
+require_once __DIR__ . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "functions" . 
+DIRECTORY_SEPARATOR . "functions.php";
 
-/**
- * Prints the result array
- *
- * @param array $array Array of metric results
- *
- * @return array
- */
-function output($array)
-{
-    foreach ($array as $code => $metric) {
-        if ($metric["status"] === true) {
-            echo "\e[0;42;30m+\e[0m ";
-        } else {
-            echo "\e[0;41;30mX\e[0m ";
-        }
-        echo "$code - " . $metric["title"] . ": " .$metric["message"] . PHP_EOL;
-    }
-}
-
-/**
- * Prints banner
- *
- * @return void
- */
-function banner()
-{
-    echo "------------------------------------------" . PHP_EOL;
-    echo " Welcoming Open Source Project Metrics " . PHP_EOL;
-    echo PHP_EOL;
-    echo " Checker is analysing your project..." . PHP_EOL;
-    echo "------------------------------------------" . PHP_EOL;
-    echo PHP_EOL;
-    echo "Here is the result;" . PHP_EOL . PHP_EOL;
-}
 // Help
-if (!isset($_SERVER['argv'][1]) || in_array('--help', $_SERVER['argv'])) {
+if (in_array('--help', $_SERVER['argv'])) {
     showOptions();
     exit;
 }
@@ -104,7 +57,8 @@ if (!$autoloadFileFound) {
 
 
 try {
-    $files     = scandir(".");
+    $arguments = Checker\Arguments::parseArguments($_SERVER['argv']);
+    $files     = scandir($arguments->path);
     $processor = new Checker\Processor();
     $result    = $processor->process($files);
     banner();
