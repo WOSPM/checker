@@ -3,6 +3,8 @@
 version: 2
 jobs:
   doc-lint:
+    docker:
+      - image: circleci/node:9.8
     steps:
       - checkout
       - run:
