@@ -2,7 +2,14 @@
 #
 version: 2
 jobs:
-  build:
+  doc-lint:
+    steps:
+      - checkout
+      - run:
+          name: Markdown-Lint
+          no_output_timeout: 20m
+          command: npm install remark-lint && remark .
+  code-lint:
     docker:
       - image: umutphp/php-docker-images-for-ci:7.1
     steps:
@@ -39,6 +46,11 @@ jobs:
           name: PHP-Code-Sniffer
           no_output_timeout: 20m
           command: phpcs --ignore=./vendor/,*/tests/*,*/data/* .
+  install-check:
+    docker:
+      - image: umutphp/php-docker-images-for-ci:7.1
+    steps:
+      - checkout 
       - run: 
           name: Install-Check
           no_output_timeout: 20m
