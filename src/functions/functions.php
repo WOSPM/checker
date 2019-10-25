@@ -36,23 +36,32 @@ function output($array, $arguments)
     }
 
     banner();
-    outputREADABLE($array);
+    outputREADABLE($array, $arguments->colors);
 }
 
 /**
  * Prints the result array in readable format
  *
- * @param array $array Array of metric results
+ * @param array   $array  Array of metric results
+ * @param boolean $colors Boolean flag to use colors or not
  *
  * @return void
  */
-function outputREADABLE($array)
+function outputREADABLE($array, $colors = true)
 {
+    $succes = "+ ";
+    $fail   = "X ";
+
+    if ($colors === true) {
+        $succes = "\e[0;42;30m+\e[0m ";
+        $fail   = "\e[0;41;30mX\e[0m ";
+    }
+
     foreach ($array as $code => $metric) {
         if ($metric["status"] === true) {
-            echo "\e[0;42;30m+\e[0m ";
+            echo $succes;
         } else {
-            echo "\e[0;41;30mX\e[0m ";
+            echo $fail;
         }
         echo "$code - " . $metric["title"] . ": " .$metric["message"] . PHP_EOL;
     }
