@@ -124,6 +124,7 @@ function processor()
     $processor->addMetric(new Checker\LicenseExistsMetric());
     $processor->addMetric(new Checker\ContributingExistsMetric());
     $processor->addMetric(new Checker\CocExistsMetric());
+    $processor->addMetric(new Checker\ReadmeContributingLinkExistsMetric());
 
     return $processor;
 }

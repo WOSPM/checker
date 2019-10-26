@@ -28,10 +28,12 @@ class ContributingExistsMetric extends Metric
      */
     public function check($files)
     {
-        $check = in_array("CONTRIBUTING", $files) ||
-            in_array("CONTRIBUTING.md", $files) ||
-            in_array("CONTRIBUTE", $files) ||
-            in_array("CONTRIBUTE.md", $files);
+        $contributing = array(
+            "CONTRIBUTING", "CONTRIBUTING.md", "CONTRIBUTE", "CONTRIBUTE.md",
+            "contributing", "contributing.md", "contribute", "contribute.md"
+        );
+
+        $check = (bool)array_intersect($contributing, $files);
 
         if ($check === true) {
             return $this->success();

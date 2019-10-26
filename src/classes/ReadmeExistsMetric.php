@@ -27,10 +27,11 @@ class ReadmeExistsMetric extends Metric
      */
     public function check($files)
     {
-        $check = in_array("README", $files) ||
-            in_array("README.md", $files) ||
-            in_array("readme", $files) ||
-            in_array("readme.md", $files);
+        $readme = array(
+            "README", "README.md", "readme", "readme.md"
+        );
+
+        $check = (bool)array_intersect($readme, $files);
 
         if ($check === true) {
             return $this->success();
