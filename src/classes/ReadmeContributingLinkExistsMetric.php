@@ -2,25 +2,24 @@
 namespace WOSPM\Checker;
 
 /**
- * Doc comment for class ContributingExistsMetric
+ * Doc comment for class ReadmeContributingLinkExistsMetric
  */
-class ContributingExistsMetric extends Metric
+class ReadmeContributingLinkExistsMetric extends Metric
 {
     /**
      * Contructor function that initializes the Metric definitions
      */
     public function __construct()
     {
-        $this->code       = "WOSPM0004";
-        $this->title      = "NO_CONTRIBUTING";
-        $this->message    = "Every open source project should " . 
-        "have a CONTRIBUTING file.";
+        $this->code       = "WOSPM0007";
+        $this->title      = "NO_LINK_TO_CONTRIBUTE";
+        $this->message    = "README should have a link to CONTRIBUTING file.";
         $this->type       = MetricType::ERROR;
-        $this->dependency = array();
+        $this->dependency = array("WOSPM0002", "WOSPM0004");
     }
 
     /**
-     * Checks if there is a contributing file in root directory
+     * Checks if there is a link to contributing file in readme file
      * 
      * @param array $files Array of the files in root directory
      *
@@ -33,9 +32,11 @@ class ContributingExistsMetric extends Metric
             "contributing", "contributing.md", "contribute", "contribute.md"
         );
 
-        $check = (bool)array_intersect($contributing, $files);
+        $file   = array_values(array_intersect($contributing, $files))[0];
+        $readme = file_get_contents(Project::getReadmeFileName($files));
+        $count  = substr_count($readme, $file);
 
-        if ($check === true) {
+        if ($count !== 0) {
             return $this->success();
         }
 
