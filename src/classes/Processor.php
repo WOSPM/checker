@@ -14,17 +14,7 @@ class Processor
      */
     public function __construct()
     {
-        $readme = new ReadmeExistsMetric();
-        $this->metrics[$readme->code] = $readme;
 
-        $license = new LicenseExistsMetric();
-        $this->metrics[$license->code] = $license;
-
-        $contribute = new ContributingExistsMetric();
-        $this->metrics[$contribute->code] = $contribute;
-
-        $coc = new CocExistsMetric();
-        $this->metrics[$coc->code] = $coc;
     }
 
     /**
@@ -43,5 +33,27 @@ class Processor
         }
 
         return $array;
+    }
+
+    /**
+     * Add metric to the metric list
+     *
+     * @param Metric $metric Metric object
+     *
+     * @return void
+     */
+    public function addMetric($metric)
+    {
+        $this->metrics[$metric->code] = $metric;
+    }
+
+    /**
+     * Get the list of metrics
+     *
+     * @return array The list of metrics
+     */
+    public function getMetrics()
+    {
+        return $this->metrics;
     }
 }
