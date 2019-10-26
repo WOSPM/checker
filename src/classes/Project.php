@@ -9,7 +9,7 @@ class Project
     /**
      * Get the readme file name of the project
      *
-     * @param  array $files Array of files
+     * @param array $files Array of files
      *
      * @return string
      */
