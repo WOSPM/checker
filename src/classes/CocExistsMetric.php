@@ -11,11 +11,12 @@ class CocExistsMetric extends Metric
      */
     public function __construct()
     {
-        $this->code    = "WOSPM0005";
-        $this->title   = "NO_CODE_OF_CONDUCT";
-        $this->message = "Every open source project should " . 
+        $this->code       = "WOSPM0005";
+        $this->title      = "NO_CODE_OF_CONDUCT";
+        $this->message    = "Every open source project should " . 
         "have a CODE_OF_CONDUCT file.";
-        $this->type    = MetricType::ERROR;
+        $this->type       = MetricType::ERROR;
+        $this->dependency = array();
     }
 
     /**

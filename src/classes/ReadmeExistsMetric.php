@@ -11,10 +11,11 @@ class ReadmeExistsMetric extends Metric
      */
     public function __construct()
     {
-        $this->code    = "WOSPM0002";
-        $this->title   = "NO_README";
-        $this->message = "Every open source project should have a README file.";
-        $this->type    = MetricType::ERROR;
+        $this->code       = "WOSPM0002";
+        $this->title      = "NO_README";
+        $this->message    = "Every open source project should have a README file.";
+        $this->type       = MetricType::ERROR;
+        $this->dependency = array();
     }
 
     /**

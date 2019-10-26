@@ -14,17 +14,7 @@ class Processor
      */
     public function __construct()
     {
-        $readme = new ReadmeExistsMetric();
-        $this->metrics[$readme->code] = $readme;
 
-        $license = new LicenseExistsMetric();
-        $this->metrics[$license->code] = $license;
-
-        $contribute = new ContributingExistsMetric();
-        $this->metrics[$contribute->code] = $contribute;
-
-        $coc = new CocExistsMetric();
-        $this->metrics[$coc->code] = $coc;
     }
 
     /**
@@ -36,12 +26,57 @@ class Processor
      */
     public function process($files)
     {
-        $array  = array();
+        $result = array();
 
+        // First dependencies are checked
         foreach ($this->metrics as $code => $metric) {
-            $array[$code] = $metric->check($files);
+            foreach ($metric->dependency as $dcode) {
+                if (!isset($result[$dcode])) {
+                    $result[$dcode] = $this->metrics[$dcode]->check($files);
+                }
+            }
         }
 
-        return $array;
+        foreach ($this->metrics as $code => $metric) {
+            $fail = false;
+
+            foreach ($metric->dependency as $dcode) {
+                if ($result[$dcode]["status"] === false) {
+                    $fail = true;
+                    break;
+                }
+            }
+
+            if ($fail === true) {
+                $result[$code] = $metric->fail();
+                continue;
+            }
+
+            $result[$code] = $metric->check($files);
+        }
+
+        return $result;
+    }
+
+    /**
+     * Add metric to the metric list
+     *
+     * @param Metric $metric Metric object
+     *
+     * @return void
+     */
+    public function addMetric($metric)
+    {
+        $this->metrics[$metric->code] = $metric;
+    }
+
+    /**
+     * Get the list of metrics
+     *
+     * @return array The list of metrics
+     */
+    public function getMetrics()
+    {
+        return $this->metrics;
     }
 }

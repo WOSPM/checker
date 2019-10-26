@@ -110,3 +110,20 @@ function banner()
     echo PHP_EOL;
     echo "Here is the result;" . PHP_EOL . PHP_EOL;
 }
+
+/**
+ * Register metrics to processor class
+ *
+ * @return Checker\Processor
+ */
+function processor()
+{
+    $processor = new Checker\Processor();
+    
+    $processor->addMetric(new Checker\ReadmeExistsMetric());
+    $processor->addMetric(new Checker\LicenseExistsMetric());
+    $processor->addMetric(new Checker\ContributingExistsMetric());
+    $processor->addMetric(new Checker\CocExistsMetric());
+
+    return $processor;
+}

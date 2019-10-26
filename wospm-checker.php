@@ -60,8 +60,7 @@ if (!$autoloadFileFound) {
 try {
     $arguments = Checker\Arguments::parseArguments($_SERVER['argv']);
     $files     = scandir($arguments->path);
-    $processor = new Checker\Processor();
-    $result    = $processor->process($files);
+    $result    = processor()->process($files);
 
     output($result, $arguments);
     

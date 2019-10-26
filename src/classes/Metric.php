@@ -6,10 +6,11 @@ namespace WOSPM\Checker;
  */
 class Metric
 {
-    public $code     = "WOSPM0001";
-    public $title    = "Nothing is working";
-    public $message  = "It seems nothing is working.";
-    public $type     = MetricType::INFO;
+    public $code       = "WOSPM0001";
+    public $title      = "Nothing is working";
+    public $message    = "It seems nothing is working.";
+    public $type       = MetricType::INFO;
+    public $dependency = array();
 
     /**
      * Main check function
