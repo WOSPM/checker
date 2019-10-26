@@ -25,14 +25,14 @@ class ProcessorTest extends PHPUnit_Framework_TestCase
     {
         $metric1 = $this->getMockBuilder('Checker\Metric')->setMethods(['check'])
         ->getMock();
-        $metric1->code         = "code1";
-        $metric1->dependencies = array();
+        $metric1->code       = "code1";
+        $metric1->dependency = array();
         $metric1->method('check')->will($this->returnValue(true));
 
         $metric2 = $this->getMockBuilder('Checker\Metric')->setMethods(['check'])
         ->getMock();
-        $metric2->code         = "code2";
-        $metric2->dependencies = array();
+        $metric2->code       = "code2";
+        $metric2->dependency = array();
         $metric2->method('check')->will($this->returnValue(true));
 
         $files = array("README");
@@ -43,5 +43,35 @@ class ProcessorTest extends PHPUnit_Framework_TestCase
         $result = $this->processor->process($files);
 
         $this->assertEquals(2, count($result));
+
+    }
+
+    public function testProcessWithDependencyFail()
+    {
+        $metric1 = $this->getMockBuilder('Checker\Metric')->setMethods(['check', 'fail'])
+        ->getMock();
+        $metric1->code       = "code1";
+        $metric1->dependency = array();
+        $metric1->method('check')->will($this->returnValue(array("code" => "code1", "status" => false)));
+        $metric1->method('fail')->will($this->returnValue(array("code" => "code1", "status" => false)));
+
+        $metric2 = $this->getMockBuilder('Checker\Metric')->setMethods(['check', 'fail'])
+        ->getMock();
+        $metric2->code       = "code2";
+        $metric2->dependency = array("code1");
+        $metric2->method('check')->will($this->returnValue(array("code" => "code2", "status" => true)));
+
+        $metric2->method('fail')->will($this->returnValue(array("code" => "code1", "status" => false)));
+
+        $files = array("README");
+
+        $this->processor->addMetric($metric1);
+        $this->processor->addMetric($metric2);
+
+        $result = $this->processor->process($files);
+
+        $this->assertEquals(2, count($result));
+        $this->assertFalse($result["code1"]["status"]);
+        $this->assertFalse($result["code2"]["status"]);
     }
 }
