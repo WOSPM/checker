@@ -12,7 +12,8 @@ class ProcessorTest extends PHPUnit_Framework_TestCase
     {
         $metric = $this->getMockBuilder('Checker\Metric')->setMethods(['execute'])
         ->getMock();
-        $metric->code = "code1";
+        $metric->code         = "code1";
+        $metric->dependencies = array();
 
         $this->processor->addMetric($metric);
 
@@ -24,12 +25,14 @@ class ProcessorTest extends PHPUnit_Framework_TestCase
     {
         $metric1 = $this->getMockBuilder('Checker\Metric')->setMethods(['check'])
         ->getMock();
-        $metric1->code = "code1";
+        $metric1->code         = "code1";
+        $metric1->dependencies = array();
         $metric1->method('check')->will($this->returnValue(true));
 
         $metric2 = $this->getMockBuilder('Checker\Metric')->setMethods(['check'])
         ->getMock();
-        $metric2->code = "code2";
+        $metric2->code         = "code2";
+        $metric2->dependencies = array();
         $metric2->method('check')->will($this->returnValue(true));
 
         $files = array("README");

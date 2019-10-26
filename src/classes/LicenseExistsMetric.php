@@ -11,10 +11,11 @@ class LicenseExistsMetric extends Metric
      */
     public function __construct()
     {
-        $this->code    = "WOSPM0003";
-        $this->title   = "NO_LICENSE";
-        $this->message = "Every open source project should have a LICENSE file.";
-        $this->type    = MetricType::ERROR;
+        $this->code       = "WOSPM0003";
+        $this->title      = "NO_LICENSE";
+        $this->message    = "Every open source project should have a LICENSE file.";
+        $this->type       = MetricType::ERROR;
+        $this->dependency = array('WOSPM0002');
     }
 
     /**

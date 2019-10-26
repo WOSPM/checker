@@ -26,13 +26,36 @@ class Processor
      */
     public function process($files)
     {
-        $array  = array();
+        $result = array();
 
+        // First dependencies are checked
         foreach ($this->metrics as $code => $metric) {
-            $array[$code] = $metric->check($files);
+            foreach ($metric->dependency as $dcode) {
+                if (!isset($result[$dcode])) {
+                    $result[$dcode] = $this->metrics[$dcode]->check($files);
+                }
+            }
         }
 
-        return $array;
+        foreach ($this->metrics as $code => $metric) {
+            $fail = false;
+
+            foreach ($metric->dependency as $dcode) {
+                if ($result[$dcode]["status"] === false) {
+                    $fail = true;
+                    break;
+                }
+            }
+
+            if ($fail === true) {
+                $result[$code] = $metric->fail();
+                continue;
+            }
+
+            $result[$code] = $metric->check($files);
+        }
+
+        return $result;
     }
 
     /**
