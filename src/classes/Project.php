@@ -13,7 +13,7 @@ class Project
      *
      * @return string
      */
-    public static function getReadmeFileName($files)
+    public function getReadmeFileName($files)
     {
         $readme = array(
             "README", "README.md", "readme", "readme.md"
@@ -21,5 +21,17 @@ class Project
 
         // Return first readme found
         return array_values(array_intersect($readme, $files))[0];
+    }
+
+    /**
+     * Get hte content of the README file
+     *
+     * @param array $files Array of files
+     *
+     * @return string
+     */
+    public function getReadme($files)
+    {
+        return file_get_contents(Project::getReadmeFileName($files));
     }
 }

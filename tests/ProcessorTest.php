@@ -1,6 +1,9 @@
 <?php
+namespace WOSPM\Test;
+
 use WOSPM\Checker;
-class ProcessorTest extends PHPUnit_Framework_TestCase
+
+class ProcessorTest extends \PHPUnit_Framework_TestCase
 {
     private $metric;
     public function __construct()

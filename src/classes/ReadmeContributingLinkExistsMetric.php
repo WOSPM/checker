@@ -6,6 +6,8 @@ namespace WOSPM\Checker;
  */
 class ReadmeContributingLinkExistsMetric extends Metric
 {
+    private $project;
+
     /**
      * Contructor function that initializes the Metric definitions
      */
@@ -16,6 +18,7 @@ class ReadmeContributingLinkExistsMetric extends Metric
         $this->message    = "README should have a link to CONTRIBUTING file.";
         $this->type       = MetricType::ERROR;
         $this->dependency = array("WOSPM0002", "WOSPM0004");
+        $this->project    = new Project();
     }
 
     /**
@@ -33,13 +36,23 @@ class ReadmeContributingLinkExistsMetric extends Metric
         );
 
         $file   = array_values(array_intersect($contributing, $files))[0];
-        $readme = file_get_contents(Project::getReadmeFileName($files));
-        $count  = substr_count($readme, $file);
+        $readme = $this->project->getReadme($files);
+        $count  = substr_count($readme, $file . ')');
 
         if ($count !== 0) {
             return $this->success();
         }
 
         return $this->fail();
+    }
+
+    /**
+     * Setter for the project property
+     *
+     * @param Project $project Project object
+     */
+    public function setProject($project)
+    {
+        $this->project = $project;
     }
 }
