@@ -39,7 +39,7 @@ class ParseMd
             "links"     => array()
         );
 
-        foreach ($this->content as $lineNumber => $line) {
+        foreach ($this->content as $ln => $line) {
             $line = trim($line, "\n");
 
             if (trim($line) === '') {
@@ -47,15 +47,22 @@ class ParseMd
             }
 
             if (trim($line)[0] === '#') {
-                $this->parsed["headlines"][$lineNumber] = $this->parseHeadline($line);
+                $this->parsed["headlines"][$ln] = $this->parseHeadline($line);
             } else {
-                $this->parsed["links"][$lineNumber] = $this->parseLinks($line);
+                $this->parsed["links"][$ln] = $this->parseLinks($line);
             }
         }
 
         return $this->parsed;
     }
 
+    /**
+     * Parse links from MD
+     * 
+     * @param string $line One single line
+     *
+     * @return array
+     */
     public function parseLinks($line)
     {
         $pattern_square = '\[(.*?)\]';
@@ -79,6 +86,13 @@ class ParseMd
         );
     }
 
+    /**
+     * Parse headline from MD
+     * 
+     * @param string $line One single line
+     *
+     * @return array
+     */
     public function parseHeadline($line)
     {
         $parsed = trim(trim(trim($line), '#'), "\n");

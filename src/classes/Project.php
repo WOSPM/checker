@@ -38,12 +38,13 @@ class Project
     /**
      * Create a slug from the given string
      *
-     * @param string $str The string to be sluged
-     * @param string $delimeter The delimeter to be used in slug
+     * @param string $str       The string to be sluged
+     * @param string $delimiter The delimiter to be used in slug
      *
      * @return string
      */
-    public static function createSlug($str, $delimiter = '-'){
+    public static function createSlug($str, $delimiter = '-')
+    {
         $slug = strtolower(
             trim(
                 preg_replace(
