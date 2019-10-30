@@ -126,6 +126,7 @@ function processor()
     $processor->addMetric(new Checker\CocExistsMetric());
     $processor->addMetric(new Checker\ReadmeContributingLinkExistsMetric());
     $processor->addMetric(new Checker\ReadmeCocLinkExistsMetric());
+    $processor->addMetric(new Checker\ReadmeTocExistsMetric());
 
     return $processor;
 }

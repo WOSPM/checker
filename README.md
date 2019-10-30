@@ -25,7 +25,7 @@ A checker for project owners to measure their open source project.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for information.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for information. See [CONTRIBUTING2.md](CONTRIBUTING2.md) for information.
 
 ## Code of Conduct
 
