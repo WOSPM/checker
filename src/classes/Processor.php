@@ -91,6 +91,8 @@ class Processor
     /**
      * Setter for the verbose property
      *
+     * @param string|null $verbose The verbosity flag
+     *
      * @return void
      */
     public function setVerbose($verbose = null)

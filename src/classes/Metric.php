@@ -46,9 +46,11 @@ class Metric
     }
 
     /**
-     * Verbode the check action
+     * Verbose the check action
      *
-     *@return void
+     * @param string $verbose The verbosity flag
+     *
+     * @return void
      */
     public function verbose($verbose)
     {
