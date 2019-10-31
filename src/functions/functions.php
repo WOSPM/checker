@@ -120,6 +120,7 @@ function processor()
 {
     $processor = new Checker\Processor();
     
+    $processor->addMetric(new Checker\UsingWOSPMMetric());
     $processor->addMetric(new Checker\ReadmeExistsMetric());
     $processor->addMetric(new Checker\LicenseExistsMetric());
     $processor->addMetric(new Checker\ContributingExistsMetric());
