@@ -11,7 +11,9 @@ A checker for project owners to measure their open source project.
 ## Table Of Contents
 
 - [Introduction](#introduction)
-- [How To Use](#how-to-use)
+- [How To Install And Use](#how-to-install-and-use)
+- [WOSPM Metrics](#wospm-metrics)
+- [Metrics](#metrics)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
 
@@ -20,6 +22,8 @@ A checker for project owners to measure their open source project.
 ---
 
 ## Introduction
+
+`wospm-checker` is a commandline tool to measure how an open source project welcomes users and possible contributors. The tool checks the repository against a list of metrics.
 
 ## How To Install And Use
 
@@ -35,6 +39,22 @@ You can check your project by running the `wospm-checker` command in the root fo
 ```bash
 /full/path/to/wospm-checker
 ```
+## WOSPM Metrics
+
+WOSPM metrics are measures which are mostly derived from [Open Source Guides](https://opensource.guide/) to make quantitative assessments about the open sourse projects.
+
+## Metrics
+
+| Code        | Title           |
+| ------------- |-------------|
+| [WOSPM0001](./mdocs/WOSPM0001.md)      | USING_WOSPM |
+| [WOSPM0002](./mdocs/WOSPM0002.md)      | README |
+| [WOSPM0003](./mdocs/WOSPM0003.md)      | LICENSE |
+| [WOSPM0004](./mdocs/WOSPM0004.md)      | CONTRIBUTING |
+| [WOSPM0005](./mdocs/WOSPM0005.md)      | CODE_OF_CONDUCT |
+| [WOSPM0006](./mdocs/WOSPM0006.md)      | README_TOC |
+| [WOSPM0007](./mdocs/WOSPM0007.md)      | LINK_TO_CONTRIBUTE |
+| [WOSPM0008](./mdocs/WOSPM0008.md)      | LINK_TO_CODE_OF_CONDUCT |
 
 ## Contributing
 
