@@ -9,12 +9,18 @@ class Processor
 {
     private $metrics = array();
 
+    private $verbose = null;
+
     /**
      * Constructor of the processor class
+     *
+     * @param string|null $verbose The verbose flag of the processor
      */
-    public function __construct()
+    public function __construct($verbose = null)
     {
-
+        if ($verbose !== null) {
+            $this->setVerbose($verbose);
+        }
     }
 
     /**
@@ -32,6 +38,7 @@ class Processor
         foreach ($this->metrics as $code => $metric) {
             foreach ($metric->dependency as $dcode) {
                 if (!isset($result[$dcode])) {
+                    $this->metrics[$dcode]->verbose($this->verbose);
                     $result[$dcode] = $this->metrics[$dcode]->check($files);
                 }
             }
@@ -52,6 +59,7 @@ class Processor
                 continue;
             }
 
+            $metric->verbose($this->verbose);
             $result[$code] = $metric->check($files);
         }
 
@@ -78,5 +86,15 @@ class Processor
     public function getMetrics()
     {
         return $this->metrics;
+    }
+
+    /**
+     * Setter for the verbose property
+     *
+     * @return void
+     */
+    public function setVerbose($verbose = null)
+    {
+        $this->verbose = $verbose;
     }
 }

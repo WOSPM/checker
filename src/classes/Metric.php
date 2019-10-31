@@ -46,6 +46,27 @@ class Metric
     }
 
     /**
+     * Verbode the check action
+     *
+     *@return void
+     */
+    public function verbose($verbose)
+    {
+        // UX perfection :)
+        sleep(1);
+        switch ($verbose) {
+        case '1':
+            echo "Checking " . $this->code . " (" . $this->title . ")" . PHP_EOL;
+            break;
+        case '2':
+            echo ". ";
+            break;
+        default:
+            break;
+        }
+    }
+
+    /**
      * Result function that returns the result of the check with metric info
      * 
      * @param boolean $status The result of the check

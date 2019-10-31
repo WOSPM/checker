@@ -27,6 +27,8 @@ Options:
  */
 function output($array, $arguments)
 {
+    echo PHP_EOL . PHP_EOL . "Here is the result;" . PHP_EOL . PHP_EOL;
+
     if ($arguments->output === 'JSON') {
         outputJSON($array);
         return;
@@ -36,7 +38,6 @@ function output($array, $arguments)
         return;
     }
 
-    banner();
     outputREADABLE($array, $arguments->colors);
 }
 
@@ -108,7 +109,6 @@ function banner()
     echo "-------------------------------------------------------------------";
     echo PHP_EOL;
     echo PHP_EOL;
-    echo "Here is the result;" . PHP_EOL . PHP_EOL;
 }
 
 /**
@@ -118,7 +118,7 @@ function banner()
  */
 function processor()
 {
-    $processor = new Checker\Processor();
+    $processor = new Checker\Processor('1');
     
     $processor->addMetric(new Checker\UsingWOSPMMetric());
     $processor->addMetric(new Checker\ReadmeExistsMetric());

@@ -21,23 +21,20 @@ A checker for project owners to measure their open source project.
 
 ## Introduction
 
-
-
 ## How To Install And Use
 
 Install the package with composer.
 
-```
+```bash
 composer global require wospm/checker
 
 ```
 
 You can check your project by running the `wospm-checker` command in the root folder of your repo.
 
+```bash
+/full/path/to/wospm-checker
 ```
-/full/path/to/wospm-checker 
-```
-
 
 ## Contributing
 

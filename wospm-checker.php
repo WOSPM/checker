@@ -60,6 +60,8 @@ if (!$autoloadFileFound) {
 define('PROJECT_FOLDER', rtrim(getcwd(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR);
 
 try {
+    banner();
+    
     $arguments = Checker\Arguments::parseArguments($_SERVER['argv']);
     $files     = scandir($arguments->path);
     $result    = processor()->process($files);
