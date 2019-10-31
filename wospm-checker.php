@@ -64,6 +64,8 @@ try {
     $files     = scandir($arguments->path);
     $result    = processor()->process($files);
 
+    ksort($result);
+
     output($result, $arguments);
     
     $status = true;
