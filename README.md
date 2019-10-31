@@ -39,6 +39,7 @@ You can check your project by running the `wospm-checker` command in the root fo
 ```bash
 /full/path/to/wospm-checker
 ```
+
 ## WOSPM Metrics
 
 WOSPM metrics are measures which are mostly derived from [Open Source Guides](https://opensource.guide/) to make quantitative assessments about the open sourse projects.
