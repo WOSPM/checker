@@ -56,6 +56,8 @@ if (!$autoloadFileFound) {
     die(FAILED);
 }
 
+// Define PROJECT_FOLDER with value of the full path of the execution folder
+define('PROJECT_FOLDER', rtrim(getcwd(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR);
 
 try {
     $arguments = Checker\Arguments::parseArguments($_SERVER['argv']);

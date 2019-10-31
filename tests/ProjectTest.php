@@ -39,6 +39,18 @@ class ProjectTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals($files[0], $this->project->getReadmeFileName($files));
-    
+    }
+
+    public function testCreateSlug()
+    {
+        $str  = "Word1 word2 word3";
+        $slug = Checker\Project::createSlug($str);
+
+        $this->assertEquals("word1-word2-word3", $slug);
+
+        $str  = "Word1";
+        $slug = Checker\Project::createSlug($str);
+
+        $this->assertEquals("word1", $slug);
     }
 }
