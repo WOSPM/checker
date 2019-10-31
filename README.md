@@ -13,7 +13,6 @@ A checker for project owners to measure their open source project.
 - [Introduction](#introduction)
 - [How To Install And Use](#how-to-install-and-use)
 - [WOSPM Metrics](#wospm-metrics)
-- [Metrics](#metrics)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
 
