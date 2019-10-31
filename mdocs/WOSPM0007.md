@@ -5,7 +5,7 @@
 | Property        | Value           |
 | ------------- |-------------|
 | code      | WOSPM0007 |
-| title      | NO_LINK_TO_CONTRIBUTE      |
+| title      | LINK_TO_CONTRIBUTE      |
 | message | README should have a link to CONTRIBUTING file.     |
 | type | MetricType::ERROR      |
 

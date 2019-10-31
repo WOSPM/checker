@@ -14,7 +14,7 @@ class ReadmeCocLinkExistsMetric extends Metric
     public function __construct()
     {
         $this->code       = "WOSPM0008";
-        $this->title      = "NO_LINK_TO_CODE_OF_CONDUCT";
+        $this->title      = "LINK_TO_CODE_OF_CONDUCT";
         $this->message    = "README should have a link to CODE_OF_CONDUCT.";
         $this->type       = MetricType::ERROR;
         $this->dependency = array("WOSPM0002", "WOSPM0005");

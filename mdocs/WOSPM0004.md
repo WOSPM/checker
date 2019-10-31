@@ -5,7 +5,7 @@
 | Property        | Value           |
 | ------------- |-------------|
 | code      | WOSPM0004 |
-| title      | NO_CONTRIBUTING      |
+| title      | CONTRIBUTING      |
 | message | Every open source project should have a CONTRIBUTING file.     |
 | type | MetricType::ERROR      |
 

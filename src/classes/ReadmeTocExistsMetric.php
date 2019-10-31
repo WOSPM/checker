@@ -14,7 +14,7 @@ class ReadmeTocExistsMetric extends Metric
     public function __construct()
     {
         $this->code       = "WOSPM0006";
-        $this->title      = "NO_README_TOC";
+        $this->title      = "README_TOC";
         $this->message    = "README file should have a ToC.";
         $this->type       = MetricType::ERROR;
         $this->dependency = array("WOSPM0002");

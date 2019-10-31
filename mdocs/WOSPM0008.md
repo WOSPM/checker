@@ -5,7 +5,7 @@
 | Property        | Value           |
 | ------------- |-------------|
 | code      | WOSPM0008 |
-| title      | NO_LINK_TO_CODE_OF_CONDUCT      |
+| title      | LINK_TO_CODE_OF_CONDUCT      |
 | message | README should have a link to NO_LINK_TO_CODE_OF_CONDUCT file.     |
 | type | MetricType::ERROR      |
 

@@ -5,7 +5,7 @@
 | Property        | Value           |
 | ------------- |-------------|
 | code      | WOSPM0003 |
-| title      | NO_LICENSE      |
+| title      | LICENSE      |
 | message | Every open source project should have a LICENSE file.     |
 | type | MetricType::ERROR      |
 

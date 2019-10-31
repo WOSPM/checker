@@ -5,7 +5,7 @@
 | Property        | Value           |
 | ------------- |-------------|
 | code      | WOSPM0005 |
-| title      | NO_CODE_OF_CONDUCT      |
+| title      | CODE_OF_CONDUCT      |
 | message | Every open source project should have a CODE_OF_CONDUCT file.     |
 | type | MetricType::ERROR      |
 

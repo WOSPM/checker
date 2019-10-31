@@ -5,7 +5,7 @@
 | Property        | Value           |
 | ------------- |-------------|
 | code      | WOSPM0002 |
-| title      | NO_README      |
+| title      | README      |
 | message | Every open source project should have a README file.     |
 | type | MetricType::ERROR      |
 

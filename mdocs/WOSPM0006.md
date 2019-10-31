@@ -5,7 +5,7 @@
 | Property        | Value           |
 | ------------- |-------------|
 | code      | WOSPM0006 |
-| title      | NO_README_TOC      |
+| title      | README_TOC      |
 | message | Every README file should have table of contents list.     |
 | type | MetricType::ERROR      |
 

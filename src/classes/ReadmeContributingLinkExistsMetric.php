@@ -14,7 +14,7 @@ class ReadmeContributingLinkExistsMetric extends Metric
     public function __construct()
     {
         $this->code       = "WOSPM0007";
-        $this->title      = "NO_LINK_TO_CONTRIBUTE";
+        $this->title      = "LINK_TO_CONTRIBUTE";
         $this->message    = "README should have a link to CONTRIBUTING file.";
         $this->type       = MetricType::ERROR;
         $this->dependency = array("WOSPM0002", "WOSPM0004");
