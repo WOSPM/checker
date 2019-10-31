@@ -36,11 +36,49 @@ class ReadmeTocExistsMetric extends Metric
 
         $parsed = $this->parser->parse();
 
-        if (count($parsed) !== 0) {
+
+        if ($this->checkHeadings($parsed)) {
             return $this->success();
         }
 
         return $this->fail();
+    }
+
+    /**
+     * Check the list of heading if all of them is linked
+     *
+     * @param array $parsed
+     *
+     * @return boolean
+     */
+    private function checkHeadings($parsed)
+    {
+        $slugs = array();
+
+        // Collect the headline slugs
+        foreach ($parsed["headlines"] as $ln => $headline) {
+            $slugs[] = '#' . $headline["slug"];
+        }
+
+        $links = array();
+
+        // Collect the links urls
+        foreach ($parsed["links"] as $ln => $line) {
+            foreach ($line["links"] as $key => $link) {
+                if ($link["url"][0] !== '#') {
+                    continue;
+                }
+
+                $links[] = $link["url"];
+            }
+        }
+
+        // First headline and the headline of the ToC may not be in the links.
+        if ((count($slugs) - 2) <= count($links)) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -51,5 +89,15 @@ class ReadmeTocExistsMetric extends Metric
     public function setProject($project)
     {
         $this->project = $project;
+    }
+
+    /**
+     * Setter for the parser property
+     *
+     * @param Project $parser Parse object
+     */
+    public function setParser($parser)
+    {
+        $this->parser = $parser;
     }
 }

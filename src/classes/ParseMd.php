@@ -48,9 +48,9 @@ class ParseMd
 
             if (trim($line)[0] === '#') {
                 $this->parsed["headlines"][$ln] = $this->parseHeadline($line);
-            } else {
-                $this->parsed["links"][$ln] = $this->parseLinks($line);
             }
+            
+            $this->parsed["links"][$ln] = $this->parseLinks($line);
         }
 
         return $this->parsed;
