@@ -47,7 +47,7 @@ class ReadmeTocExistsMetric extends Metric
     /**
      * Check the list of heading if all of them is linked
      *
-     * @param array $parsed
+     * @param array $parsed The array creating by parsing the MD document
      *
      * @return boolean
      */
