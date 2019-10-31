@@ -44,8 +44,6 @@ You can check your project by running the `wospm-checker` command in the root fo
 
 WOSPM metrics are measures which are mostly derived from [Open Source Guides](https://opensource.guide/) to make quantitative assessments about the open sourse projects.
 
-## Metrics
-
 | Code        | Title           |
 | ------------- |-------------|
 | [WOSPM0001](./mdocs/WOSPM0001.md)      | USING_WOSPM |
