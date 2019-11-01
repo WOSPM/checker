@@ -55,7 +55,7 @@ class Metric
     public function verbose($verbose)
     {
         // UX perfection :)
-        sleep(1);
+        usleep(250000);
         switch ($verbose) {
         case '1':
             echo "Checking " . $this->code . " (" . $this->title . ")" . PHP_EOL;

@@ -51,4 +51,28 @@ class ParseMdTest extends PHPUnit_Framework_TestCase
         $this->assertEquals("link3", $result["links"][2]["text"]);
         $this->assertEquals("url3", $result["links"][2]["url"]);
     }
+
+    public function testParseAsRawText()
+    {
+        // No link
+        $line = "Line with no link.";
+
+        $result = $this->parseMd->parseAsRawText($line);
+        $this->assertEquals($line, $result["raw"]);
+        $this->assertEquals($line, $result["parsed"]);
+
+        // One link
+        $line = "Line with 1 [link](url).";
+
+        $result = $this->parseMd->parseAsRawText($line);
+        $this->assertEquals($line, $result["raw"]);
+        $this->assertEquals("Line with 1 link.", $result["parsed"]);
+
+        // Multiple link
+        $line = "Line with [link1](url1), [link2](url2), [link3](url3).";
+
+        $result = $this->parseMd->parseAsRawText($line);
+        $this->assertEquals($line, $result["raw"]);
+        $this->assertEquals("Line with link1, link2, link3.", $result["parsed"]);
+    }
 }
