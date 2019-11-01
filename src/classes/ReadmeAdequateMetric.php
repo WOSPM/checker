@@ -35,7 +35,14 @@ class ReadmeAdequateMetric extends Metric
         $readme = $this->parser->parseAsRawText($readme);
         $readme = $readme["parsed"];
         $readme = explode(" ", $readme);
-        $readme = array_filter($readme, function ($x) { return strlen($x) > 2; });
+        $readme = array_filter(
+            $readme,
+            function ($x)
+            { 
+                return strlen($x) > 2;
+            }
+        );
+        
         $count  = count($readme);
 
         if ($count > 200) {

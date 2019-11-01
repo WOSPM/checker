@@ -131,17 +131,47 @@ class ParseMd
     public function parseAsRawText($line)
     {
         // Cleans images
-        $parsed = trim(preg_replace($this->patterns["image"]["reference"], "", $line));
-        $parsed = trim(preg_replace($this->patterns["image"]["inline"], "", $parsed));
+        $parsed = trim(
+            preg_replace(
+                $this->patterns["image"]["reference"],
+                "",
+                $line
+            )
+        );
+        $parsed = trim(
+            preg_replace(
+                $this->patterns["image"]["inline"],
+                "",
+                $parsed
+            )
+        );
 
         // Replace the links with the text of the link
-        $parsed = trim(preg_replace($this->patterns["link"], "$1", $parsed));
+        $parsed = trim(
+            preg_replace(
+                $this->patterns["link"],
+                "$1",
+                $parsed
+            )
+        );
 
         // Remove code blocks
-        $parsed = trim(preg_replace($this->patterns["code"], "", $parsed));
+        $parsed = trim(
+            preg_replace(
+                $this->patterns["code"],
+                "",
+                $parsed
+            )
+        );
 
         // Remove html comment blocks
-        $parsed = trim(preg_replace($this->patterns["html"]["comment"], "", $parsed));
+        $parsed = trim(
+            preg_replace(
+                $this->patterns["html"]["comment"],
+                "",
+                $parsed
+            )
+        );
 
         $parsed = str_replace(PHP_EOL, " ", $parsed);
         $parsed = str_replace("-", "", $parsed);
