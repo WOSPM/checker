@@ -37,12 +37,11 @@ class ReadmeAdequateMetric extends Metric
         $readme = explode(" ", $readme);
         $readme = array_filter(
             $readme,
-            function ($x)
-            { 
+            function ($x) { 
                 return strlen($x) > 2;
             }
         );
-        
+
         $count  = count($readme);
 
         if ($count > 200) {
