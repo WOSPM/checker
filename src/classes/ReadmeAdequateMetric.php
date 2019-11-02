@@ -15,7 +15,7 @@ class ReadmeAdequateMetric extends Metric
     {
         $this->code       = "WOSPM0009";
         $this->title      = "README_ADEQUATE";
-        $this->message    = "README have an adequate lenght and word count.";
+        $this->message    = "README should have atleast 200 words.";
         $this->type       = MetricType::ERROR;
         $this->dependency = array("WOSPM0002");
         $this->project    = new Project();
