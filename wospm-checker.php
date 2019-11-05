@@ -12,12 +12,6 @@ if (PHP_VERSION < '5.4.0') {
     die(FAILED);
 }
 
-// Help
-if (in_array('--help', $_SERVER['argv'])) {
-    showOptions();
-    exit;
-}
-
 // Version
 if (in_array('--version', $_SERVER['argv'])) {
     echo VERSION . PHP_EOL;
@@ -28,6 +22,16 @@ if (in_array('--version', $_SERVER['argv'])) {
 if (!function_exists('json_encode')) {
     echo 'PHP JSON extension is a must.' . PHP_EOL;
     die(FAILED);
+}
+
+require_once __DIR__ . DIRECTORY_SEPARATOR . "src" .
+DIRECTORY_SEPARATOR . "functions" . 
+DIRECTORY_SEPARATOR . "functions.php";
+
+// Help
+if (in_array('--help', $_SERVER['argv'])) {
+    showOptions();
+    exit;
 }
 
 $files = array(
@@ -43,10 +47,6 @@ foreach ($files as $file) {
         break;
     }
 }
-
-require_once __DIR__ . DIRECTORY_SEPARATOR . "src" .
-DIRECTORY_SEPARATOR . "functions" . 
-DIRECTORY_SEPARATOR . "functions.php";
 
 if (!$autoloadFileFound) {
     $message = 'Project dependencies are not installed (composer install):';
