@@ -28,6 +28,13 @@ class Arguments
     public $output = 'READABLE';
 
     /**
+     * Verbose level
+     *
+     * @var integer
+     */
+    public $verbose = 0;
+
+    /**
      * PArsing arguments from command line option
      *
      * @param array $arguments The argument paramater array
@@ -46,6 +53,9 @@ class Arguments
                 throw new \Exception("Invalid argument $argument");
             } else {
                 switch ($argument) {
+                case '--verbose':
+                    $setting->verbose = trim($arguments->getNext());
+                    break;
                 case '--output':
                     $setting->output = trim($arguments->getNext());
                     break;

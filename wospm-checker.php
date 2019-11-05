@@ -64,7 +64,7 @@ try {
     
     $arguments = Checker\Arguments::parseArguments($_SERVER['argv']);
     $files     = scandir($arguments->path);
-    $result    = processor()->process($files);
+    $result    = processor($arguments)->process($files);
 
     ksort($result);
 

@@ -10,6 +10,8 @@ function showOptions()
 WOSPM Checker version: <?php echo VERSION . PHP_EOL; ?>
 Options:
     --output            The format of output. JSON, READABLE (Default), NO.
+    --verbose           Show the progress or not. (0 => No, 1 => Detailed,
+                        2 => Dots)
     --no-colors         Disable the console colors. It is enabled by default.
     --version           Show version.
     --help              Print this help.
@@ -114,11 +116,13 @@ function banner()
 /**
  * Register metrics to processor class
  *
+ * @param Arguments $arguments Commandline arguments
+ *
  * @return Checker\Processor
  */
-function processor()
+function processor($arguments)
 {
-    $processor = new Checker\Processor('1');
+    $processor = new Checker\Processor($arguments->verbose);
     
     $processor->addMetric(new Checker\UsingWOSPMMetric());
     $processor->addMetric(new Checker\ReadmeExistsMetric());

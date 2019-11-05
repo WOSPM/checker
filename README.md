@@ -53,6 +53,7 @@ WOSPM metrics are measures which are mostly derived from [Open Source Guides](ht
 | [WOSPM0006](./mdocs/WOSPM0006.md)      | README_TOC |
 | [WOSPM0007](./mdocs/WOSPM0007.md)      | LINK_TO_CONTRIBUTE |
 | [WOSPM0008](./mdocs/WOSPM0008.md)      | LINK_TO_CODE_OF_CONDUCT |
+| [WOSPM0009](./mdocs/WOSPM0009.md)      | README_ADEQUATE |
 
 ## Contributing
 
