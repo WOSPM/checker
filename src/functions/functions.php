@@ -133,6 +133,7 @@ function processor($arguments)
     $processor->addMetric(new Checker\ReadmeCocLinkExistsMetric());
     $processor->addMetric(new Checker\ReadmeTocExistsMetric());
     $processor->addMetric(new Checker\ReadmeAdequateMetric());
+    $processor->addMetric(new Checker\ReadmeInstallationExistsMetric());
 
     return $processor;
 }
