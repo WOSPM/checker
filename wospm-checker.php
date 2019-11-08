@@ -63,7 +63,7 @@ try {
     banner();
     
     $arguments = Checker\Arguments::parseArguments($_SERVER['argv']);
-    $files     = scandir($arguments->path);
+    $files     = scanProjectDir($arguments->path);
     $result    = processor($arguments)->process($files);
 
     ksort($result);

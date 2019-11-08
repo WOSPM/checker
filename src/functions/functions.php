@@ -137,3 +137,56 @@ function processor($arguments)
 
     return $processor;
 }
+
+/**
+ * Scan the given folder as project folder
+ *
+ * @param string $path The path of the directory to be checked
+ *
+ * @return array
+ */
+function scanProjectDir($path)
+{
+    $files = scandir($path);
+
+    // If there is a .github folder
+    if (in_array(".github", $files)) {
+        $gitpath  = $path . DIRECTORY_SEPARATOR . ".github";
+        $github   = scanAllDir($gitpath);
+
+        $files = array_merge($files, $github);
+    }
+
+    return $files;
+}
+
+/**
+ * Scan the given folder recursively
+ *
+ * @param string $path The path of the directory to be checked
+ *
+ * @return array
+ */
+function scanAllDir($path)
+{
+    $files    = scandir($path);
+    $subfiles = array(); 
+
+    foreach ($files as $key => $element) {
+        if ($element == "." || $element == ".." || $element == ".git") {
+            continue;
+        }
+
+        $el = $path . DIRECTORY_SEPARATOR . $element . DIRECTORY_SEPARATOR;
+        if (is_dir($el)) {
+            $elfiles  = scanAllDir($el);
+            $elfiles  = preg_filter('/^/', $el, $elfiles);
+            $subfiles = array_merge($subfiles, $elfiles);
+            continue;
+        }
+    }
+
+    $files = array_merge($files, $subfiles);
+
+    return $files;
+}
