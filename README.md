@@ -35,7 +35,7 @@ composer global require wospm/checker
 
 You can use `--help` parameter to how the options and other information of the command.
 
-```
+```bash
 
 wospm-checker --help
 
