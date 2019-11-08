@@ -33,6 +33,24 @@ composer global require wospm/checker
 
 ```
 
+You can use `--help` parameter to how the options and other information of the command.
+
+```
+
+wospm-checker --help
+
+WOSPM Checker version: 0.0.1
+Options:
+    --output            The format of output. JSON, READABLE (Default), NO.
+    --verbose           Show the progress or not. (0 => No, 1 => Detailed,
+                        2 => Dots)
+    --no-colors         Disable the console colors. It is enabled by default.
+    --version           Show version.
+    --help              Print this help.
+
+
+```
+
 You can check your project by running the `wospm-checker` command in the root folder of your repo.
 
 ![alt text](./assets/screenshot-1.png)
