@@ -70,7 +70,9 @@ try {
 
     output($result, $arguments);
     
-    $status = true;
+    $status  = status($result);
+    $percent = percent($result);
+    badge($percent);
     die($status ? SUCCESS : WITH_ERRORS);
 } catch (\Exception $e) {
     fwrite(STDERR, $e->getMessage() . PHP_EOL);

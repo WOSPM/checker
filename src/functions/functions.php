@@ -20,6 +20,73 @@ Options:
 }
 
 /**
+ * Calculate the status of the result
+ *
+ * @param array $array Array of metric results
+ *
+ * @return boolean
+ */
+function status($array)
+{
+    return array_reduce(
+        $array,
+        function($status, $metric) { return ($status and $metric["status"]); },
+        true
+    );
+}
+
+/**
+ * Echoes the badge markdown
+ *
+ * @param int $percent Percent of the success
+ *
+ * @return void
+ */
+function badge($percent)
+{
+    echo "WOSPM badge for your project is below. You can use it in your README.";
+    echo PHP_EOL;
+    if ($percent >= 90) {
+        echo '![Welcoming](https://img.shields.io/badge/WOSPM-Welcoming-green)';
+        echo PHP_EOL;
+        return;
+    }
+
+    if ($percent < 50) {
+        echo '![Bad](https://img.shields.io/badge/WOSPM-Bad-red)';
+        echo PHP_EOL;
+        return;
+    }
+
+    echo '![Not Ready](https://img.shields.io/badge/WOSPM-Not--Ready-orange)';
+    echo PHP_EOL;
+    return;
+}
+
+/**
+ * Calculate the status of the result
+ *
+ * @param array $array Array of metric results
+ *
+ * @return double
+ */
+function percent($array)
+{
+    return ceil((array_reduce(
+        $array,
+        function($success, $metric)
+        {
+            if ($metric["status"] === true) {
+                return ($success+1);
+            } else {
+                return $success;
+            }
+        },
+        0
+    ) / count($array))) * 100;
+}
+
+/**
  * Prints the result array in according to the argument
  *
  * @param array     $array     Array of metric results

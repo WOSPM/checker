@@ -15,6 +15,7 @@ A checker for project owners to measure their open source project.
 - [WOSPM Metrics](#wospm-metrics)
   - [Metric Rules](#metric-rules)
   - [List of Existing Metrics](#list-of-existing-metrics)
+  - [Badges](#badges)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
 
@@ -94,8 +95,8 @@ To see the details of the metrics, click the metric title for detailed document.
 After the check, the checker will generate a overall status for the project. There types of status are considered;
 
 - *Welcoming:* It means that the project covers atleast 90 percent of the metrics. ![Welcoming](https://img.shields.io/badge/WOSPM-Welcoming-green)
-- *Not Ready*: It means that the project is not ready to be accepted as *Welcoming*. The project covers between 50 and 90 percents of the metrics. ![WOSPM](https://img.shields.io/badge/WOSPM-Not--Ready-orange)
-- *Bad*: I means that the project is in very bad status. The coverage is under 50 percent. ![WOSPM](https://img.shields.io/badge/WOSPM-Bad-red)
+- *Not Ready*: It means that the project is not ready to be accepted as *Welcoming*. The project covers between 50 and 90 percents of the metrics. ![Not Ready](https://img.shields.io/badge/WOSPM-Not--Ready-orange)
+- *Bad*: I means that the project is in very bad status. The coverage is under 50 percent. ![Bad](https://img.shields.io/badge/WOSPM-Bad-red)
 
 The checker generates the badge code of the project at the end of the the execution.
 
