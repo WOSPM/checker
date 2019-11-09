@@ -1,7 +1,7 @@
 <?php
 use WOSPM\Checker;
 
-const VERSION = '0.1.1';
+const VERSION = '0.1.2';
 
 const SUCCESS   = 0,
     WITH_ERRORS = 1,
@@ -73,7 +73,16 @@ try {
     $status  = status($result);
     $percent = percent($result);
     badge($percent);
-    die($status ? SUCCESS : WITH_ERRORS);
+
+    if ($status === true) {
+        die(SUCCESS);
+    } else {
+        if ($percent >= 90) {
+            die(SUCCESS);
+        } else {
+            die(WITH_ERRORS);
+        }
+    }
 } catch (\Exception $e) {
     fwrite(STDERR, $e->getMessage() . PHP_EOL);
     die(FAILED);
