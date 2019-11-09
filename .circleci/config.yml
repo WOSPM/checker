@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - run: 
-          name: Check
+          name: WOSPM-Checker
           no_output_timeout: 20m
           command: composer global require wospm/checker && ./wospm-checker
   doc-lint:
