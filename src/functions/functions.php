@@ -135,6 +135,7 @@ function processor($arguments)
     $processor->addMetric(new Checker\ReadmeAdequateMetric());
     $processor->addMetric(new Checker\ReadmeInstallationExistsMetric());
     $processor->addMetric(new Checker\GithubIssueTemplateExistsMetric());
+    $processor->addMetric(new Checker\GithubPRTemplateExistsMetric());
 
     return $processor;
 }
