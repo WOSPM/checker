@@ -2,6 +2,15 @@
 #
 version: 2
 jobs:
+  wospm-checker:
+    docker:
+      - image: umutphp/php-docker-images-for-ci:7.2
+    steps:
+      - checkout
+      - run: 
+          name: Check
+          no_output_timeout: 20m
+          command: composer global require wospm/checker && ./wospm-checker
   doc-lint:
     docker:
       - image: circleci/node:9.8
