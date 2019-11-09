@@ -30,7 +30,12 @@ function status($array)
 {
     return array_reduce(
         $array,
-        function($status, $metric) { return ($status and $metric["status"]); },
+        function($status, $metric)
+        {
+            return (
+                $status and $metric["status"]
+            );
+        },
         true
     );
 }
@@ -72,18 +77,22 @@ function badge($percent)
  */
 function percent($array)
 {
-    return ceil((array_reduce(
-        $array,
-        function($success, $metric)
-        {
-            if ($metric["status"] === true) {
-                return ($success+1);
-            } else {
-                return $success;
-            }
-        },
-        0
-    ) / count($array))) * 100;
+    return ceil(
+        (
+            array_reduce(
+                $array,
+                function($success, $metric)
+                {
+                    if ($metric["status"] === true) {
+                        return ($success+1);
+                    } else {
+                        return $success;
+                    }
+                },
+                0
+            ) / count($array)
+        )
+    ) * 100;
 }
 
 /**
