@@ -27,7 +27,7 @@ If you want to implement a new metric, please folllow the following instructions
 
 - Fork the repository.
 - Translate the `README.md` file.
-- write the translations to a new file with naming schema (`README-[Language-code].md`), [Available languages codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+- Write the translations to a new file with naming schema (`README-[Language-code].md`), [Available languages codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
 
 *Example: If you want to translate for Deutsch, you would name the translated readme file as `README-de.md`.*
 
