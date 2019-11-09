@@ -89,6 +89,16 @@ To see the details of the metrics, click the metric title for detailed document.
 | [WOSPM0010](./mdocs/WOSPM0011.md)      | GITHUB_ISSUE_TEMPLATE |
 | [WOSPM0010](./mdocs/WOSPM0012.md)      | GITHUB_PR_TEMPLATE |
 
+### Badges
+
+After the check, the checker will generate a overall status for the project. There types of status are considered;
+
+- *Welcoming:* It means that the project covers atleast 90 percent of the metrics. ![Welcoming](https://img.shields.io/badge/WOSPM-Welcoming-green)
+- *Not Ready*: It means that the project is not ready to be accepted as *Welcoming*. The project covers between 50 and 90 percents of the metrics. ![WOSPM](https://img.shields.io/badge/WOSPM-Not--Ready-orange)
+- *Bad*: I means that the project is in very bad status. The coverage is under 50 percent. ![WOSPM](https://img.shields.io/badge/WOSPM-Bad-red)
+
+The checker generates the badge code of the project at the end of the the execution.
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for information.
