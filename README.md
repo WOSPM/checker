@@ -69,7 +69,7 @@ WOSPM metrics are measures to make quantitative assessments about the open sours
 
 1. Every metric should check only one simple case
 2. Metrics can be dependent to each other (If there is no README, no need to make any check in README content etc.)
-3. Every metric should have a unique WOSPMXXX number and a unique title (uppercase and snake-case). 
+3. Every metric should have a unique WOSPMXXX number and a unique title (uppercase and snake-case).
 
 ### List of Existing Metrics
 
