@@ -30,8 +30,7 @@ function status($array)
 {
     return array_reduce(
         $array,
-        function($status, $metric)
-        {
+        function ($status, $metric) {
             return (
                 $status and $metric["status"]
             );
@@ -81,8 +80,7 @@ function percent($array)
         (
             array_reduce(
                 $array,
-                function($success, $metric)
-                {
+                function ($success, $metric) {
                     if ($metric["status"] === true) {
                         return ($success+1);
                     } else {
