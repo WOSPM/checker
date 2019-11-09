@@ -55,11 +55,11 @@ Options:
 
 You can check your project by running the `wospm-checker` command in the root folder of your repo.
 
-![alt text](./assets/screenshot-1.png)
-
 ```bash
 /full/path/to/wospm-checker
 ```
+
+![alt text](./assets/screenshot-1.png)
 
 ## WOSPM Metrics
 
