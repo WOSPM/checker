@@ -134,6 +134,7 @@ function processor($arguments)
     $processor->addMetric(new Checker\ReadmeTocExistsMetric());
     $processor->addMetric(new Checker\ReadmeAdequateMetric());
     $processor->addMetric(new Checker\ReadmeInstallationExistsMetric());
+    $processor->addMetric(new Checker\GithubIssueTemplateExistsMetric());
 
     return $processor;
 }
@@ -147,14 +148,14 @@ function processor($arguments)
  */
 function scanProjectDir($path)
 {
-    $files = scandir($path);
+    $allFiles = scandir($path);
+    $files    = array_diff($allFiles, array('.', '..'));
 
     // If there is a .github folder
     if (in_array(".github", $files)) {
         $gitpath  = $path . DIRECTORY_SEPARATOR . ".github";
         $github   = scanAllDir($gitpath);
-
-        $files = array_merge($files, $github);
+        $files    = array_merge($files, $github);
     }
 
     return $files;
@@ -169,7 +170,8 @@ function scanProjectDir($path)
  */
 function scanAllDir($path)
 {
-    $files    = scandir($path);
+    $allFiles = scandir($path);
+    $files    = array_diff($allFiles, array('.', '..'));
     $subfiles = array(); 
 
     foreach ($files as $key => $element) {
@@ -182,6 +184,8 @@ function scanAllDir($path)
             $elfiles  = scanAllDir($el);
             $elfiles  = preg_filter('/^/', $el, $elfiles);
             $subfiles = array_merge($subfiles, $elfiles);
+
+            $files[$key] = $path . DIRECTORY_SEPARATOR . $element;
             continue;
         }
     }
