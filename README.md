@@ -87,8 +87,9 @@ To see the details of the metrics, click the metric title for detailed document.
 | [WOSPM0007](./mdocs/WOSPM0007.md)      | LINK_TO_CONTRIBUTE |
 | [WOSPM0008](./mdocs/WOSPM0008.md)      | LINK_TO_CODE_OF_CONDUCT |
 | [WOSPM0009](./mdocs/WOSPM0009.md)      | README_ADEQUATE |
-| [WOSPM0010](./mdocs/WOSPM0011.md)      | GITHUB_ISSUE_TEMPLATE |
-| [WOSPM0010](./mdocs/WOSPM0012.md)      | GITHUB_PR_TEMPLATE |
+| [WOSPM0010](./mdocs/WOSPM0010.md)      | INSTALLATION_SECTION |
+| [WOSPM0011](./mdocs/WOSPM0011.md)      | GITHUB_ISSUE_TEMPLATE |
+| [WOSPM0012](./mdocs/WOSPM0012.md)      | GITHUB_PR_TEMPLATE |
 
 ### Badges
 
