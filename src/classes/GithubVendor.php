@@ -27,6 +27,13 @@ class GithubVendor extends Vendor
      */
     private $client = null;
 
+    /**
+     * Contructore for GithubVendor class
+     *
+     * @param string $repo The name of the repo
+     *
+     * @return void
+     */
     public function __construct($repo)
     {
         $this->repo = $repo;
