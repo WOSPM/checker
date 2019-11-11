@@ -7,6 +7,13 @@ namespace WOSPM\Checker;
 class Project
 {
     /**
+     * Vendor object
+     *
+     * @var Vendor|null
+     */
+    private $vendor = null;
+    
+    /**
      * Get the readme file name of the project
      *
      * @param array $files Array of files

@@ -3,7 +3,9 @@
     "type": "project",
     "description": "A checker for project owners to measure their open source project.",
     "license": "MIT",
-    "require": {},
+    "require": {
+        "guzzlehttp/guzzle": "^6.4"
+    },
     "require-dev": {
         "phpunit/phpunit": "~4.5"
     },
