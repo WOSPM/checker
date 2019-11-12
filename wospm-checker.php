@@ -63,8 +63,9 @@ try {
     banner();
     
     $arguments = Checker\Arguments::parseArguments($_SERVER['argv']);
+    $repo      = new Checker\ProjectRepository($arguments->path);
     $files     = scanProjectDir($arguments->path);
-    $result    = processor($arguments)->process($files);
+    $result    = processor($arguments, $repo)->process($files);
 
     ksort($result);
 
@@ -72,6 +73,7 @@ try {
     
     $status  = status($result);
     $percent = percent($result);
+
     badge($percent);
 
     if ($status === true) {

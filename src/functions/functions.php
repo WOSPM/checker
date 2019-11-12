@@ -190,11 +190,12 @@ function banner()
 /**
  * Register metrics to processor class
  *
- * @param Arguments $arguments Commandline arguments
+ * @param Arguments         $arguments Commandline arguments
+ * @param ProjectRepository $repo      Repo object
  *
  * @return Checker\Processor
  */
-function processor($arguments)
+function processor($arguments, $repo)
 {
     $processor = new Checker\Processor($arguments->verbose);
     
