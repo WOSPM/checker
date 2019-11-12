@@ -76,7 +76,7 @@ function badge($percent)
  */
 function percent($array)
 {
-    return ceil(
+    return intval(ceil(
         (
             array_reduce(
                 $array,
@@ -90,7 +90,7 @@ function percent($array)
                 0
             ) / count($array)
         )
-    ) * 100;
+    ) * 100);
 }
 
 /**

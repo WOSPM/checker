@@ -72,6 +72,7 @@ try {
     
     $status  = status($result);
     $percent = percent($result);
+
     badge($percent);
 
     if ($status === true) {

@@ -33,6 +33,10 @@ class ContributingExistsMetric extends Metric
             "contributing", "contributing.md", "contribute", "contribute.md"
         );
 
+        $files = array_map(function($file) {
+            return basename($file);
+        }, $files);
+
         $check = (bool)array_intersect($contributing, $files);
 
         if ($check === true) {
