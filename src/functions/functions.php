@@ -76,21 +76,23 @@ function badge($percent)
  */
 function percent($array)
 {
-    return intval(ceil(
-        (
-            array_reduce(
-                $array,
-                function ($success, $metric) {
-                    if ($metric["status"] === true) {
-                        return ($success+1);
-                    } else {
-                        return $success;
-                    }
-                },
-                0
-            ) / count($array)
-        )
-    ) * 100);
+    return intval(
+        ceil(
+            (
+                array_reduce(
+                    $array,
+                    function ($success, $metric) {
+                        if ($metric["status"] === true) {
+                            return ($success+1);
+                        } else {
+                            return $success;
+                        }
+                    },
+                    0
+                ) / count($array)
+            )
+        ) * 100
+    );
 }
 
 /**

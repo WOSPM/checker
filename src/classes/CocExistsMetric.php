@@ -35,9 +35,12 @@ class CocExistsMetric extends Metric
             "code_of_conduct.md"
         );
 
-        $files = array_map(function($file) {
-            return basename($file);
-        }, $files);
+        $files = array_map(
+            function ($file) {
+                return basename($file);
+            },
+            $files
+        );
 
         $check = (bool)array_intersect($cocs, $files);
 
