@@ -28,12 +28,23 @@ class CocExistsMetric extends Metric
      */
     public function check($files)
     {
-        $check = in_array("CODE_OF_CONDUCT", $files) ||
-            in_array("CODE_OF_CONDUCT.md", $files) ||
-            in_array("code_of_conduct", $files) ||
-            in_array("code_of_conduct.md", $files);
+        $cocs = array(
+            "CODE_OF_CONDUCT",
+            "CODE_OF_CONDUCT.md",
+            "code_of_conduct",
+            "code_of_conduct.md"
+        );
 
-        if ($check === true) {
+        $files = array_map(
+            function ($file) {
+                return basename($file);
+            },
+            $files
+        );
+
+        $check = (bool)array_intersect($cocs, $files);
+
+        if ($check) {
             return $this->success();
         }
 
