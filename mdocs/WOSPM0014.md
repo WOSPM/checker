@@ -11,4 +11,4 @@
 
 ## Rationale
 
-At least one topicsshould be added to the repository. Topics helps people to find your repo.
+At least one topic or topics should be added to the repository. Topics helps people to find your repo.

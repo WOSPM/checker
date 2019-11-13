@@ -108,4 +108,27 @@ class GithubVendor extends Vendor
 
         return array();
     }
+
+    /**
+     * Get the array of issues of the given label
+     *
+     * @param string $label The name of the label
+     *
+     * @return array
+     */
+    public function getLabelIssues($label)
+    {
+        $response = $this->client->request(
+            'GET',
+            $this->api . $this->repo . "/issues?labels=" . $label . "&state=all"
+        );
+
+        if ($response->getStatusCode() == 200) {
+            $body = $response->getBody();
+            $body = json_decode($body, true);
+            return $body;
+        }
+
+        return array();
+    }
 }

@@ -92,6 +92,10 @@ To see the details of the metrics, click the metric title for detailed document.
 | [WOSPM0010](./mdocs/WOSPM0010.md)      | INSTALLATION_SECTION |
 | [WOSPM0011](./mdocs/WOSPM0011.md)      | GITHUB_ISSUE_TEMPLATE |
 | [WOSPM0012](./mdocs/WOSPM0012.md)      | GITHUB_PR_TEMPLATE |
+| [WOSPM0013](./mdocs/WOSPM0013.md)      | GITHUB_SHORT_DESCRIPTION |
+| [WOSPM0014](./mdocs/WOSPM0014.md)      | GITHUB_TOPICS |
+| [WOSPM0015](./mdocs/WOSPM0015.md)      | GITHUB_LABELS |
+| [WOSPM0016](./mdocs/WOSPM0016.md)      | GITHUB_LABELS_USED |
 
 ### Badges
 
