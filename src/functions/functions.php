@@ -214,6 +214,7 @@ function processor($arguments, $repo)
     $processor->addMetric(new Checker\GithubIssueTemplateExistsMetric());
     $processor->addMetric(new Checker\GithubPRTemplateExistsMetric());
     $processor->addMetric(new Checker\GithubDescriptionExistsMetric($repo));
+    $processor->addMetric(new Checker\GithubTopicExistsMetric($repo));
 
     return $processor;
 }
