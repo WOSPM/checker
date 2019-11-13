@@ -23,7 +23,23 @@ class ProjectRepository extends \Cz\Git\GitRepository
 
         return array(
             "vendor" => $output[1],
-            "repo"   => $output[0]
+            "repo"   => $output[2]
         );
+    }
+
+    /**
+     * Get git vendor object
+     *
+     * @return GithubVendor|null
+     */
+    public function getVendorObject()
+    {
+        $remote = $this->getRemoteOrigin();
+
+        if ($remote["vendor"] === "github.com") {
+            return new GithubVendor($remote["repo"]);
+        }
+
+        return null;
     }
 }

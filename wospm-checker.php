@@ -65,7 +65,7 @@ try {
     $arguments = Checker\Arguments::parseArguments($_SERVER['argv']);
     $repo      = new Checker\ProjectRepository($arguments->path);
     $files     = scanProjectDir($arguments->path);
-    $result    = processor($arguments, $repo)->process($files);
+    $result    = processor($arguments, $repo->getVendorObject())->process($files);
 
     ksort($result);
 

@@ -11,6 +11,7 @@ class Metric
     public $message    = "It seems nothing is working.";
     public $type       = MetricType::INFO;
     public $dependency = array();
+    public $repo       = null;
 
     /**
      * Main check function
