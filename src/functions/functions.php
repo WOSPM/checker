@@ -50,6 +50,13 @@ function badge($percent)
 {
     echo "WOSPM badge for your project is below. You can use it in your README.";
     echo PHP_EOL;
+
+    if ($percent == 100) {
+        echo '![Perfect](https://img.shields.io/badge/WOSPM-Perfect-blue)';
+        echo PHP_EOL;
+        return;
+    }
+
     if ($percent >= 90) {
         echo '![Welcoming](https://img.shields.io/badge/WOSPM-Welcoming-green)';
         echo PHP_EOL;

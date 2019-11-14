@@ -2,7 +2,7 @@
 
 A checker for project owners to measure their open source project.
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CONTRIBUTING.md) [![CircleCI](https://circleci.com/gh/WOSPM/checker.svg?style=svg)](https://circleci.com/gh/WOSPM/checker) ![WOSPM](https://img.shields.io/badge/WOSPM-Welcoming-green)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CONTRIBUTING.md) [![CircleCI](https://circleci.com/gh/WOSPM/checker.svg?style=svg)](https://circleci.com/gh/WOSPM/checker) ![Perfect](https://img.shields.io/badge/WOSPM-Perfect-blue)
 
 ---
 
@@ -103,9 +103,10 @@ To see the details of the metrics, click the metric title for detailed document.
 
 After the check, the checker will generate a overall status for the project. There types of status are considered;
 
+- *Perfect:* It means that the porject covers 100 percent of the metrics. ![Perfect](https://img.shields.io/badge/WOSPM-Perfect-blue)
 - *Welcoming:* It means that the project covers atleast 90 percent of the metrics. ![Welcoming](https://img.shields.io/badge/WOSPM-Welcoming-green)
-- *Not Ready*: It means that the project is not ready to be accepted as *Welcoming*. The project covers between 50 and 90 percents of the metrics. ![Not Ready](https://img.shields.io/badge/WOSPM-Not--Ready-orange)
-- *Bad*: I means that the project is in very bad status. The coverage is under 50 percent. ![Bad](https://img.shields.io/badge/WOSPM-Bad-red)
+- *Not Ready:* It means that the project is not ready to be accepted as *Welcoming*. The project covers between 50 and 90 percents of the metrics. ![Not Ready](https://img.shields.io/badge/WOSPM-Not--Ready-orange)
+- *Bad:* I means that the project is in very bad status. The coverage is under 50 percent. ![Bad](https://img.shields.io/badge/WOSPM-Bad-red)
 
 The checker generates the badge code of the project at the end of the the execution.
 
