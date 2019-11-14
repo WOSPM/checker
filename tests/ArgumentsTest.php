@@ -12,12 +12,13 @@ class ArgumentsTest extends PHPUnit_Framework_TestCase
     {
         // Upper case 1
         $inputs = array(
-            "./wospm-checker", "--output", "JSON" , "--no-colors"
+            "./wospm-checker", "--output", "JSON" , "--no-colors", "--verbose", "1"
         );
 
         $arguments = Checker\Arguments::parseArguments($inputs);
 
         $this->assertEquals("JSON", $arguments->output);
+        $this->assertEquals("1", $arguments->verbose);
         $this->assertFalse($arguments->colors);
     }
 
