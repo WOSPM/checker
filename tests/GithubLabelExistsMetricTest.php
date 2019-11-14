@@ -5,7 +5,7 @@ class GithubLabelExistsMetricTest extends PHPUnit_Framework_TestCase
 {
     private $metric;
 
-    public function testTopicExists()
+    public function testLabelExists()
     {
         $files = array(
             "README",
@@ -22,7 +22,7 @@ class GithubLabelExistsMetricTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($this->metric->check($files)["status"]);
     }
 
-    public function testTopicNotExists()
+    public function testLabelNotExists()
     {
         $files = array(
             "README",

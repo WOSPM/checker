@@ -96,6 +96,7 @@ To see the details of the metrics, click the metric title for detailed document.
 | [WOSPM0014](./mdocs/WOSPM0014.md)      | GITHUB_TOPICS |
 | [WOSPM0015](./mdocs/WOSPM0015.md)      | GITHUB_LABELS |
 | [WOSPM0016](./mdocs/WOSPM0016.md)      | GITHUB_LABELS_USED |
+| [WOSPM0017](./mdocs/WOSPM0017.md)      | GITHUB_CUSTOM_LABELS |
 
 ### Badges
 

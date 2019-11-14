@@ -217,6 +217,8 @@ function processor($arguments, $repo)
     $processor->addMetric(new Checker\GithubTopicExistsMetric($repo));
     $processor->addMetric(new Checker\GithubLabelExistsMetric($repo));
     $processor->addMetric(new Checker\GithubLabelUsedMetric($repo));
+    $processor->addMetric(new Checker\GithubCustomLabelExistsMetric($repo));
+
 
     return $processor;
 }
