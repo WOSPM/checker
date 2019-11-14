@@ -34,8 +34,7 @@ class GithubCustomLabelExistsMetric extends Metric
 
         $custom = array_filter(
             $labels,
-            function ($label)
-            {
+            function ($label) {
                 return ($label['default'] === false);
             }
         );

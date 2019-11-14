@@ -34,8 +34,7 @@ class GithubGFIAndHWLabelsExistMetric extends Metric
 
         $gfi = array_filter(
             $labels,
-            function ($label)
-            {
+            function ($label) {
                 return ($label['name'] === 'good first issue');
             }
         );
@@ -46,8 +45,7 @@ class GithubGFIAndHWLabelsExistMetric extends Metric
 
         $hw = array_filter(
             $labels,
-            function ($label)
-            {
+            function ($label) {
                 return ($label['name'] === 'help wanted');
             }
         );
