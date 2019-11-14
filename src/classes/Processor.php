@@ -47,6 +47,10 @@ class Processor
         foreach ($this->metrics as $code => $metric) {
             $fail = false;
 
+            if (isset($result[$code])) {
+                continue;
+            }
+
             foreach ($metric->dependency as $dcode) {
                 if ($result[$dcode]["status"] === false) {
                     $fail = true;

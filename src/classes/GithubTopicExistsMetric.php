@@ -13,7 +13,7 @@ class GithubTopicExistsMetric extends Metric
      */
     public function __construct($repo)
     {
-        $this->code       = "WOSPM0013";
+        $this->code       = "WOSPM0014";
         $this->title      = "GITHUB_TOPICS";
         $this->message    = "Related topics should be added to the repository.";
         $this->type       = MetricType::ERROR;
