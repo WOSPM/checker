@@ -15,7 +15,8 @@ class GithubCustomLabelUsedMetric extends Metric
     {
         $this->code       = "WOSPM0019";
         $this->title      = "GITHUB_CUSTOM_LABELS_USED";
-        $this->message    = "At least one custom label should be associated to an issue.";
+        $this->message    = "At least one custom label should be associated" .
+        " to an issue.";
         $this->type       = MetricType::ERROR;
         $this->dependency = array("WOSPM0017");
         $this->repo       = $repo;
