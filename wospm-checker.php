@@ -1,7 +1,7 @@
 <?php
 use WOSPM\Checker;
 
-const VERSION = '0.1.6';
+const VERSION = '0.1.7';
 
 const SUCCESS   = 0,
     WITH_ERRORS = 1,
@@ -75,7 +75,7 @@ try {
     output($result, $arguments);
     
     $status  = status($result);
-    
+    $percent = percent($result);
     if ($status === true) {
         die(SUCCESS);
     } else {
