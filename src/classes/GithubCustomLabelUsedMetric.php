@@ -2,9 +2,9 @@
 namespace WOSPM\Checker;
 
 /**
- * Doc comment for class GithubCustomLabelsUsedMetric
+ * Doc comment for class GithubCustomLabelUsedMetric
  */
-class GithubCustomLabelsUsedMetric extends Metric
+class GithubCustomLabelUsedMetric extends Metric
 {
     /**
      * Constructor function that initializes the Metric definitions

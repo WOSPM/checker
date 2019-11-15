@@ -84,7 +84,7 @@ function percent($array)
                             return $success;
                         }
                     },
-                    1
+                    0
                 ) / count($array)
             ) * 100
         )
@@ -233,7 +233,7 @@ function processor($arguments, $repo)
     $processor->addMetric(new Checker\GithubLabelUsedMetric($repo));
     $processor->addMetric(new Checker\GithubCustomLabelExistsMetric($repo));
     $processor->addMetric(new Checker\GithubGFIAndHWLabelsExistMetric($repo));
-    $processor->addMetric(new Checker\GithubCustomLabelsUsedMetric($repo));
+    $processor->addMetric(new Checker\GithubCustomLabelUsedMetric($repo));
 
     return $processor;
 }

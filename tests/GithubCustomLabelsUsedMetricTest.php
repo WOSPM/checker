@@ -1,11 +1,11 @@
 <?php
 use WOSPM\Checker;
 
-class GithubLabelUsedMetric extends PHPUnit_Framework_TestCase
+class GithubCustomLabelUsedMetric extends PHPUnit_Framework_TestCase
 {
     private $metric;
 
-    public function testLabelUsed()
+    public function testCustomLabelUsed()
     {
         $files = array(
             "README",
@@ -17,13 +17,13 @@ class GithubLabelUsedMetric extends PHPUnit_Framework_TestCase
         $repo->method('getLabels')->will($this->returnValue(array(array("name" => "label1", "default" => true), array("name" => "label2", "default" => false))));
         $repo->method('getLabelIssues')->will($this->returnValue(array("issue1", "issue2")));
 
-        $this->metric = new Checker\GithubCustomLabelsUsedMetric($repo);
+        $this->metric = new Checker\GithubCustomLabelUsedMetric($repo);
 
 
         $this->assertTrue($this->metric->check($files)["status"]);
     }
 
-    public function testLabelNotUsed()
+    public function testCustomLabelNotUsed()
     {
         $files = array(
             "README",
@@ -35,7 +35,7 @@ class GithubLabelUsedMetric extends PHPUnit_Framework_TestCase
         $repo->method('getLabels')->will($this->returnValue(array(array("name" => "label1", "default" => true), array("name" => "label2", "default" => false))));
         $repo->method('getLabelIssues')->will($this->returnValue(array()));
 
-        $this->metric = new Checker\GithubCustomLabelsUsedMetric($repo);
+        $this->metric = new Checker\GithubCustomLabelUsedMetric($repo);
 
 
         $this->assertFalse($this->metric->check($files)["status"]);
