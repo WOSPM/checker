@@ -6,7 +6,7 @@
 | ------------- |-------------|
 | code      | WOSPM0018 |
 | title      | GITHUB_LABELS_GFI_HW      |
-| message | "good first issue" and "help wanted" labels exist.     |
+| message | "good first issue" and "help wanted" labels should exist.     |
 | type | MetricType::ERROR      |
 
 ## Rationale

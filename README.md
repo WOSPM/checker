@@ -78,26 +78,26 @@ For more information about adding a new metric to the project, please [Add New M
 
 To see the details of the metrics, click the metric title for detailed document.
 
-| Code        | Title           |
-| ------------- |-------------|
-| [WOSPM0001](./mdocs/WOSPM0001.md)      | USING_WOSPM |
-| [WOSPM0002](./mdocs/WOSPM0002.md)      | README |
-| [WOSPM0003](./mdocs/WOSPM0003.md)      | LICENSE |
-| [WOSPM0004](./mdocs/WOSPM0004.md)      | CONTRIBUTING |
-| [WOSPM0005](./mdocs/WOSPM0005.md)      | CODE_OF_CONDUCT |
-| [WOSPM0006](./mdocs/WOSPM0006.md)      | README_TOC |
-| [WOSPM0007](./mdocs/WOSPM0007.md)      | LINK_TO_CONTRIBUTE |
-| [WOSPM0008](./mdocs/WOSPM0008.md)      | LINK_TO_CODE_OF_CONDUCT |
-| [WOSPM0009](./mdocs/WOSPM0009.md)      | README_ADEQUATE |
-| [WOSPM0010](./mdocs/WOSPM0010.md)      | INSTALLATION_SECTION |
-| [WOSPM0011](./mdocs/WOSPM0011.md)      | GITHUB_ISSUE_TEMPLATE |
-| [WOSPM0012](./mdocs/WOSPM0012.md)      | GITHUB_PR_TEMPLATE |
-| [WOSPM0013](./mdocs/WOSPM0013.md)      | GITHUB_SHORT_DESCRIPTION |
-| [WOSPM0014](./mdocs/WOSPM0014.md)      | GITHUB_TOPICS |
-| [WOSPM0015](./mdocs/WOSPM0015.md)      | GITHUB_LABELS |
-| [WOSPM0016](./mdocs/WOSPM0016.md)      | GITHUB_LABELS_USED |
-| [WOSPM0017](./mdocs/WOSPM0017.md)      | GITHUB_CUSTOM_LABELS |
-| [WOSPM0018](./mdocs/WOSPM0018.md)      | GITHUB_LABELS_GFI_HW |
+| Code        | Title           | Description     |
+| ------------- |-------------|-------------|
+| [WOSPM0001](./mdocs/WOSPM0001.md)      | USING_WOSPM | You are using WOSPM checker. It is a good start. |
+| [WOSPM0002](./mdocs/WOSPM0002.md)      | README | Every open source project should have a README file. |
+| [WOSPM0003](./mdocs/WOSPM0003.md)      | LICENSE | Every open source project should have a LICENSE file. |
+| [WOSPM0004](./mdocs/WOSPM0004.md)      | CONTRIBUTING | Every open source project should have a CONTRIBUTING file. |
+| [WOSPM0005](./mdocs/WOSPM0005.md)      | CODE_OF_CONDUCT | Every open source project should have a CODE_OF_CONDUCT file. |
+| [WOSPM0006](./mdocs/WOSPM0006.md)      | README_TOC | Every README file should have table of contents list. |
+| [WOSPM0007](./mdocs/WOSPM0007.md)      | LINK_TO_CONTRIBUTE | README should have a link to CONTRIBUTING file. |
+| [WOSPM0008](./mdocs/WOSPM0008.md)      | LINK_TO_CODE_OF_CONDUCT | README should have a link to NO_LINK_TO_CODE_OF_CONDUCT file. |
+| [WOSPM0009](./mdocs/WOSPM0009.md)      | README_ADEQUATE | README should have atleast 200 words. |
+| [WOSPM0010](./mdocs/WOSPM0010.md)      | INSTALLATION_SECTION | README file should have an installation section. |
+| [WOSPM0011](./mdocs/WOSPM0011.md)      | GITHUB_ISSUE_TEMPLATE | You should have issue templates on Github. |
+| [WOSPM0012](./mdocs/WOSPM0012.md)      | GITHUB_PR_TEMPLATE | You should have PR template on Github. |
+| [WOSPM0013](./mdocs/WOSPM0013.md)      | GITHUB_SHORT_DESCRIPTION | Project should have a short description on Github. |
+| [WOSPM0014](./mdocs/WOSPM0014.md)      | GITHUB_TOPICS | Related topics should be added to the repository. |
+| [WOSPM0015](./mdocs/WOSPM0015.md)      | GITHUB_LABELS | Project should have issue labels. |
+| [WOSPM0016](./mdocs/WOSPM0016.md)      | GITHUB_LABELS_USED | Labels should be used to highlight the issues. |
+| [WOSPM0017](./mdocs/WOSPM0017.md)      | GITHUB_CUSTOM_LABELS | Creating custom labels is a good practice. |
+| [WOSPM0018](./mdocs/WOSPM0018.md)      | GITHUB_LABELS_GFI_HW | "good first issue" and "help wanted" labels should exist. |
 
 ### Badges
 
