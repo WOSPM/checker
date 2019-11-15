@@ -1,0 +1,52 @@
+<?php
+namespace WOSPM\Checker;
+
+/**
+ * Doc comment for class GithubCustomLabelsUsedMetric
+ */
+class GithubCustomLabelsUsedMetric extends Metric
+{
+    /**
+     * Constructor function that initializes the Metric definitions
+     *
+     * @param Vendor $repo The repository object of the project
+     */
+    public function __construct($repo)
+    {
+        $this->code       = "WOSPM0019";
+        $this->title      = "GITHUB_CUSTOM_LABELS_USED";
+        $this->message    = "At least one custom label should be associated to an issue.";
+        $this->type       = MetricType::ERROR;
+        $this->dependency = array("WOSPM0017");
+        $this->repo       = $repo;
+    }
+
+    /**
+     * Checks if there is/are topic(s)
+     * 
+     * @param array $files Array of the files in root directory
+     *
+     * @return array
+     */
+    public function check($files)
+    {
+        $labels = $this->repo->getLabels();
+
+        $custom = array_filter(
+            $labels,
+            function ($label) {
+                return ($label['default'] === false);
+            }
+        );
+
+        foreach ($custom as $label) {
+            $issues = $this->repo->getLabelIssues($label["name"]);
+
+            if (count($issues) > 0) {
+                return $this->success();
+            }
+        }
+
+        return $this->fail();
+    }
+}

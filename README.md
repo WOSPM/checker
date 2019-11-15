@@ -98,6 +98,7 @@ To see the details of the metrics, click the metric title for detailed document.
 | [WOSPM0016](./mdocs/WOSPM0016.md)      | GITHUB_LABELS_USED | Labels should be used to highlight the issues. |
 | [WOSPM0017](./mdocs/WOSPM0017.md)      | GITHUB_CUSTOM_LABELS | Creating custom labels is a good practice. |
 | [WOSPM0018](./mdocs/WOSPM0018.md)      | GITHUB_LABELS_GFI_HW | "good first issue" and "help wanted" labels should exist. |
+| [WOSPM0019](./mdocs/WOSPM0019.md)      | GITHUB_CUSTOM_LABELS_USED | At least one custom label should be associated to an issue. |
 
 ### Badges
 

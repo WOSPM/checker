@@ -1,7 +1,7 @@
 <?php
 use WOSPM\Checker;
 
-class GithubLabelUsedMetricTest extends PHPUnit_Framework_TestCase
+class GithubLabelUsedMetric extends PHPUnit_Framework_TestCase
 {
     private $metric;
 
@@ -14,10 +14,10 @@ class GithubLabelUsedMetricTest extends PHPUnit_Framework_TestCase
 
         $repo = $this->getMockBuilder('Checker\GithubVendor')->setMethods(['getLabels', 'getLabelIssues'])
         ->getMock();
-        $repo->method('getLabels')->will($this->returnValue(array(array("name" => "label1"), array("name" => "label2"))));
+        $repo->method('getLabels')->will($this->returnValue(array(array("name" => "label1", "default" => true), array("name" => "label2", "default" => false))));
         $repo->method('getLabelIssues')->will($this->returnValue(array("issue1", "issue2")));
 
-        $this->metric = new Checker\GithubLabelUsedMetric($repo);
+        $this->metric = new Checker\GithubCustomLabelsUsedMetric($repo);
 
 
         $this->assertTrue($this->metric->check($files)["status"]);
@@ -32,10 +32,10 @@ class GithubLabelUsedMetricTest extends PHPUnit_Framework_TestCase
 
         $repo = $this->getMockBuilder('Checker\GithubVendor')->setMethods(['getLabels', 'getLabelIssues'])
         ->getMock();
-        $repo->method('getLabels')->will($this->returnValue(array(array("name" => "label1"), array("name" => "label2"))));
+        $repo->method('getLabels')->will($this->returnValue(array(array("name" => "label1", "default" => true), array("name" => "label2", "default" => false))));
         $repo->method('getLabelIssues')->will($this->returnValue(array()));
 
-        $this->metric = new Checker\GithubLabelUsedMetric($repo);
+        $this->metric = new Checker\GithubCustomLabelsUsedMetric($repo);
 
 
         $this->assertFalse($this->metric->check($files)["status"]);
