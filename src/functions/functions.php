@@ -48,30 +48,19 @@ function status($array)
  */
 function badge($percent)
 {
-    echo "WOSPM badge for your project is below. You can use it in your README.";
-    echo PHP_EOL;
-
     if ($percent == 100) {
-        echo '![Perfect](https://img.shields.io/badge/WOSPM-Perfect-blue)';
-        echo PHP_EOL;
-        return;
+        return '![Perfect](https://img.shields.io/badge/WOSPM-Perfect-blue)';
     }
 
     if ($percent >= 90) {
-        echo '![Welcoming](https://img.shields.io/badge/WOSPM-Welcoming-green)';
-        echo PHP_EOL;
-        return;
+        return '![Welcoming](https://img.shields.io/badge/WOSPM-Welcoming-green)';
     }
 
     if ($percent < 50) {
-        echo '![Bad](https://img.shields.io/badge/WOSPM-Bad-red)';
-        echo PHP_EOL;
-        return;
+        return '![Bad](https://img.shields.io/badge/WOSPM-Bad-red)';
     }
 
-    echo '![Not Ready](https://img.shields.io/badge/WOSPM-Not--Ready-orange)';
-    echo PHP_EOL;
-    return;
+    return '![Not Ready](https://img.shields.io/badge/WOSPM-Not--Ready-orange)';
 }
 
 /**
@@ -112,8 +101,6 @@ function percent($array)
  */
 function output($array, $arguments)
 {
-    echo PHP_EOL . PHP_EOL . "Here is the result;" . PHP_EOL . PHP_EOL;
-
     if ($arguments->output === 'JSON') {
         outputJSON($array);
         return;
@@ -123,7 +110,16 @@ function output($array, $arguments)
         return;
     }
 
+    echo PHP_EOL . PHP_EOL . "Here is the result;" . PHP_EOL . PHP_EOL;
+
     outputREADABLE($array, $arguments->colors);
+
+    echo "WOSPM badge for your project is below. You can use it in your README.";
+    echo PHP_EOL;
+    $percent = percent($array);
+
+    echo badge($percent);
+    echo PHP_EOL;
 }
 
 /**
@@ -175,7 +171,17 @@ function outputREADABLE($array, $colors = true)
  */
 function outputJSON($array)
 {
-    echo json_encode(array_values($array), true);
+    $status  = status($array);
+    $percent = percent($array);
+
+    $result = array(
+        "status"  => $status,
+        "percent" => $percent,
+        "badge"   => badge($percent),
+        'metrics' => array_values($array)
+    );
+
+    echo json_encode($result);
     echo PHP_EOL;
 }
 

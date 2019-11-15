@@ -60,9 +60,12 @@ if (!$autoloadFileFound) {
 define('PROJECT_FOLDER', rtrim(getcwd(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR);
 
 try {
-    banner();
-    
     $arguments = Checker\Arguments::parseArguments($_SERVER['argv']);
+
+    if ($arguments->output === 'READABLE') {
+        banner();
+    }
+
     $repo      = new Checker\ProjectRepository($arguments->path);
     $files     = scanProjectDir($arguments->path);
     $result    = processor($arguments, $repo->getVendorObject())->process($files);
@@ -72,10 +75,7 @@ try {
     output($result, $arguments);
     
     $status  = status($result);
-    $percent = percent($result);
-
-    badge($percent);
-
+    
     if ($status === true) {
         die(SUCCESS);
     } else {
