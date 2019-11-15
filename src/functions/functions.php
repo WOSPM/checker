@@ -86,8 +86,8 @@ function percent($array)
                     },
                     0
                 ) / count($array)
-            )
-        ) * 100
+            ) * 100
+        )
     );
 }
 
@@ -116,6 +116,7 @@ function output($array, $arguments)
 
     echo "WOSPM badge for your project is below. You can use it in your README.";
     echo PHP_EOL;
+
     $percent = percent($array);
 
     echo badge($percent);
