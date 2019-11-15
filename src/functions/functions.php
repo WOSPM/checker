@@ -234,6 +234,7 @@ function processor($arguments, $repo)
     $processor->addMetric(new Checker\GithubCustomLabelExistsMetric($repo));
     $processor->addMetric(new Checker\GithubGFIAndHWLabelsExistMetric($repo));
     $processor->addMetric(new Checker\GithubCustomLabelUsedMetric($repo));
+    $processor->addMetric(new Checker\GithubGFIAndHWLabelsUsedMetric($repo));
 
     return $processor;
 }
