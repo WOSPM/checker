@@ -84,7 +84,7 @@ function percent($array)
                             return $success;
                         }
                     },
-                    0
+                    1
                 ) / count($array)
             ) * 100
         )
