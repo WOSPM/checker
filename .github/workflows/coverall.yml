@@ -16,6 +16,9 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
+    - name: PHPUnit
+      run : ./vendor/bin/phpunit --coverage-php ./coverage/lcov.info
+
     - name: Coveralls GitHub Action
       uses: coverallsapp/github-action@v1.0.1
       with:
