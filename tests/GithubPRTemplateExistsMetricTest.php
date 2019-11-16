@@ -33,8 +33,7 @@ class GithubPRTemplateExistsMetricTest extends PHPUnit_Framework_TestCase
     public function testTemplateNotExists()
     {
         $files = array(
-            ".github",
-            "./.github/PULL_REQUEST_TEMPLATE",
+            ".github"
         );
 
         $this->assertFalse($this->metric->check($files)["status"]);

@@ -282,11 +282,15 @@ function scanAllDir($path)
         $el = $path . DIRECTORY_SEPARATOR . $element . DIRECTORY_SEPARATOR;
         if (is_dir($el)) {
             $elfiles  = scanAllDir($el);
-            $elfiles  = preg_filter('/^/', $el, $elfiles);
+            //$elfiles  = preg_filter('/^/', $el, $elfiles);
             $subfiles = array_merge($subfiles, $elfiles);
 
-            $files[$key] = $path . DIRECTORY_SEPARATOR . $element;
+            //$files[$key] = $path . DIRECTORY_SEPARATOR . $element;
+            unset($files[$key]);
             continue;
+        } else {
+            $files[$key] = trim($path, DIRECTORY_SEPARATOR) .
+            DIRECTORY_SEPARATOR . $element;
         }
     }
 

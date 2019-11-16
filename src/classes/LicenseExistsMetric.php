@@ -27,7 +27,11 @@ class LicenseExistsMetric extends Metric
      */
     public function check($files)
     {
-        $check = in_array("LICENSE", $files);
+        $license = array(
+            "LICENSE", "LICENSE.md", "license", "license.md"
+        );
+
+        $check = (bool)array_intersect($license, $files);
 
         if ($check === true) {
             return $this->success();
