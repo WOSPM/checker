@@ -23,7 +23,7 @@ jobs:
       run : ./vendor/bin/phpunit --coverage-clover clover.xml --coverage-php wospm.cov
 
     - name: Merge COV Logs
-      run : ./vendor/bin/php-coveralls --coverage_clover clover.xml coverage
+      run : ./vendor/bin/php-coveralls --coverage_clover clover.xml
 
     - name: Coveralls GitHub Action
       uses: coverallsapp/github-action@v1.0.1
