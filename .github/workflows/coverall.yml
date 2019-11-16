@@ -16,6 +16,9 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
+    - name: Prepare lcov file
+      run: mkdir coverage
+
     - name: PHPUnit
       run : ./vendor/bin/phpunit --coverage-php ./coverage/lcov.info
 
