@@ -30,11 +30,11 @@ class GithubPRTemplateExistsMetric extends Metric
         $templates = array_filter(
             $files,
             function ($value) {
-                return (strpos($value, 'PULL_REQUEST_TEMPLATE') !== false);
+                return (stripos($value, 'PULL_REQUEST_TEMPLATE') !== false);
             }
         );
 
-        if (count($templates) > 1) {
+        if (count($templates) > 0) {
             return $this->success();
         }
 

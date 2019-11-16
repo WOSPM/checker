@@ -287,6 +287,8 @@ function scanAllDir($path)
 
             $files[$key] = $path . DIRECTORY_SEPARATOR . $element;
             continue;
+        } else {
+            $files[$key] = $el = $path . DIRECTORY_SEPARATOR . $element;
         }
     }
 

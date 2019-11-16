@@ -36,7 +36,6 @@ class ReadmeInstallationExistsMetric extends Metric
 
         $parsed = $this->parser->parse();
 
-
         if ($this->checkInstall($parsed)) {
             return $this->success();
         }
