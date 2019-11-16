@@ -10,9 +10,30 @@ class LicenseExistsMetricTest extends PHPUnit_Framework_TestCase
 
     public function testLicenseExists()
     {
-        // Upper case 1
+        // Case 1
         $files = array(
             "LICENSE"
+        );
+
+        $this->assertTrue($this->metric->check($files)["status"]);
+
+        // Case 2
+        $files = array(
+            "LICENSE.md"
+        );
+
+        $this->assertTrue($this->metric->check($files)["status"]);
+
+        // Case 3
+        $files = array(
+            "license"
+        );
+
+        $this->assertTrue($this->metric->check($files)["status"]);
+
+        // Case 4
+        $files = array(
+            "license.md"
         );
 
         $this->assertTrue($this->metric->check($files)["status"]);
