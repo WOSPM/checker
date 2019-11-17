@@ -5,27 +5,24 @@ use WOSPM\Checker;
 
 class ProcessorTest extends \PHPUnit_Framework_TestCase
 {
-    private $metric;
-    public function __construct()
-    {
-        $this->processor = new Checker\Processor();
-    }
-
     public function testAddMetric()
     {
+        $processor = new Checker\Processor();
         $metric = $this->getMockBuilder('Checker\Metric')->setMethods(['execute'])
         ->getMock();
         $metric->code         = "code1";
         $metric->dependencies = array();
 
-        $this->processor->addMetric($metric);
+        $processor->addMetric($metric);
 
-        $this->assertEquals(1, count($this->processor->getMetrics()));
-        $this->assertTrue(isset($this->processor->getMetrics()[$metric->code]));
+        $this->assertEquals(1, count($processor->getMetrics()));
+        $this->assertTrue(isset($processor->getMetrics()[$metric->code]));
     }
 
     public function testProcess()
     {
+        $processor = new Checker\Processor();
+
         $metric1 = $this->getMockBuilder('Checker\Metric')->setMethods(['check', 'verbose'])
         ->getMock();
         $metric1->code       = "code1";
@@ -42,10 +39,10 @@ class ProcessorTest extends \PHPUnit_Framework_TestCase
 
         $files = array("README");
 
-        $this->processor->addMetric($metric1);
-        $this->processor->addMetric($metric2);
+        $processor->addMetric($metric1);
+        $processor->addMetric($metric2);
 
-        $result = $this->processor->process($files);
+        $result = $processor->process($files);
 
         $this->assertEquals(2, count($result));
 
@@ -53,6 +50,8 @@ class ProcessorTest extends \PHPUnit_Framework_TestCase
 
     public function testProcessWithDependencySuccess()
     {
+        $processor = new Checker\Processor();
+
         $metric1 = $this->getMockBuilder('Checker\Metric')->setMethods(['check', 'verbose'])
         ->getMock();
         $metric1->code       = "code1";
@@ -69,10 +68,10 @@ class ProcessorTest extends \PHPUnit_Framework_TestCase
 
         $files = array("README");
 
-        $this->processor->addMetric($metric1);
-        $this->processor->addMetric($metric2);
+        $processor->addMetric($metric1);
+        $processor->addMetric($metric2);
 
-        $result = $this->processor->process($files);
+        $result = $processor->process($files);
 
         $this->assertEquals(2, count($result));
         $this->assertTrue($result["code1"]["status"]);
@@ -81,6 +80,8 @@ class ProcessorTest extends \PHPUnit_Framework_TestCase
 
     public function testProcessWithDependencyFail()
     {
+        $processor = new Checker\Processor();
+
         $metric1 = $this->getMockBuilder('Checker\Metric')->setMethods(['check', 'fail', 'verbose'])
         ->getMock();
         $metric1->code       = "code1";
@@ -99,10 +100,10 @@ class ProcessorTest extends \PHPUnit_Framework_TestCase
 
         $files = array("README");
 
-        $this->processor->addMetric($metric1);
-        $this->processor->addMetric($metric2);
+        $processor->addMetric($metric1);
+        $processor->addMetric($metric2);
 
-        $result = $this->processor->process($files);
+        $result = $processor->process($files);
 
         $this->assertEquals(2, count($result));
         $this->assertFalse($result["code1"]["status"]);

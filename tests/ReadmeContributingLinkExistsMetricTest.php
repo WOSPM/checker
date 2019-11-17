@@ -3,14 +3,9 @@ use WOSPM\Checker;
 
 class ReadmeContributingLinkExistsMetricTest extends PHPUnit_Framework_TestCase
 {
-    private $metric;
-    public function __construct()
-    {
-        $this->metric = new Checker\ReadmeContributingLinkExistsMetric();
-    }
-
     public function testContributingLinkExists()
     {
+        $metric = new Checker\ReadmeContributingLinkExistsMetric();
         // Upper case 1
         $files = array(
             "README",
@@ -21,8 +16,8 @@ class ReadmeContributingLinkExistsMetricTest extends PHPUnit_Framework_TestCase
         ->getMock();
         $project->method('getReadme')->will($this->returnValue("Lorem ipsum [CONTRIBUTING.md](CONTRIBUTING.md)"));
 
-        $this->metric->setProject($project);
-        $this->assertFalse($this->metric->check($files)["status"]);
+        $metric->setProject($project);
+        $this->assertFalse($metric->check($files)["status"]);
 
         // Upper case 2
         $files = array(
@@ -30,6 +25,6 @@ class ReadmeContributingLinkExistsMetricTest extends PHPUnit_Framework_TestCase
             "CONTRIBUTING.md"
         );
 
-        $this->assertTrue($this->metric->check($files)["status"]);
+        $this->assertTrue($metric->check($files)["status"]);
     }
 }

@@ -3,14 +3,10 @@ use WOSPM\Checker;
 
 class GithubPRTemplateExistsMetricTest extends PHPUnit_Framework_TestCase
 {
-    private $metric;
-    public function __construct()
-    {
-        $this->metric = new Checker\GithubPRTemplateExistsMetric();
-    }
-
     public function testTemplatesExist()
     {
+        $metric = new Checker\GithubPRTemplateExistsMetric();
+
         $files = array(
             ".github",
             "./.github/PULL_REQUEST_TEMPLATE",
@@ -18,25 +14,29 @@ class GithubPRTemplateExistsMetricTest extends PHPUnit_Framework_TestCase
             "./.github/PULL_REQUEST_TEMPLATE/t2.md"
         );
 
-        $this->assertTrue($this->metric->check($files)["status"]);
+        $this->assertTrue($metric->check($files)["status"]);
     }
 
     public function testGithubNotExists()
     {
+        $metric = new Checker\GithubPRTemplateExistsMetric();
+
         $files = array(
             "nogithub"
         );
 
-        $this->assertFalse($this->metric->check($files)["status"]);
+        $this->assertFalse($metric->check($files)["status"]);
     }
 
     public function testTemplateNotExists()
     {
+        $metric = new Checker\GithubPRTemplateExistsMetric();
+        
         $files = array(
             ".github"
         );
 
-        $this->assertFalse($this->metric->check($files)["status"]);
+        $this->assertFalse($metric->check($files)["status"]);
     }
 
 }

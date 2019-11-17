@@ -3,14 +3,9 @@ use WOSPM\Checker;
 
 class ReadmeInstallationExistsMetricTest extends PHPUnit_Framework_TestCase
 {
-    private $metric;
-    public function __construct()
-    {
-        $this->metric = new Checker\ReadmeInstallationExistsMetric();
-    }
-
     public function testTocLinkExists()
     {
+        $metric = new Checker\ReadmeInstallationExistsMetric();
         // Upper case 1
         $files = array(
             "README",
@@ -21,7 +16,7 @@ class ReadmeInstallationExistsMetricTest extends PHPUnit_Framework_TestCase
         ->getMock();
         $project->method('getReadmeFileName')->will($this->returnValue("README"));
 
-        $this->metric->setProject($project);
+        $metric->setProject($project);
 
         $parsed = array(
             "headlines" => array(
@@ -85,14 +80,15 @@ class ReadmeInstallationExistsMetricTest extends PHPUnit_Framework_TestCase
         $parser->method('parse')->will($this->returnValue($parsed));
         $parser->method('setFile')->will($this->returnValue(true));
 
-        $this->metric->setParser($parser);
+        $metric->setParser($parser);
 
 
-        $this->assertTrue($this->metric->check($files)["status"]);
+        $this->assertTrue($metric->check($files)["status"]);
     }
 
     public function testTocLinkNotExists()
     {
+        $metric = new Checker\ReadmeInstallationExistsMetric();
         // Upper case 1
         $files = array(
             "README",
@@ -103,7 +99,7 @@ class ReadmeInstallationExistsMetricTest extends PHPUnit_Framework_TestCase
         ->getMock();
         $project->method('getReadmeFileName')->will($this->returnValue("README"));
 
-        $this->metric->setProject($project);
+        $metric->setProject($project);
 
         $parsed = array(
             "headlines" => array(
@@ -143,9 +139,9 @@ class ReadmeInstallationExistsMetricTest extends PHPUnit_Framework_TestCase
         $parser->method('parse')->will($this->returnValue($parsed));
         $parser->method('setFile')->will($this->returnValue(true));
 
-        $this->metric->setParser($parser);
+        $metric->setParser($parser);
 
 
-        $this->assertFalse($this->metric->check($files)["status"]);
+        $this->assertFalse($metric->check($files)["status"]);
     }
 }

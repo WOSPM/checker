@@ -3,38 +3,34 @@ use WOSPM\Checker;
 
 class ParseMdTest extends PHPUnit_Framework_TestCase
 {
-    private $project;
-
-    public function __construct()
-    {
-        $this->parseMd = new Checker\ParseMd();
-    }
-
     public function testParseHeadline()
     {
+        $parseMd = new Checker\ParseMd();
         // Upper case 1
         $lines = array(
             "## README", "", "## INTRO", "", "Intro line bla bla."
         );
 
-        $this->parseMd->setContent($lines);
-        $result = $this->parseMd->parse();
+        $parseMd->setContent($lines);
+        $result = $parseMd->parse();
         $this->assertEquals($result["headlines"][0]["raw"], $lines[0]);
         $this->assertEquals($result["headlines"][0]["slug"], "readme");
     }
 
     public function testParseLink()
     {
+        $parseMd = new Checker\ParseMd();
+
         // No link
         $line = "Line with no link.";
 
-        $result = $this->parseMd->parseLinks($line);
+        $result = $parseMd->parseLinks($line);
         $this->assertEquals(0, count($result["links"]));
 
         // One link
         $line = "Line with 1 [link](url).";
 
-        $result = $this->parseMd->parseLinks($line);
+        $result = $parseMd->parseLinks($line);
         $this->assertEquals(1, count($result["links"]));
         $this->assertEquals("link", $result["links"][0]["text"]);
         $this->assertEquals("url", $result["links"][0]["url"]);
@@ -42,7 +38,7 @@ class ParseMdTest extends PHPUnit_Framework_TestCase
         // One link
         $line = "Line with 3 links. 1 [link1](url1). 2 [link2](url2). 3 [link3](url3).";
 
-        $result = $this->parseMd->parseLinks($line);
+        $result = $parseMd->parseLinks($line);
         $this->assertEquals(3, count($result["links"]));
         $this->assertEquals("link1", $result["links"][0]["text"]);
         $this->assertEquals("url1", $result["links"][0]["url"]);
@@ -54,24 +50,26 @@ class ParseMdTest extends PHPUnit_Framework_TestCase
 
     public function testParseAsRawText()
     {
+        $parseMd = new Checker\ParseMd();
+
         // No link
         $line = "Line with no link.";
 
-        $result = $this->parseMd->parseAsRawText($line);
+        $result = $parseMd->parseAsRawText($line);
         $this->assertEquals($line, $result["raw"]);
         $this->assertEquals($line, $result["parsed"]);
 
         // One link
         $line = "Line with 1 [link](url).";
 
-        $result = $this->parseMd->parseAsRawText($line);
+        $result = $parseMd->parseAsRawText($line);
         $this->assertEquals($line, $result["raw"]);
         $this->assertEquals("Line with 1 link.", $result["parsed"]);
 
         // Multiple link
         $line = "Line with [link1](url1), [link2](url2), [link3](url3).";
 
-        $result = $this->parseMd->parseAsRawText($line);
+        $result = $parseMd->parseAsRawText($line);
         $this->assertEquals($line, $result["raw"]);
         $this->assertEquals("Line with link1, link2, link3.", $result["parsed"]);
     }
