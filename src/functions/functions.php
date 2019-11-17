@@ -197,6 +197,7 @@ function outputJSON($array)
  *
  * @param array     $array     Array of metric results
  * @param Arguments $arguments Arguments object
+ * @param Repo      $repo      Repo object
  *
  * @return void
  */
@@ -240,7 +241,8 @@ function outputHTML($array, $arguments, $repo)
         $resultHTML .= '
     <tr class="table-' . $css . '">
       <th scope="row">' . $i . '</th>
-      <td><a href="https://github.com/WOSPM/checker/blob/master/mdocs/' . $key .'.md" target="_blank">' . $key .'</a></td>
+      <td><a href="https://github.com/WOSPM/checker/blob/master/mdocs/' .
+      $key .'.md" target="_blank">' . $key .'</a></td>
       <td>' . $value['title'] . '</td>
       <td>' . $value['message'] . '</td>
     </tr>
