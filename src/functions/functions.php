@@ -242,7 +242,7 @@ function outputHTML($array, $arguments, $repo)
     <tr class="table-' . $css . '">
       <th scope="row">' . $i . '</th>
       <td><a href="https://github.com/WOSPM/checker/blob/master/mdocs/' .
-      $key .'.md" target="_blank">' . $key .'</a></td>
+        $key .'.md" target="_blank">' . $key .'</a></td>
       <td>' . $value['title'] . '</td>
       <td>' . $value['message'] . '</td>
     </tr>
