@@ -10,8 +10,11 @@
          syntaxCheck="false"
 >
     <testsuites>
-        <testsuite name="Basic Tests">
+        <testsuite name="Metric Tests">
             <directory>tests/unittests</directory>
+        </testsuite>
+        <testsuite name="Commandline Function Tests">
+            <directory>tests/clifunctiontests</directory>
         </testsuite>
     </testsuites>
 </phpunit>
