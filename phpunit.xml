@@ -1,4 +1,4 @@
-<phpunit bootstrap="tests/bootstrap.php"
+<phpunit bootstrap="tests/unittests/bootstrap.php"
          backupGlobals="false"
          backupStaticAttributes="false"
          colors="true"
@@ -11,7 +11,7 @@
 >
     <testsuites>
         <testsuite name="Basic Tests">
-            <directory>tests</directory>
+            <directory>tests/unittests</directory>
         </testsuite>
     </testsuites>
 </phpunit>
