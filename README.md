@@ -44,7 +44,7 @@ wospm-checker --help
 
 WOSPM Checker version: 0.0.1
 Options:
-    --output            The format of output. JSON, READABLE (Default), NO.
+    --output            The format of output. JSON, READABLE (Default), NO, HTML.
     --verbose           Show the progress or not. (0 => No, 1 => Detailed,
                         2 => Dots)
     --no-colors         Disable the console colors. It is enabled by default.
