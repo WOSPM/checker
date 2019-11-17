@@ -1,4 +1,4 @@
-<phpunit bootstrap="./tests/unittests/bootstrap.php"
+<phpunit bootstrap="tests/unittests/bootstrap.php"
          backupGlobals="false"
          backupStaticAttributes="false"
          colors="true"
