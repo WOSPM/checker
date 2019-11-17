@@ -131,4 +131,14 @@ class GithubVendor extends Vendor
 
         return array();
     }
+
+    /**
+     * Getter for repo propoerty
+     *
+     * @return string
+     */
+    public function getRepo()
+    {
+        return $this->repo;
+    }
 }

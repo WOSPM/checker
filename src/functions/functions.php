@@ -9,7 +9,7 @@ function showOptions()
     ?>
 WOSPM Checker version: <?php echo VERSION . PHP_EOL; ?>
 Options:
-    --output            The format of output. JSON, READABLE (Default), NO.
+    --output            Format of output. JSON, READABLE (Default), NO, HTML.
     --verbose           Show the progress or not. (0 => No, 1 => Detailed,
                         2 => Dots)
     --no-colors         Disable the console colors. It is enabled by default.
@@ -96,13 +96,19 @@ function percent($array)
  *
  * @param array     $array     Array of metric results
  * @param Arguments $arguments Arguments object containing the commandline arguments
+ * @param Repo      $repo      Repo object
  *
  * @return void
  */
-function output($array, $arguments)
+function output($array, $arguments, $repo)
 {
     if ($arguments->output === 'JSON') {
         outputJSON($array);
+        return;
+    }
+
+    if ($arguments->output === 'HTML') {
+        outputHTML($array, $arguments, $repo);
         return;
     }
 
@@ -183,6 +189,84 @@ function outputJSON($array)
     );
 
     echo json_encode($result);
+    echo PHP_EOL;
+}
+
+/**
+ * Prints the result in an HTML file
+ *
+ * @param array     $array     Array of metric results
+ * @param Arguments $arguments Arguments object
+ *
+ * @return void
+ */
+function outputHTML($array, $arguments, $repo)
+{
+    $status  = status($array);
+    $percent = percent($array);
+    $badge   = badge($percent);
+
+    preg_match("/(?:!\[(.*?)\]\((.*?)\))/", $badge, $matches);
+
+    $cssArray = array(
+        "Perfect"   => "primary",
+        "Welcoming" => "success",
+        "Not Ready" => "warning",
+        "Bad"       => "danger"
+    );
+
+    $statusText = $matches[1];
+    $statusCSS  = $cssArray[$statusText];
+    
+    $resultHTML = '
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Code</th>
+      <th scope="col">Title</th>
+      <th scope="col">Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    ';
+
+    $i = 1;
+    foreach ($array as $key => $value) {
+        $css = "danger";
+        if ($value["status"] === true) {
+            $css = "success";
+        }
+        $resultHTML .= '
+    <tr class="table-' . $css . '">
+      <th scope="row">' . $i . '</th>
+      <td>' . $key .'</td>
+      <td>' . $value['title'] . '</td>
+      <td>' . $value['message'] . '</td>
+    </tr>
+        ';
+        $i++;
+    }
+    $resultHTML .= '</tbody></table>';
+
+    $template = file_get_contents(
+        $arguments->path . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR .
+        "templates" . DIRECTORY_SEPARATOR . "report.html"
+    );
+
+    $template = str_replace("{{PROJECT}}", $repo->getRepo(), $template);
+    $template = str_replace("{{STATUS_CSS}}", $statusCSS, $template);
+    $template = str_replace("{{STATUS_TEXT}}", $statusText, $template);
+    $template = str_replace("{{STATUS_PERCENT}}", $percent, $template);
+    $template = str_replace("{{RESULT_TABLE}}", $resultHTML, $template);
+
+    file_put_contents(
+        $arguments->path . DIRECTORY_SEPARATOR . $arguments->htmlOutFile,
+        $template
+    );
+
+    echo "The report is generated and saved as " .
+    $arguments->path . DIRECTORY_SEPARATOR . $arguments->htmlOutFile;
     echo PHP_EOL;
 }
 

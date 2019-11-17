@@ -72,7 +72,7 @@ try {
 
     ksort($result);
 
-    output($result, $arguments);
+    output($result, $arguments, $repo->getVendorObject());
     
     $status  = status($result);
     $percent = percent($result);

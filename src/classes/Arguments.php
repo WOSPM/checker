@@ -35,6 +35,13 @@ class Arguments
     public $verbose = 0;
 
     /**
+     * Filename that is generated when the output option is HTML
+     * 
+     * @var string 
+     */
+    public $htmlOutFile = "wospm.html";
+    
+    /**
      * PArsing arguments from command line option
      *
      * @param array $arguments The argument paramater array
