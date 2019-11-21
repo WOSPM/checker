@@ -15,7 +15,7 @@ class GithubGFIAndHWLabelsExistMetric extends Metric
     {
         $this->code       = "WOSPM0018";
         $this->title      = "GITHUB_LABELS_GFI_HW";
-        $this->message    = '"good first issue" and "help wanted" labels exist.';
+        $this->message    = '_good first issue_ and _help wanted_ labels exist.';
         $this->type       = MetricType::ERROR;
         $this->dependency = array("WOSPM0015");
         $this->repo       = $repo;

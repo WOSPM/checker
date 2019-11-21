@@ -15,7 +15,7 @@ class GithubGFIAndHWLabelsUsedMetric extends Metric
     {
         $this->code       = "WOSPM0020";
         $this->title      = "GITHUB_LABELS_GFI_HW_USED";
-        $this->message    = '"good first issue" and "help wanted" ' .
+        $this->message    = '_good first issue_ and _help wanted_ ' .
         'labels should be used.';
         $this->type       = MetricType::ERROR;
         $this->dependency = array("WOSPM0018");
