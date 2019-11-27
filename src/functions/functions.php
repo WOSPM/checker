@@ -1,5 +1,7 @@
 <?php
 use WOSPM\Checker;
+use Symfony\Component\Yaml\Yaml;
+
 /**
  * Shows the commandline options
  */
@@ -299,6 +301,14 @@ function banner()
  */
 function processor($arguments, $repo)
 {
+    $file = PROJECT_FOLDER . DIRECTORY_SEPARATOR . ".wospm";
+    // Check if .wospm file exists for configuration
+    if (file_exists($file)) {
+        $config = Yaml::parseFile($file);
+
+        $repo->setAToken($config["github"]["auth_token"]);
+    }
+
     $processor = new Checker\Processor($arguments->verbose);
     
     $processor->addMetric(new Checker\UsingWOSPMMetric());

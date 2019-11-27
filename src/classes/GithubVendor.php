@@ -28,6 +28,13 @@ class GithubVendor extends Vendor
     private $client = null;
 
     /**
+     * Personal access token got from GitHub
+     *
+     * @var string|null
+     */
+    private $atoken = "";
+
+    /**
      * Contructore for GithubVendor class
      *
      * @param string $repo The name of the repo
@@ -54,7 +61,8 @@ class GithubVendor extends Vendor
             $this->api . $this->repo . "/topics",
             array(
                 "headers" => array(
-                    "Accept" => "application/vnd.github.mercy-preview+json"
+                    "Accept"        => "application/vnd.github.mercy-preview+json",
+                    "Authorization" => 'token ' . $this->atoken
                 )
             )
         );
@@ -77,7 +85,12 @@ class GithubVendor extends Vendor
     {
         $response = $this->client->request(
             'GET',
-            $this->api . $this->repo
+            $this->api . $this->repo,
+            array(
+                "headers" => array(
+                    "Authorization" => 'token ' . $this->atoken
+                )
+            )
         );
 
         if ($response->getStatusCode() == 200) {
@@ -97,7 +110,12 @@ class GithubVendor extends Vendor
     {
         $response = $this->client->request(
             'GET',
-            $this->api . $this->repo . "/labels"
+            $this->api . $this->repo . "/labels",
+            array(
+                "headers" => array(
+                    "Authorization" => 'token ' . $this->atoken
+                )
+            )
         );
 
         if ($response->getStatusCode() == 200) {
@@ -120,7 +138,12 @@ class GithubVendor extends Vendor
     {
         $response = $this->client->request(
             'GET',
-            $this->api . $this->repo . "/issues?labels=" . $label . "&state=all"
+            $this->api . $this->repo . "/issues?labels=" . $label . "&state=all",
+            array(
+                "headers" => array(
+                    "Authorization" => 'token ' . $this->atoken
+                )
+            )
         );
 
         if ($response->getStatusCode() == 200) {
@@ -140,5 +163,15 @@ class GithubVendor extends Vendor
     public function getRepo()
     {
         return $this->repo;
+    }
+
+    /**
+     * Setter for atoken property
+     *
+     * @param string $token Token string got from Github
+     */
+    public function setAToken($token)
+    {
+        $this->atoken = $token;
     }
 }
