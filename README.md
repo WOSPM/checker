@@ -62,6 +62,8 @@ You can check your project by running the `wospm-checker` command in the root fo
 
 ![alt text](./assets/screenshot-1.png)
 
+:exclamation::exclamation:GitHub Rest API Rate Limit:exclamation::exclamation:
+
 `wospm-checker` uses GitHub Rest API to fecth repository information in some of the metric checks. There some [limits](https://developer.github.com/v3/#rate-limiting) in using this API. When you use `wospm-checker` very frequently, you may hit the wall of anonymous limit of the API. You can use your [personal access token](https://github.com/settings/tokens) to have a bigger rate limit. In order to do this, you need to create a YML file with name `.wospm` under the root folder of the repository to be checked.
 
 ```yml
