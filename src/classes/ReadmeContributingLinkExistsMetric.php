@@ -35,6 +35,13 @@ class ReadmeContributingLinkExistsMetric extends Metric
             "contributing", "contributing.md", "contribute", "contribute.md"
         );
 
+        $files = array_map(
+            function ($file) {
+                return basename($file);
+            },
+            $files
+        );
+
         $file   = array_values(array_intersect($contributing, $files))[0];
         $readme = $this->project->getReadme($files);
         $count  = substr_count($readme, $file . ')');

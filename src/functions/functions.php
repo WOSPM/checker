@@ -331,6 +331,7 @@ function processor($arguments, $repo)
     $processor->addMetric(new Checker\GithubGFIAndHWLabelsExistMetric($repo));
     $processor->addMetric(new Checker\GithubCustomLabelUsedMetric($repo));
     $processor->addMetric(new Checker\GithubGFIAndHWLabelsUsedMetric($repo));
+    $processor->addMetric(new Checker\GithubResponsivenessMetric($repo));
 
     return $processor;
 }

@@ -58,6 +58,28 @@ class Vendor
     }
 
     /**
+     * Get the list of issues from vendor service
+     *
+     * @param array $params The fields of issues to be used in filtering the search result
+     *
+     * @return array Array of topic names
+     */
+    public function getIssues($params)
+    {
+        return array();
+    }
+
+    /**
+     * Get default headers
+     *
+     * @return Array
+     */
+    public function getDefaultHeaders()
+    {
+        return array();
+    }
+
+    /**
      * Setter of repo property
      *
      * @param string $repo The slug for the repo like "user/repo"

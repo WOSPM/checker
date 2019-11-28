@@ -50,20 +50,38 @@ class GithubVendor extends Vendor
     }
 
     /**
+     * Get default headers
+     *
+     * @return Array
+     */
+    public function getDefaultHeaders()
+    {
+        $return = array();
+
+        if ($this->atoken !== "") {
+            $return["Authorization"] = 'token ' . $this->atoken;
+        }
+
+        return $return;
+    }
+
+    /**
      * Get the topics from vendor service
      *
      * @return array Array of topic names
      */
     public function getTopics()
     {
+        $headers = $this->getDefaultHeaders();
+
+        // Accecpt header is needed to fetch the topics
+        $headers["Accept"] = "application/vnd.github.mercy-preview+json";
+
         $response = $this->client->request(
             'GET',
             $this->api . $this->repo . "/topics",
             array(
-                "headers" => array(
-                    "Accept"        => "application/vnd.github.mercy-preview+json",
-                    "Authorization" => 'token ' . $this->atoken
-                )
+                "headers" => $headers
             )
         );
 
@@ -83,13 +101,12 @@ class GithubVendor extends Vendor
      */
     public function getDescription()
     {
+        $headers  = $this->getDefaultHeaders();
         $response = $this->client->request(
             'GET',
             $this->api . $this->repo,
             array(
-                "headers" => array(
-                    "Authorization" => 'token ' . $this->atoken
-                )
+                "headers" => $headers
             )
         );
 
@@ -108,13 +125,12 @@ class GithubVendor extends Vendor
      */
     public function getLabels()
     {
+        $headers  = $this->getDefaultHeaders();
         $response = $this->client->request(
             'GET',
             $this->api . $this->repo . "/labels",
             array(
-                "headers" => array(
-                    "Authorization" => 'token ' . $this->atoken
-                )
+                "headers" => $headers
             )
         );
 
@@ -136,19 +152,50 @@ class GithubVendor extends Vendor
      */
     public function getLabelIssues($label)
     {
+        $parameters = array(
+            "labels" => $label,
+            "state"  => "all"
+        );
+
+        return $this->getIssues($parameters);
+    }
+
+    /**
+     * Get the list of issues of repo
+     *
+     * @param array $params The fields of issues to be used in filtering the search result
+     *
+     * @return array Array of topic names
+     */
+    public function getIssues($params = array())
+    {
+        if (!is_array($params)) {
+            return array();
+        }
+
+        $headers = $this->getDefaultHeaders();
+        $filters = "";
+
+        foreach ($params as $key => $value) {
+            $filters .= "$key=$value" . "&";
+        }
+
+        if ($filters !== "") {
+            $filters = "?" . trim($filters, "&");
+        }
+
         $response = $this->client->request(
             'GET',
-            $this->api . $this->repo . "/issues?labels=" . $label . "&state=all",
+            $this->api . $this->repo . "/issues" . $filters,
             array(
-                "headers" => array(
-                    "Authorization" => 'token ' . $this->atoken
-                )
+                "headers" => $headers
             )
         );
 
         if ($response->getStatusCode() == 200) {
             $body = $response->getBody();
             $body = json_decode($body, true);
+
             return $body;
         }
 

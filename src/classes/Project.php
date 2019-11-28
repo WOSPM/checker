@@ -66,7 +66,7 @@ class Project
                             preg_replace(
                                 '/[\']/',
                                 '',
-                                iconv('UTF-8', 'ASCII//TRANSLIT', $str)
+                                iconv('UTF-8', 'utf-8//TRANSLIT', $str)
                             )
                         )
                     )

@@ -35,6 +35,13 @@ class ReadmeCocLinkExistsMetric extends Metric
             "code_of_conduct", "code_of_conduct.md"
         );
 
+        $files = array_map(
+            function ($file) {
+                return basename($file);
+            },
+            $files
+        );
+
         $file   = array_values(array_intersect($coc, $files))[0];
         $readme = $this->project->getReadme($files);
         $count  = substr_count($readme, $file . ')');
