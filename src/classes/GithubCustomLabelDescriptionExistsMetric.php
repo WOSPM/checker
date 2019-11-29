@@ -2,9 +2,9 @@
 namespace WOSPM\Checker;
 
 /**
- * Doc comment for class GithubCustomLabelExistsMetric
+ * Doc comment for class GithubCustomLabelDescriptionExistsMetric
  */
-class GithubCustomLabelExistsMetric extends Metric
+class GithubCustomLabelDescriptionExistsMetric extends Metric
 {
     /**
      * Constructor function that initializes the Metric definitions
@@ -13,16 +13,16 @@ class GithubCustomLabelExistsMetric extends Metric
      */
     public function __construct($repo)
     {
-        $this->code       = "WOSPM0017";
-        $this->title      = "GITHUB_CUSTOM_LABELS";
-        $this->message    = "Creating custom labels is a good practice.";
+        $this->code       = "WOSPM0022";
+        $this->title      = "GITHUB_CUSTOM_LABEL_DESCRIPTON";
+        $this->message    = "Custom labels should have descriptions.";
         $this->type       = MetricType::ERROR;
-        $this->dependency = array("WOSPM0015");
+        $this->dependency = array("WOSPM0015", "WOSPM0017");
         $this->repo       = $repo;
     }
 
     /**
-     * Checks if there is/are custom label(s)
+     * Checks if all labels has description
      * 
      * @param array $files Array of the files in root directory
      *
@@ -32,17 +32,17 @@ class GithubCustomLabelExistsMetric extends Metric
     {
         $labels = $this->repo->getLabels();
 
-        $custom = array_filter(
+        $hasNoDescription = array_filter(
             $labels,
             function ($label) {
-                return ($label['default'] === false);
+                return (trim($label['description']) === "");
             }
         );
 
-        if (count($custom) === 0) {
-            return $this->fail();
+        if (count($hasNoDescription) === 0) {
+            return $this->success();
         }
 
-        return $this->success();
+        return $this->fail();
     }
 }

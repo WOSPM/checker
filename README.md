@@ -122,6 +122,7 @@ To see the details of the metrics, click the metric title for detailed document.
 | [WOSPM0019](./mdocs/WOSPM0019.md)      | GITHUB_CUSTOM_LABELS_USED | At least one custom label should be associated to an issue. |
 | [WOSPM0020](./mdocs/WOSPM0020.md)      | GITHUB_LABELS_GFI_HW_USED | _good first issue_ and "help wanted" labels should be used. |
 | [WOSPM0021](./mdocs/WOSPM0021.md)      | GITHUB_RESPONSIVENESS | Responsive owners encourage users to be contributors. |
+| [WOSPM0022](./mdocs/WOSPM0022.md)      | GITHUB_CUSTOM_LABEL_DESCRIPTON | Custom labels should have descriptions. |
 
 ### Badges
 
