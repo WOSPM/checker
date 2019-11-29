@@ -67,7 +67,7 @@ You can check your project by running the `wospm-checker` command in the root fo
 
 **GitHub Rest API Rate Limit** :exclamation::exclamation::exclamation:
 
-`wospm-checker` uses GitHub Rest API to fecth repository information in some of the metric checks. There some [limits](https://developer.github.com/v3/#rate-limiting) in using this API. When you use `wospm-checker` very frequently, you may hit the wall of anonymous limit of the API. 
+`wospm-checker` uses GitHub Rest API to fecth repository information in some of the metric checks. There some [limits](https://developer.github.com/v3/#rate-limiting) in using this API. When you use `wospm-checker` very frequently, you may hit the wall of anonymous limit of the API.
 
 ```bash
 Client error: `GET https://api.github.com/repos/user/repo/labels` resulted in a `403 Forbidden` response:
