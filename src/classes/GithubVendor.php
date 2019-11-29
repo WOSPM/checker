@@ -163,7 +163,7 @@ class GithubVendor extends Vendor
     /**
      * Get the list of issues of repo
      *
-     * @param array $params The fields of issues to be used in filtering the search result
+     * @param array $params The fields to be used in filtering the search result
      *
      * @return array Array of topic names
      */

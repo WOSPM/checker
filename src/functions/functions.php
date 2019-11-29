@@ -311,28 +311,71 @@ function processor($arguments, $repo)
 
     $processor = new Checker\Processor($arguments->verbose);
     
-    $processor->addMetric(new Checker\UsingWOSPMMetric());
-    $processor->addMetric(new Checker\ReadmeExistsMetric());
-    $processor->addMetric(new Checker\LicenseExistsMetric());
-    $processor->addMetric(new Checker\ContributingExistsMetric());
-    $processor->addMetric(new Checker\CocExistsMetric());
-    $processor->addMetric(new Checker\ReadmeContributingLinkExistsMetric());
-    $processor->addMetric(new Checker\ReadmeCocLinkExistsMetric());
-    $processor->addMetric(new Checker\ReadmeTocExistsMetric());
-    $processor->addMetric(new Checker\ReadmeAdequateMetric());
-    $processor->addMetric(new Checker\ReadmeInstallationExistsMetric());
-    $processor->addMetric(new Checker\GithubIssueTemplateExistsMetric());
-    $processor->addMetric(new Checker\GithubPRTemplateExistsMetric());
-    $processor->addMetric(new Checker\GithubDescriptionExistsMetric($repo));
-    $processor->addMetric(new Checker\GithubTopicExistsMetric($repo));
-    $processor->addMetric(new Checker\GithubLabelExistsMetric($repo));
-    $processor->addMetric(new Checker\GithubLabelUsedMetric($repo));
-    $processor->addMetric(new Checker\GithubCustomLabelExistsMetric($repo));
-    $processor->addMetric(new Checker\GithubGFIAndHWLabelsExistMetric($repo));
-    $processor->addMetric(new Checker\GithubCustomLabelUsedMetric($repo));
-    $processor->addMetric(new Checker\GithubGFIAndHWLabelsUsedMetric($repo));
-    $processor->addMetric(new Checker\GithubResponsivenessMetric($repo));
-    $processor->addMetric(new Checker\GithubCustomLabelDescriptionExistsMetric($repo));
+    $processor->addMetric(
+        new Checker\UsingWOSPMMetric()
+    );
+    $processor->addMetric(
+        new Checker\ReadmeExistsMetric()
+    );
+    $processor->addMetric(
+        new Checker\LicenseExistsMetric()
+    );
+    $processor->addMetric(
+        new Checker\ContributingExistsMetric()
+    );
+    $processor->addMetric(
+        new Checker\CocExistsMetric()
+    );
+    $processor->addMetric(
+        new Checker\ReadmeContributingLinkExistsMetric()
+    );
+    $processor->addMetric(
+        new Checker\ReadmeCocLinkExistsMetric()
+    );
+    $processor->addMetric(
+        new Checker\ReadmeTocExistsMetric()
+    );
+    $processor->addMetric(
+        new Checker\ReadmeAdequateMetric()
+    );
+    $processor->addMetric(
+        new Checker\ReadmeInstallationExistsMetric());
+    $processor->addMetric(
+        new Checker\GithubIssueTemplateExistsMetric()
+    );
+    $processor->addMetric(
+        new Checker\GithubPRTemplateExistsMetric()
+    );
+    $processor->addMetric(
+        new Checker\GithubDescriptionExistsMetric($repo)
+    );
+    $processor->addMetric(
+        new Checker\GithubTopicExistsMetric($repo)
+    );
+    $processor->addMetric(
+        new Checker\GithubLabelExistsMetric($repo)
+    );
+    $processor->addMetric(
+        new Checker\GithubLabelUsedMetric($repo)
+    );
+    $processor->addMetric(
+        new Checker\GithubCustomLabelExistsMetric($repo)
+    );
+    $processor->addMetric(
+        new Checker\GithubGFIAndHWLabelsExistMetric($repo)
+    );
+    $processor->addMetric(
+        new Checker\GithubCustomLabelUsedMetric($repo)
+    );
+    $processor->addMetric(
+        new Checker\GithubGFIAndHWLabelsUsedMetric($repo)
+    );
+    $processor->addMetric(
+        new Checker\GithubResponsivenessMetric($repo)
+    );
+    $processor->addMetric(
+        new Checker\GithubCustomLabelDescriptionExistsMetric($repo)
+    );
 
     return $processor;
 }

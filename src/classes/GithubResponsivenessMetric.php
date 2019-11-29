@@ -38,9 +38,13 @@ class GithubResponsivenessMetric extends Metric
         $issues = $this->repo->getIssues($parameters);
 
         // Filter issues with author_association
-        $issues = array_filter($issues, function($value, $key) {
-            return ($value["author_association"] == 'NONE');
-        }, ARRAY_FILTER_USE_BOTH);
+        $issues = array_filter(
+            $issues,
+            function ($value, $key) {
+                return ($value["author_association"] == 'NONE');
+            },
+            ARRAY_FILTER_USE_BOTH
+        );
 
         if (count($issues) == 0) {
             return $this->success();
