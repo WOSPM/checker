@@ -339,7 +339,8 @@ function processor($arguments, $repo)
         new Checker\ReadmeAdequateMetric()
     );
     $processor->addMetric(
-        new Checker\ReadmeInstallationExistsMetric());
+        new Checker\ReadmeInstallationExistsMetric()
+    );
     $processor->addMetric(
         new Checker\GithubIssueTemplateExistsMetric()
     );
