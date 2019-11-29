@@ -133,7 +133,7 @@ class GithubVendor extends Vendor
                 "headers" => $headers
             )
         );
-
+        
         if ($response->getStatusCode() == 200) {
             $body = $response->getBody();
             $body = json_decode($body, true);
