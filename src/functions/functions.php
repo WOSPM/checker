@@ -103,6 +103,8 @@ function percent($array)
  * @param Repo      $repo      Repo object
  *
  * @return void
+ *
+ * @codeCoverageIgnore
  */
 function output($array, $arguments, $repo)
 {
