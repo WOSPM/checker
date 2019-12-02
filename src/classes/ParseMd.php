@@ -76,8 +76,8 @@ class ParseMd
                         continue;
                     }
                     
-                    $this->parsed["headlines"][$ln-1] =
-                        $this->parseHeadline($this->content[$ln-1]);
+                    $this->parsed["headlines"][$ln-1]
+                        = $this->parseHeadline($this->content[$ln-1]);
                 } else {
                     $this->parsed["rawtexts"][$ln] = $this->parseAsRawText($line);
                 }
