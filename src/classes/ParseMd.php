@@ -69,7 +69,14 @@ class ParseMd
             if (trim($line)[0] === '#') {
                 $this->parsed["headlines"][$ln] = $this->parseHeadline($line);
             } else {
-                $this->parsed["rawtexts"][$ln] = $this->parseAsRawText($line);
+                if (strlen(str_replace('-', '', $line)) === 0) {
+                    // This means that it is line containing only "-"
+                    // And it just after an headline
+                    $this->parsed["headlines"][$ln-1] =
+                        $this->parseHeadline($this->content[$ln-1]);
+                } else {
+                    $this->parsed["rawtexts"][$ln] = $this->parseAsRawText($line);
+                }
             }
         }
 
