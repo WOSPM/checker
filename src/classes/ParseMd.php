@@ -71,7 +71,11 @@ class ParseMd
             } else {
                 if (strlen(str_replace('-', '', $line)) === 0) {
                     // This means that it is line containing only "-"
-                    // And it just after an headline
+                    // but check if it just after an headline
+                    if (trim($this->content[$ln-1]) === "") {
+                        continue;
+                    }
+                    
                     $this->parsed["headlines"][$ln-1] =
                         $this->parseHeadline($this->content[$ln-1]);
                 } else {
