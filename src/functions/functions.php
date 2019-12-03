@@ -254,7 +254,7 @@ function outputHTML($array, $arguments, $repo)
     $resultHTML .= '</tbody></table>';
 
     $template = file_get_contents(
-        $arguments->path . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR .
+        __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR .
         "templates" . DIRECTORY_SEPARATOR . "report.html"
     );
 
