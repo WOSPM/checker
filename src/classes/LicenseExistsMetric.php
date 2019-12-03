@@ -9,13 +9,14 @@ class LicenseExistsMetric extends Metric
     /**
      * Contructor function that initializes the Metric definitions
      */
-    public function __construct()
+    public function __construct($repo)
     {
         $this->code       = "WOSPM0003";
         $this->title      = "LICENSE";
         $this->message    = "Every open source project should have a LICENSE file.";
         $this->type       = MetricType::ERROR;
-        $this->dependency = array('WOSPM0002');
+        $this->dependency = array('WOSPM0001');
+        $this->repo       = $repo;
     }
 
     /**
@@ -27,16 +28,14 @@ class LicenseExistsMetric extends Metric
      */
     public function check($files)
     {
-        $license = array(
-            "LICENSE", "LICENSE.md", "license", "license.md"
-        );
+        $license = $this->repo->getLicense();
 
-        $check = (bool)array_intersect($license, $files);
-
-        if ($check === true) {
+        if (is_array($license)) {
+            $this->addVerboseDetail($license["name"] . " is used.");
             return $this->success();
         }
 
+        $this->addVerboseDetail("No license is used.");
         return $this->fail();
     }
 }

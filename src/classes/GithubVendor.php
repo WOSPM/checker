@@ -117,6 +117,30 @@ class GithubVendor extends Vendor
         }
         return '';
     }
+    
+    /**
+     * Get the license from vendor service
+     *
+     * @return string License name of the repo
+     */
+    public function getLicense()
+    {
+        $headers  = $this->getDefaultHeaders();
+        $response = $this->client->request(
+            'GET',
+            $this->api . $this->repo,
+            array(
+                "headers" => $headers
+            )
+        );
+
+        if ($response->getStatusCode() == 200) {
+            $body = $response->getBody();
+            $body = json_decode($body, true);
+            return $body["license"];
+        }
+        return null;
+    }
 
     /**
      * Get the list of labels from vendor service

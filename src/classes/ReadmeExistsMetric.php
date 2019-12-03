@@ -15,7 +15,7 @@ class ReadmeExistsMetric extends Metric
         $this->title      = "README";
         $this->message    = "Every open source project should have a README file.";
         $this->type       = MetricType::ERROR;
-        $this->dependency = array();
+        $this->dependency = array("WOSPM0003");
         $this->verboseDetail = array();
     }
 

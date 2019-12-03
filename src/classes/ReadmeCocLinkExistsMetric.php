@@ -47,9 +47,17 @@ class ReadmeCocLinkExistsMetric extends Metric
         $count  = substr_count($readme, $file . ')');
 
         if ($count !== 0) {
+            $this->addVerboseDetail(
+                "Code Of Conduct is linked from README."
+            );
+
             return $this->success();
         }
 
+        $this->addVerboseDetail(
+            "No link to Code Of Conduct."
+        );
+        
         return $this->fail();
     }
 

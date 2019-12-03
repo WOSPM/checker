@@ -47,8 +47,16 @@ class ReadmeContributingLinkExistsMetric extends Metric
         $count  = substr_count($readme, $file . ')');
 
         if ($count !== 0) {
+            $this->addVerboseDetail(
+                "Contributing file is linked from README."
+            );
+
             return $this->success();
         }
+        
+        $this->addVerboseDetail(
+            "No link to Contributing file."
+        );
 
         return $this->fail();
     }

@@ -27,6 +27,7 @@ class UsingWOSPMMetric extends Metric
      */
     public function check($files)
     {
+        $this->addVerboseDetail("Congratulations! You are using WOSPM checker.");
         return $this->success();
     }
 }

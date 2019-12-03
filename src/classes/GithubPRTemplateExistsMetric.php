@@ -15,7 +15,7 @@ class GithubPRTemplateExistsMetric extends Metric
         $this->title      = "GITHUB_PR_TEMPLATE";
         $this->message    = "You should have PR template on Github.";
         $this->type       = MetricType::ERROR;
-        $this->dependency = array();
+        $this->dependency = array("WOSPM0003");
     }
 
     /**

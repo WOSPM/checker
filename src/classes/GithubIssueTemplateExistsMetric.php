@@ -15,7 +15,7 @@ class GithubIssueTemplateExistsMetric extends Metric
         $this->title      = "GITHUB_ISSUE_TEMPLATE";
         $this->message    = "You should have issue templates on Github.";
         $this->type       = MetricType::ERROR;
-        $this->dependency = array();
+        $this->dependency = array("WOSPM0003");
     }
 
     /**

@@ -17,7 +17,7 @@ class GithubLabelExistsMetric extends Metric
         $this->title      = "GITHUB_LABELS";
         $this->message    = "Project should have issue labels.";
         $this->type       = MetricType::ERROR;
-        $this->dependency = array();
+        $this->dependency = array("WOSPM0003");
         $this->repo       = $repo;
     }
 

@@ -17,7 +17,7 @@ class GithubCustomLabelDescriptionExistsMetric extends Metric
         $this->title      = "GITHUB_CUSTOM_LABEL_DESCRIPTON";
         $this->message    = "Custom labels should have descriptions.";
         $this->type       = MetricType::ERROR;
-        $this->dependency = array("WOSPM0015", "WOSPM0017");
+        $this->dependency = array("WOSPM0003", "WOSPM0015", "WOSPM0017");
         $this->repo       = $repo;
     }
 

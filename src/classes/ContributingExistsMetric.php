@@ -16,7 +16,7 @@ class ContributingExistsMetric extends Metric
         $this->message    = "Every open source project should " . 
         "have a CONTRIBUTING file.";
         $this->type       = MetricType::ERROR;
-        $this->dependency = array();
+        $this->dependency = array("WOSPM0003");
     }
 
     /**

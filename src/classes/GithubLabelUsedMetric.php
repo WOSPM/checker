@@ -17,7 +17,7 @@ class GithubLabelUsedMetric extends Metric
         $this->title      = "GITHUB_LABELS_USED";
         $this->message    = "Labels should be used to highlight the issues.";
         $this->type       = MetricType::ERROR;
-        $this->dependency = array("WOSPM0015");
+        $this->dependency = array("WOSPM0003","WOSPM0015");
         $this->repo       = $repo;
     }
 
@@ -36,10 +36,15 @@ class GithubLabelUsedMetric extends Metric
             $issues = $this->repo->getLabelIssues($label["name"]);
 
             if (count($issues) > 0) {
+                $this->addVerboseDetail(
+                    "Label with name " . $label["name"] . " is used in " .
+                    count($issues) . " issues"
+                );
                 return $this->success();
             }
         }
 
+        $this->addVerboseDetail("No label is used in issues.");
         return $this->fail();
     }
 }

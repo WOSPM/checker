@@ -18,7 +18,7 @@ class GithubCustomLabelUsedMetric extends Metric
         $this->message    = "At least one custom label should be associated" .
         " to an issue.";
         $this->type       = MetricType::ERROR;
-        $this->dependency = array("WOSPM0017");
+        $this->dependency = array("WOSPM0003", "WOSPM0017");
         $this->repo       = $repo;
     }
 
@@ -44,10 +44,15 @@ class GithubCustomLabelUsedMetric extends Metric
             $issues = $this->repo->getLabelIssues($label["name"]);
 
             if (count($issues) > 0) {
+                $this->addVerboseDetail(
+                    "Label with name " . $label["name"] . " is used in " .
+                    count($issues) . " issues"
+                );
                 return $this->success();
             }
         }
 
+        $this->addVerboseDetail("No label is used in issues.");
         return $this->fail();
     }
 }

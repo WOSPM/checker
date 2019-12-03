@@ -17,7 +17,7 @@ class GithubDescriptionExistsMetric extends Metric
         $this->title      = "GITHUB_SHORT_DESCRIPTION";
         $this->message    = "Project should have a short description on Github.";
         $this->type       = MetricType::ERROR;
-        $this->dependency = array();
+        $this->dependency = array("WOSPM0003");
         $this->repo       = $repo;
     }
 

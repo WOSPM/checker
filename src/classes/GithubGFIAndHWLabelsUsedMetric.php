@@ -18,7 +18,7 @@ class GithubGFIAndHWLabelsUsedMetric extends Metric
         $this->message    = '_good first issue_ and _help wanted_ ' .
         'labels should be used.';
         $this->type       = MetricType::ERROR;
-        $this->dependency = array("WOSPM0018");
+        $this->dependency = array("WOSPM0003", "WOSPM0018");
         $this->repo       = $repo;
     }
 
@@ -34,14 +34,27 @@ class GithubGFIAndHWLabelsUsedMetric extends Metric
         $issues = $this->repo->getLabelIssues("good first issue");
 
         if (count($issues) > 0) {
+            $this->addVerboseDetail(
+                "Label with name good first issue is used in " .
+                count($issues) . " issues"
+            );
             return $this->success();
         }
 
         $issues = $this->repo->getLabelIssues("help wanted");
 
         if (count($issues) > 0) {
+            $this->addVerboseDetail(
+                "Label with name help wanted is used in " .
+                count($issues) . " issues"
+            );
             return $this->success();
         }
+
+        $this->addVerboseDetail(
+            "good first issue or help wanted labels are " .
+            "not used in issues."
+        );
 
         return $this->fail();
     }

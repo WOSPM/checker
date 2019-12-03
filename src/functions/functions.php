@@ -332,7 +332,7 @@ function processor($arguments, $repo)
         new Checker\ReadmeExistsMetric()
     );
     $processor->addMetric(
-        new Checker\LicenseExistsMetric()
+        new Checker\LicenseExistsMetric($repo)
     );
     $processor->addMetric(
         new Checker\ContributingExistsMetric()

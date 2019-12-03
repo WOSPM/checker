@@ -17,7 +17,7 @@ class GithubResponsivenessMetric extends Metric
         $this->title      = "GITHUB_RESPONSIVENESS";
         $this->message    = "Responsive owners encourage users to be contributors.";
         $this->type       = MetricType::ERROR;
-        $this->dependency = array();
+        $this->dependency = array("WOSPM0003");
         $this->repo       = $repo;
     }
 
@@ -47,6 +47,7 @@ class GithubResponsivenessMetric extends Metric
         );
 
         if (count($issues) == 0) {
+            $this->addVerboseDetail("There is no issue created by others.");
             return $this->success();
         }
 
@@ -61,6 +62,10 @@ class GithubResponsivenessMetric extends Metric
 
                 if ($interval->days >= 1) {
                     // TODO: we need to check if the owner of issue is not commented
+                    $this->addVerboseDetail(
+                        "The issue is not updated in first 24 hours."
+                    );
+
                     return $this->fail();
                 }
             }
@@ -69,10 +74,16 @@ class GithubResponsivenessMetric extends Metric
 
             if ($interval->days >= 1) {
                 // TODO: we need to check if the owner of issue is not commented
+                $this->addVerboseDetail(
+                    "The issue is not updated in first 24 hours."
+                );
                 return $this->fail();
             }
         }
 
+        $this->addVerboseDetail(
+            "All issues are updated in first 24 hours."
+        );
         return $this->success();
     }
 }

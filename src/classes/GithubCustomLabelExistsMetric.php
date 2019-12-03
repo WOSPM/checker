@@ -17,7 +17,7 @@ class GithubCustomLabelExistsMetric extends Metric
         $this->title      = "GITHUB_CUSTOM_LABELS";
         $this->message    = "Creating custom labels is a good practice.";
         $this->type       = MetricType::ERROR;
-        $this->dependency = array("WOSPM0015");
+        $this->dependency = array("WOSPM0003", "WOSPM0015");
         $this->repo       = $repo;
     }
 
