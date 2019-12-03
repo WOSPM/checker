@@ -195,7 +195,8 @@ function outputJSON($array)
         "status"  => $status,
         "percent" => $percent,
         "badge"   => badge($percent),
-        'metrics' => array_values($array)
+        'metrics' => array_values($array),
+        'version' => VERSION
     );
 
     echo json_encode($result);
@@ -273,6 +274,7 @@ function outputHTML($array, $arguments, $repo)
     $template = str_replace("{{STATUS_TEXT}}", $statusText, $template);
     $template = str_replace("{{STATUS_PERCENT}}", $percent, $template);
     $template = str_replace("{{RESULT_TABLE}}", $resultHTML, $template);
+    $template = str_replace("{{VERSION}}", VERSION, $template);
 
     file_put_contents(
         $arguments->path . DIRECTORY_SEPARATOR . $arguments->htmlOutFile,
