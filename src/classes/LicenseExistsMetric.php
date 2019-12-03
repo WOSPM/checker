@@ -8,6 +8,8 @@ class LicenseExistsMetric extends Metric
 {
     /**
      * Contructor function that initializes the Metric definitions
+     *
+     * @param GithubVendor $repo Repo object
      */
     public function __construct($repo)
     {

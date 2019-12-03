@@ -4,46 +4,33 @@ class LicenseExistsMetricTest extends PHPUnit_Framework_TestCase
 {
     public function testLicenseExists()
     {
-        $metric = new Checker\LicenseExistsMetric();
-
-        // Case 1
         $files = array(
-            "LICENSE"
+            "README",
+            "CODE_OF_CONDUCT"
         );
 
-        $this->assertTrue($metric->check($files)["status"]);
+        $repo = $this->getMockBuilder('Checker\GithubVendor')->setMethods(['getLicense'])
+        ->getMock();
+        $repo->method('getLicense')->will($this->returnValue(array("name" => "MIT License")));
 
-        // Case 2
-        $files = array(
-            "LICENSE.md"
-        );
-
-        $this->assertTrue($metric->check($files)["status"]);
-
-        // Case 3
-        $files = array(
-            "license"
-        );
-
-        $this->assertTrue($metric->check($files)["status"]);
-
-        // Case 4
-        $files = array(
-            "license.md"
-        );
+        $metric = new Checker\LicenseExistsMetric($repo);
 
         $this->assertTrue($metric->check($files)["status"]);
     }
 
     public function testLicenseNotExists()
     {
-        $metric = new Checker\LicenseExistsMetric();
-
         $files = array(
-            "NOLICENSE"
+            "README",
+            "CODE_OF_CONDUCT"
         );
+
+        $repo = $this->getMockBuilder('Checker\GithubVendor')->setMethods(['getLicense'])
+        ->getMock();
+        $repo->method('getLicense')->will($this->returnValue(null));
+
+        $metric = new Checker\LicenseExistsMetric($repo);
 
         $this->assertFalse($metric->check($files)["status"]);
     }
-
 }
