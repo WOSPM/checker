@@ -35,7 +35,10 @@ class ReadmeExistsMetric extends Metric
         $check = (bool)array_intersect($readme, $files);
 
         if ($check === true) {
-            $this->addVerboseDetail("Readme file is " . implode(",", array_intersect($readme, $files)));
+            $this->addVerboseDetail(
+                "Readme file is " . implode(",", array_intersect($readme, $files))
+            );
+            
             return $this->success();
         }
         

@@ -91,6 +91,13 @@ class Metric
         }
     }
 
+    /**
+     * Adds a verbose detail to the array
+     *
+     * @param string $detail The text to be added to the array
+     *
+     * @return void
+     */
     protected function addVerboseDetail($detail)
     {
         $this->verboseDetail[] = $detail;
