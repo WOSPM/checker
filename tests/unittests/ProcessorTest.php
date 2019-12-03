@@ -23,19 +23,21 @@ class ProcessorTest extends \PHPUnit_Framework_TestCase
     {
         $processor = new Checker\Processor();
 
-        $metric1 = $this->getMockBuilder('Checker\Metric')->setMethods(['check', 'verbose'])
+        $metric1 = $this->getMockBuilder('Checker\Metric')->setMethods(['check', 'verboseStart', 'verboseEnd'])
         ->getMock();
         $metric1->code       = "code1";
         $metric1->dependency = array();
         $metric1->method('check')->will($this->returnValue(true));
-        $metric1->method('verbose')->will($this->returnValue(null));
+        $metric1->method('verboseStart')->will($this->returnValue(null));
+        $metric1->method('verboseEnd')->will($this->returnValue(null));
 
-        $metric2 = $this->getMockBuilder('Checker\Metric')->setMethods(['check', 'verbose'])
+        $metric2 = $this->getMockBuilder('Checker\Metric')->setMethods(['check', 'verboseStart', 'verboseEnd'])
         ->getMock();
         $metric2->code       = "code2";
         $metric2->dependency = array();
         $metric2->method('check')->will($this->returnValue(true));
-        $metric2->method('verbose')->will($this->returnValue(null));
+        $metric2->method('verboseStart')->will($this->returnValue(null));
+        $metric2->method('verboseEnd')->will($this->returnValue(null));
 
         $files = array("README");
 
@@ -52,19 +54,21 @@ class ProcessorTest extends \PHPUnit_Framework_TestCase
     {
         $processor = new Checker\Processor();
 
-        $metric1 = $this->getMockBuilder('Checker\Metric')->setMethods(['check', 'verbose'])
+        $metric1 = $this->getMockBuilder('Checker\Metric')->setMethods(['check', 'verboseStart', 'verboseEnd'])
         ->getMock();
         $metric1->code       = "code1";
         $metric1->dependency = array();
         $metric1->method('check')->will($this->returnValue(array("code" => "code1", "status" => true)));
-        $metric1->method('verbose')->will($this->returnValue(null));
+        $metric1->method('verboseStart')->will($this->returnValue(null));
+        $metric1->method('verboseEnd')->will($this->returnValue(null));
 
-        $metric2 = $this->getMockBuilder('Checker\Metric')->setMethods(['check', 'verbose'])
+        $metric2 = $this->getMockBuilder('Checker\Metric')->setMethods(['check', 'verboseStart', 'verboseEnd'])
         ->getMock();
         $metric2->code       = "code2";
         $metric2->dependency = array("code1");
         $metric2->method('check')->will($this->returnValue(array("code" => "code2", "status" => true)));
-        $metric2->method('verbose')->will($this->returnValue(null));
+        $metric2->method('verboseStart')->will($this->returnValue(null));
+        $metric2->method('verboseEnd')->will($this->returnValue(null));
 
         $files = array("README");
 
@@ -82,21 +86,23 @@ class ProcessorTest extends \PHPUnit_Framework_TestCase
     {
         $processor = new Checker\Processor();
 
-        $metric1 = $this->getMockBuilder('Checker\Metric')->setMethods(['check', 'fail', 'verbose'])
+        $metric1 = $this->getMockBuilder('Checker\Metric')->setMethods(['check', 'fail', 'verboseStart', 'verboseEnd'])
         ->getMock();
         $metric1->code       = "code1";
         $metric1->dependency = array();
         $metric1->method('check')->will($this->returnValue(array("code" => "code1", "status" => false)));
         $metric1->method('fail')->will($this->returnValue(array("code" => "code1", "status" => false)));
-        $metric1->method('verbose')->will($this->returnValue(null));
+        $metric1->method('verboseStart')->will($this->returnValue(null));
+        $metric1->method('verboseEnd')->will($this->returnValue(null));
 
-        $metric2 = $this->getMockBuilder('Checker\Metric')->setMethods(['check', 'fail', 'verbose'])
+        $metric2 = $this->getMockBuilder('Checker\Metric')->setMethods(['check', 'fail', 'verboseStart', 'verboseEnd'])
         ->getMock();
         $metric2->code       = "code2";
         $metric2->dependency = array("code1");
         $metric2->method('check')->will($this->returnValue(array("code" => "code2", "status" => true)));
         $metric2->method('fail')->will($this->returnValue(array("code" => "code1", "status" => false)));
-        $metric2->method('verbose')->will($this->returnValue(null));
+        $metric2->method('verboseStart')->will($this->returnValue(null));
+        $metric2->method('verboseEnd')->will($this->returnValue(null));
 
         $files = array("README");
 

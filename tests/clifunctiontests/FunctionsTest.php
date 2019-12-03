@@ -147,7 +147,9 @@ class FunctionsTest extends PHPUnit_Framework_TestCase
 
     public function testProcessor()
     {
-        $repo = $this->getMockBuilder('Checker\GithubVendor')->getMock();
+        $repo = $this->getMockBuilder('Checker\GithubVendor')->setMethods(['setAToken', 'setMethods'])->getMock();
+        $repo->method('setAToken')->will($this->returnValue(null));
+
         $arguments = $this->getMockBuilder('Checker\Arguments')->getMock();
         $arguments->verbose = 'NO';
         //define('PROJECT_FOLDER', '/tmp/');

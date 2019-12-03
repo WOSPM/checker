@@ -14,7 +14,7 @@ class GithubLabelExistsMetricTest extends PHPUnit_Framework_TestCase
 
         $repo = $this->getMockBuilder('Checker\GithubVendor')->setMethods(['getLabels'])
         ->getMock();
-        $repo->method('getLabels')->will($this->returnValue(array("label1", "label2")));
+        $repo->method('getLabels')->will($this->returnValue(array(array("name" =>"label1"), array("name" =>"label2"))));
 
         $this->metric = new Checker\GithubLabelExistsMetric($repo);
 

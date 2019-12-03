@@ -13,9 +13,9 @@ class GithubCustomLabelExistsMetricTest extends PHPUnit_Framework_TestCase
         );
 
         $labels = array(
-            array("default" => true),
-            array("default" => false),
-            array("default" => true)
+            array("name" => "label1", "default" => true),
+            array("name" => "label2", "default" => false),
+            array("name" => "label3", "default" => true)
         );
 
         $repo = $this->getMockBuilder('Checker\GithubVendor')->setMethods(['getLabels'])
@@ -36,9 +36,9 @@ class GithubCustomLabelExistsMetricTest extends PHPUnit_Framework_TestCase
         );
 
         $labels = array(
-            array("default" => true),
-            array("default" => true),
-            array("default" => true)
+            array("name" => "label1", "default" => true),
+            array("name" => "label2", "default" => true),
+            array("name" => "label3", "default" => true)
         );
 
         $repo = $this->getMockBuilder('Checker\GithubVendor')->setMethods(['getLabels'])
