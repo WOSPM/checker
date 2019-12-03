@@ -40,7 +40,10 @@ class GithubGFIAndHWLabelsExistMetric extends Metric
         );
 
         if (count($gfi) === 0) {
-            $this->addVerboseDetail("'good first issue' label does not exist on GitHub.");
+            $this->addVerboseDetail(
+                "'good first issue' label does not exist on GitHub."
+            );
+            
             return $this->fail();
         }
 
@@ -52,11 +55,16 @@ class GithubGFIAndHWLabelsExistMetric extends Metric
         );
 
         if (count($hw) === 0) {
-            $this->addVerboseDetail("'help wanted' label does not exist on GitHub.");
+            $this->addVerboseDetail(
+                "'help wanted' label does not exist on GitHub."
+            );
+
             return $this->fail();
         }
 
-        $this->addVerboseDetail("'good first issue' and 'help wanted' labels exist on GitHub.");
+        $this->addVerboseDetail(
+            "'good first issue' and 'help wanted' labels exist on GitHub."
+        );
         return $this->success();
     }
 }

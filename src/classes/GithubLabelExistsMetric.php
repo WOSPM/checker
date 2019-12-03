@@ -37,12 +37,12 @@ class GithubLabelExistsMetric extends Metric
             return $this->fail();
         }
 
-        $this->addVerboseDetail("There is/are " . count($labels) .
-            " label(s) on GitHub.");
+        $this->addVerboseDetail(
+            "There is/are " . count($labels) . " label(s) on GitHub."
+        );
 
         $labels = array_map(
-            function ($label)
-            { 
+            function ($label) { 
                 return $label['name'];
             },
             $labels

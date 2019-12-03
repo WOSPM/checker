@@ -49,8 +49,7 @@ class GithubCustomLabelExistsMetric extends Metric
         );
 
         $custom = array_map(
-            function ($label)
-            {
+            function ($label) {
                 return $label['name'];
             },
             $custom
