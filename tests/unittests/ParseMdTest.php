@@ -73,4 +73,21 @@ class ParseMdTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($line, $result["raw"]);
         $this->assertEquals("Line with link1, link2, link3.", $result["parsed"]);
     }
+
+    public function testParseDashedHeadline()
+    {
+        $parseMd = new Checker\ParseMd();
+        // Upper case 1
+        $lines = array(
+            "README", "------", "INTRO", "-----", "Intro line bla bla."
+        );
+
+        $parseMd->setContent($lines);
+        $result = $parseMd->parse();
+
+        $this->assertEquals($result["headlines"][0]["raw"], $lines[0]);
+        $this->assertEquals($result["headlines"][0]["slug"], "readme");
+        $this->assertEquals($result["headlines"][2]["raw"], $lines[2]);
+        $this->assertEquals($result["headlines"][2]["slug"], "intro");
+    }
 }
