@@ -40,8 +40,18 @@ class GithubCustomLabelExistsMetric extends Metric
         );
 
         if (count($custom) === 0) {
+            $this->addVerboseDetail("There is no custom label on GitHub.");
             return $this->fail();
         }
+
+        $this->addVerboseDetail("There is/are " . count($custom) . " custom label(s) on GitHub.");
+
+        $custom = array_map(
+            function($label) { return $label['name']; },
+            $custom
+        );
+
+        $this->addVerboseDetail("Custom label(s); " . implode(", ", $custom));
 
         return $this->success();
     }

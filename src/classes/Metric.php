@@ -13,6 +13,8 @@ class Metric
     public $dependency = array();
     public $repo       = null;
 
+    protected $verboseDetail = array();
+
     /**
      * Main check function
      * 
@@ -47,13 +49,13 @@ class Metric
     }
 
     /**
-     * Verbose the check action
+     * Verbose the beginning of check action
      *
      * @param string $verbose The verbosity flag
      *
      * @return void
      */
-    public function verbose($verbose)
+    public function verboseStart($verbose)
     {
         // UX perfection :)
         usleep(250000);
@@ -66,6 +68,47 @@ class Metric
             break;
         default:
             break;
+        }
+    }
+
+    /**
+     * Verbose the end of the check action
+     *
+     * @param string $verbose The verbosity flag
+     *
+     * @return void
+     */
+    public function verboseEnd($verbose)
+    {
+        // UX perfection :)
+        usleep(250000);
+        switch ($verbose) {
+        case '1':
+            $this->verboseDetail($verbose);
+            break;
+        default:
+            break;
+        }
+    }
+
+    protected function addVerboseDetail($detail)
+    {
+        $this->verboseDetail[] = $detail;
+    }
+
+    /**
+     * Verbose details of the metric
+     *
+     * @param string $verbose The verbosity flag
+     *
+     * @return void
+     */
+    private function verboseDetail($verbose)
+    {
+        if ($verbose == '1') {
+            foreach ($this->verboseDetail as $key => $detail) {
+                echo "\t" . $detail . PHP_EOL;
+            }
         }
     }
 

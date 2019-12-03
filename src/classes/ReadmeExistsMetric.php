@@ -16,6 +16,7 @@ class ReadmeExistsMetric extends Metric
         $this->message    = "Every open source project should have a README file.";
         $this->type       = MetricType::ERROR;
         $this->dependency = array();
+        $this->verboseDetail = array();
     }
 
     /**
@@ -34,9 +35,11 @@ class ReadmeExistsMetric extends Metric
         $check = (bool)array_intersect($readme, $files);
 
         if ($check === true) {
+            $this->addVerboseDetail("Readme file is " . implode(",", array_intersect($readme, $files)));
             return $this->success();
         }
-
+        
+        $this->addVerboseDetail("No readme file exists under root folder.");
         return $this->fail();
     }
 }

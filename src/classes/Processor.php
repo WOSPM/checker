@@ -38,8 +38,9 @@ class Processor
         foreach ($this->metrics as $code => $metric) {
             foreach ($metric->dependency as $dcode) {
                 if (!isset($result[$dcode])) {
-                    $this->metrics[$dcode]->verbose($this->verbose);
+                    $this->metrics[$dcode]->verboseStart($this->verbose);
                     $result[$dcode] = $this->metrics[$dcode]->check($files);
+                    $this->metrics[$dcode]->verboseEnd($this->verbose);
                 }
             }
         }
@@ -63,8 +64,9 @@ class Processor
                 continue;
             }
 
-            $metric->verbose($this->verbose);
+            $metric->verboseStart($this->verbose);
             $result[$code] = $metric->check($files);
+            $metric->verboseEnd($this->verbose);
         }
 
         return $result;

@@ -43,9 +43,11 @@ class ContributingExistsMetric extends Metric
         $check = (bool)array_intersect($contributing, $files);
 
         if ($check === true) {
+            $this->addVerboseDetail("Contributing file is " . implode(",", array_intersect($contributing, $files)));
             return $this->success();
         }
 
+        $this->addVerboseDetail("No contributing file exists under root folder or .github folder.");
         return $this->fail();
     }
 }

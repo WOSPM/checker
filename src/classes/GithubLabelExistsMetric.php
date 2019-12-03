@@ -33,8 +33,18 @@ class GithubLabelExistsMetric extends Metric
         $labels = $this->repo->getLabels();
 
         if (count($labels) === 0) {
+            $this->addVerboseDetail("There is no label on GitHub.");
             return $this->fail();
         }
+
+        $this->addVerboseDetail("There is/are " . count($labels) . " label(s) on GitHub.");
+
+        $labels = array_map(
+            function($label) { return $label['name']; },
+            $labels
+        );
+
+        $this->addVerboseDetail("Label(s); " . implode(", ", $labels));
 
         return $this->success();
     }

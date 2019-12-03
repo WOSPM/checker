@@ -45,8 +45,12 @@ class CocExistsMetric extends Metric
         $check = (bool)array_intersect($cocs, $files);
 
         if ($check) {
+            $this->addVerboseDetail("Code Of Conduct file is " . implode(",", array_intersect($cocs, $files)));
+
             return $this->success();
         }
+
+        $this->addVerboseDetail("No Code Of Conduct file exists under root folder or .github folder.");
 
         return $this->fail();
     }
