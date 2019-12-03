@@ -144,4 +144,23 @@ class FunctionsTest extends PHPUnit_Framework_TestCase
         $this->assertEquals("![Not Ready](https://img.shields.io/badge/WOSPM-Not--Ready-orange)", badge(60));
         $this->assertEquals("![Not Ready](https://img.shields.io/badge/WOSPM-Not--Ready-orange)", badge(50));
     }
+
+    public function testProcessor()
+    {
+        $repo = $this->getMockBuilder('Checker\GithubVendor')->getMock();
+        $arguments = $this->getMockBuilder('Checker\Arguments')->getMock();
+        $arguments->verbose = 'NO';
+        //define('PROJECT_FOLDER', '/tmp/');
+        $processor = processor($arguments, $repo);
+
+        $this->assertInstanceOf('WOSPM\Checker\Processor', $processor);
+
+        $metrics = $processor->getMetrics();
+
+        $this->assertTrue(is_array($metrics));
+
+        foreach ($metrics as $key => $metric) {
+            $this->assertInstanceOf('WOSPM\Checker\Metric', $metric);
+        }
+    }
 }

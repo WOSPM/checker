@@ -1,7 +1,7 @@
 <?php
 use WOSPM\Checker;
 
-const VERSION = '0.2.2';
+const VERSION = '0.2.4';
 
 const SUCCESS   = 0,
     WITH_ERRORS = 1,
@@ -25,7 +25,7 @@ if (!function_exists('json_encode')) {
 }
 
 require_once __DIR__ . DIRECTORY_SEPARATOR . "src" .
-DIRECTORY_SEPARATOR . "functions" . 
+DIRECTORY_SEPARATOR . "functions" .
 DIRECTORY_SEPARATOR . "functions.php";
 
 // Help

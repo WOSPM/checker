@@ -4,6 +4,8 @@ use Symfony\Component\Yaml\Yaml;
 
 /**
  * Shows the commandline options
+ *
+ * @codeCoverageIgnore
  */
 function showOptions()
 {
@@ -101,6 +103,8 @@ function percent($array)
  * @param Repo      $repo      Repo object
  *
  * @return void
+ *
+ * @codeCoverageIgnore
  */
 function output($array, $arguments, $repo)
 {
@@ -138,6 +142,8 @@ function output($array, $arguments, $repo)
  * @param boolean $colors Boolean flag to use colors or not
  *
  * @return void
+ *
+ * @codeCoverageIgnore
  */
 function outputREADABLE($array, $colors = true)
 {
@@ -177,6 +183,8 @@ function outputREADABLE($array, $colors = true)
  * @param array $array Array of metric results
  *
  * @return void
+ *
+ * @codeCoverageIgnore
  */
 function outputJSON($array)
 {
@@ -202,6 +210,8 @@ function outputJSON($array)
  * @param Repo      $repo      Repo object
  *
  * @return void
+ *
+ * @codeCoverageIgnore
  */
 function outputHTML($array, $arguments, $repo)
 {
@@ -278,6 +288,8 @@ function outputHTML($array, $arguments, $repo)
  * Prints banner
  *
  * @return void
+ *
+ * @codeCoverageIgnore
  */
 function banner()
 {
