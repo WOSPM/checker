@@ -133,7 +133,7 @@ jobs:
       - run:
           name: CodeCov
           command: bash <(curl -s https://codecov.io/bash)
-  test-7.3:
+  test-7.4:
     docker:
       - image: umutphp/php-docker-images-for-ci:7.4
     steps:
