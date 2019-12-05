@@ -97,7 +97,7 @@ For more information about adding a new metric to the project, please [Add New M
 
 ### List of Existing Metrics
 
-To see the details of the metrics, click the metric title for detailed document.
+To see the details of the metrics, click the metric code for detailed document.
 
 | Code        | Title           | Description     |
 | ------------- |-------------|-------------|
