@@ -414,6 +414,13 @@ function scanProjectDir($path)
         $files    = array_merge($files, $github);
     }
 
+    // If there is a docs folder
+    if (in_array("docs", $files)) {
+        $gitpath  = $path . DIRECTORY_SEPARATOR . "docs";
+        $github   = scanAllDir($gitpath);
+        $files    = array_merge($files, $github);
+    }
+
     return $files;
 }
 

@@ -30,11 +30,14 @@ class GithubIssueTemplateExistsMetric extends Metric
         $templates = array_filter(
             $files,
             function ($value) {
-                return (strpos($value, 'ISSUE_TEMPLATE') !== false);
+                return (
+                    (stripos($value, 'ISSUE_TEMPLATE') !== false) &&
+                    (stripos($value, '.md') !== false)
+                );
             }
         );
 
-        if (count($templates) > 1) {
+        if (count($templates) >= 1) {
             return $this->success();
         }
 
