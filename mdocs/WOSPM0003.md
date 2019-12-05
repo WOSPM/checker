@@ -11,7 +11,7 @@
 
 ## Rationale
 
-You must [choose](https://opensource.guide/starting-a-project/#choosing-a-license) and include a license when you launch an open source project.
+You must [choose](https://opensource.guide/starting-a-project/#choosing-a-license) and include a license when you launch an open source project. An open source license guarantees that others can use, copy, modify, and contribute back to your project. It also protects you from legal situations.
 
 > If you’re starting from a blank slate, it’s hard to go wrong with the [MIT License](https://choosealicense.com/licenses/mit/).
 
