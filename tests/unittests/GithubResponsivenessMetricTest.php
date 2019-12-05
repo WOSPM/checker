@@ -30,7 +30,7 @@ class GithubResponsivenessMetricTest extends PHPUnit_Framework_TestCase
 
         $repo = $this->getMockBuilder('Checker\GithubVendor')->setMethods(['getIssues'])
         ->getMock();
-        $repo->method('getIssues')->will($this->returnValue(array(array("author_association" => "OWNER"), array("author_association" => "OWNER"))));
+        $repo->method('getIssues')->will($this->returnValue(array(array("author_association" => "OWNER", "number" => 1), array("author_association" => "OWNER", "number" => 2))));
 
         $this->metric = new Checker\GithubResponsivenessMetric($repo);
 
@@ -49,8 +49,8 @@ class GithubResponsivenessMetricTest extends PHPUnit_Framework_TestCase
         $repo->method('getIssues')->will(
             $this->returnValue(
                 array(
-                    array("author_association" => "NONE", "created_at" => date("y-m-d H:i:s"), "updated_at" => date("y-m-d H:i:s")),
-                    array("author_association" => "OWNER")
+                    array("author_association" => "NONE", "created_at" => date("y-m-d H:i:s"), "updated_at" => date("y-m-d H:i:s"), "number" => 1),
+                    array("author_association" => "OWNER", "number" => 2)
                 )
             )
         );
@@ -72,8 +72,8 @@ class GithubResponsivenessMetricTest extends PHPUnit_Framework_TestCase
         $repo->method('getIssues')->will(
             $this->returnValue(
                 array(
-                    array("author_association" => "NONE", "created_at" => date("y-m-d H:i:s", strtotime("-2 days")), "updated_at" => date("y-m-d H:i:s")),
-                    array("author_association" => "OWNER")
+                    array("author_association" => "NONE", "created_at" => date("y-m-d H:i:s", strtotime("-2 days")), "updated_at" => date("y-m-d H:i:s"), "number" => 1),
+                    array("author_association" => "OWNER", "number" => 2)
                 )
             )
         );
@@ -96,8 +96,8 @@ class GithubResponsivenessMetricTest extends PHPUnit_Framework_TestCase
         $repo->method('getIssues')->will(
             $this->returnValue(
                 array(
-                    array("author_association" => "NONE", "created_at" => date("y-m-d H:i:s", strtotime("-2 days")), "updated_at" => date("y-m-d H:i:s", strtotime("-2 days"))),
-                    array("author_association" => "OWNER")
+                    array("author_association" => "NONE", "created_at" => date("y-m-d H:i:s", strtotime("-2 days")), "updated_at" => date("y-m-d H:i:s", strtotime("-2 days")), "number" => 1),
+                    array("author_association" => "OWNER", "number" => 2)
                 )
             )
         );
