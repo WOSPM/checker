@@ -11,4 +11,4 @@
 
 ## Rationale
 
-A CONTRIBUTING file tells your audience how to participate in your project.
+A CONTRIBUTING file tells your audience how to participate in your project. In addition, a CONTRIBUTING file is an opportunity to communicate your expectations for contributions.
