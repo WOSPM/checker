@@ -205,7 +205,10 @@ class ParseMd
     public function setFile($file)
     {
         $this->file    = $file;
-        $this->content = file($file);
+        $content       = file_get_contents($file);
+        $content       = preg_replace('/```[a-z]*\R.*?\R```/s', "", $content);
+        $content       = preg_split("/\r\n|\n|\r/", $content);
+        $this->content = $content;
     }
 
     /**

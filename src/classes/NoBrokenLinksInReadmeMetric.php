@@ -60,8 +60,8 @@ class NoBrokenLinksInReadmeMetric extends Metric
             $slugs['#' . $headline["slug"]] = '#' . $headline["slug"];
         }
 
-        $links = array();
-
+        $return = true;
+        $links  = array();
         // Collect the links urls
         foreach ($parsed["links"] as $ln => $line) {
             foreach ($line["links"] as $key => $link) {
@@ -70,7 +70,8 @@ class NoBrokenLinksInReadmeMetric extends Metric
                 );
                 if ($link["url"][0] === '#') {
                     if (!isset($slugs[$link["url"]])) {
-                        return false;
+                        $return = false;
+                        continue;
                     }
                 } elseif (filter_var($link["url"], FILTER_VALIDATE_URL)) {
                     try {
@@ -79,13 +80,16 @@ class NoBrokenLinksInReadmeMetric extends Metric
                             $link["url"]
                         );
                     } catch (\GuzzleHttp\Exception\RequestException $e) {
-                        return false;
+                        $return = false;
+                        continue;
                     } catch (Exception $e) {
-                        return false;
+                        $return = false;
+                        continue;
                     }
 
                     if ($response->getStatusCode() == "404") {
-                        return false;
+                        $return = false;
+                        continue;
                     }
                 } else {
                     // It is not an anchor or a url, so it is file
@@ -95,7 +99,8 @@ class NoBrokenLinksInReadmeMetric extends Metric
                     $file = $file[0];
 
                     if (!file_exists($file)) {
-                        return false;
+                        $return = false;
+                        continue;
                     }
                 }
 

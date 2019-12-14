@@ -80,7 +80,14 @@ class ReadmeTocExistsMetric extends Metric
         $this->addVerboseDetail(
             "There is/are " . count($links) . " link(s)."
         );
+
+        $result = array_diff($slugs, $links);
         
+
+        $this->addVerboseDetail(
+            "The headline(s) " . implode(", ", $result) . " do(es) not have links."
+        );
+
         // First headline and the headline of the ToC may not be in the links.
         if ((count($slugs) - 2) <= count($links)) {
             return true;
