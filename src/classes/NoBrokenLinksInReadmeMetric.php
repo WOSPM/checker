@@ -93,7 +93,8 @@ class NoBrokenLinksInReadmeMetric extends Metric
                     }
                 } else {
                     // It is not an anchor or a url, so it is file
-                    // Clear the anchor text in the file name like CONTRIBUTING.md#add-new-metric
+                    // Clear the anchor text with  file name
+                    // like CONTRIBUTING.md#add-new-metric
                     $file = $link["url"];
                     $file = explode('#', $link["url"]);
                     $file = $file[0];
