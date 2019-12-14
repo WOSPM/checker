@@ -113,7 +113,7 @@ class NoBrokenLinksInReadmeMetric extends Metric
             "There is/are " . count($links) . " link(s) in README."
         );
 
-        return true;
+        return $return;
     }
 
     /**
