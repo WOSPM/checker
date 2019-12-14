@@ -73,6 +73,12 @@ class ReadmeTocExistsMetric extends Metric
             }
         }
 
+        $this->addVerboseDetail(
+            "There is/are " . count($slugs) . " headline(s)."
+        );
+        $this->addVerboseDetail(
+            "There is/are " . count($links) . " link(s)."
+        );
         // First headline and the headline of the ToC may not be in the links.
         if ((count($slugs) - 2) <= count($links)) {
             return true;
