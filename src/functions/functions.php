@@ -391,6 +391,9 @@ function processor($arguments, $repo)
     $processor->addMetric(
         new Checker\GithubCustomLabelDescriptionExistsMetric($repo)
     );
+    $processor->addMetric(
+        new Checker\NoBrokenLinksInReadmeMetric($repo)
+    );
 
     return $processor;
 }
