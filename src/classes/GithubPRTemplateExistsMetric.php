@@ -34,6 +34,10 @@ class GithubPRTemplateExistsMetric extends Metric
             }
         );
 
+        $this->addVerboseDetail(
+            "The pull request templates for GitHub are " . implode(", ", $templates)
+        );
+
         if (count($templates) > 0) {
             return $this->success();
         }

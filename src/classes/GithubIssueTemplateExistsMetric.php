@@ -37,6 +37,10 @@ class GithubIssueTemplateExistsMetric extends Metric
             }
         );
 
+        $this->addVerboseDetail(
+            "The issue templates for GitHub are " . implode(", ", $templates)
+        );
+
         if (count($templates) >= 1) {
             return $this->success();
         }

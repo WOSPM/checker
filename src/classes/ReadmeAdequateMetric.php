@@ -37,12 +37,16 @@ class ReadmeAdequateMetric extends Metric
         $readme = explode(" ", $readme);
         $readme = array_filter(
             $readme,
-            function ($x) { 
+            function ($x) {
                 return strlen($x) > 2;
             }
         );
 
         $count  = count($readme);
+
+        $this->addVerboseDetail(
+            "There are $count word(s) in README."
+        );
 
         if ($count > 200) {
             return $this->success();

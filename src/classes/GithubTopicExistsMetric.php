@@ -32,6 +32,10 @@ class GithubTopicExistsMetric extends Metric
     {
         $topics = $this->repo->getTopics();
 
+        $this->addVerboseDetail(
+            "The topic(s) is/are " . implode(", ", $topics) . "."
+        );
+
         if (count($topics) === 0) {
             return $this->fail();
         }

@@ -32,6 +32,10 @@ class GithubDescriptionExistsMetric extends Metric
     {
         $description = $this->repo->getDescription();
 
+        $this->addVerboseDetail(
+            "The repo description is " . $description
+        );
+
         if (strlen($description) === 0) {
             return $this->fail();
         }
