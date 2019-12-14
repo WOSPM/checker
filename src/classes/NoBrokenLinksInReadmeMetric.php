@@ -70,6 +70,9 @@ class NoBrokenLinksInReadmeMetric extends Metric
                 );
                 if ($link["url"][0] === '#') {
                     if (!isset($slugs[$link["url"]])) {
+                        $this->addVerboseDetail(
+                            "\t Link is broken."
+                        );
                         $return = false;
                         continue;
                     }
@@ -80,14 +83,23 @@ class NoBrokenLinksInReadmeMetric extends Metric
                             $link["url"]
                         );
                     } catch (\GuzzleHttp\Exception\RequestException $e) {
+                        $this->addVerboseDetail(
+                            "\t Link is broken."
+                        );
                         $return = false;
                         continue;
                     } catch (Exception $e) {
+                        $this->addVerboseDetail(
+                            "\t Link is broken."
+                        );
                         $return = false;
                         continue;
                     }
 
                     if ($response->getStatusCode() == "404") {
+                        $this->addVerboseDetail(
+                            "\t Link is broken."
+                        );
                         $return = false;
                         continue;
                     }
