@@ -52,7 +52,6 @@ Options:
     --version           Show version.
     --help              Print this help.
 
-
 ```
 
 You can check your project by running the `wospm-checker` command in the root folder of your repo.
