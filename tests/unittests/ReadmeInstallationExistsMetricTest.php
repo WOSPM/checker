@@ -3,7 +3,7 @@ use WOSPM\Checker;
 
 class ReadmeInstallationExistsMetricTest extends PHPUnit_Framework_TestCase
 {
-    public function testTocLinkExists()
+    public function testInstallExists()
     {
         $metric = new Checker\ReadmeInstallationExistsMetric();
         // Upper case 1
@@ -86,7 +86,7 @@ class ReadmeInstallationExistsMetricTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($metric->check($files)["status"]);
     }
 
-    public function testTocLinkNotExists()
+    public function testInstallNotExists()
     {
         $metric = new Checker\ReadmeInstallationExistsMetric();
         // Upper case 1
@@ -143,5 +143,64 @@ class ReadmeInstallationExistsMetricTest extends PHPUnit_Framework_TestCase
 
 
         $this->assertFalse($metric->check($files)["status"]);
+    }
+
+    public function testInstallLinkExists()
+    {
+        $metric = new Checker\ReadmeInstallationExistsMetric();
+        // Upper case 1
+        $files = array(
+            "README",
+            "CODE_OF_CONDUCT"
+        );
+
+        $project = $this->getMockBuilder('Checker\Project')->setMethods(['getReadmeFileName'])
+        ->getMock();
+        $project->method('getReadmeFileName')->will($this->returnValue("README"));
+
+        $metric->setProject($project);
+
+        $parsed = array(
+            "headlines" => array(
+                1 => array(
+                    "raw"    => "# Headline",
+                    "parsed" => "Headline",
+                    "slug"   => "headline",
+                    "level"  => 1
+                ),
+                2 => array(
+                    "raw"    => "## Intro",
+                    "parsed" => "Intro",
+                    "slug"   => "intro",
+                    "level"  => 2
+                ),
+                3 => array(
+                    "raw"    => "## Basic",
+                    "parsed" => "Basic",
+                    "slug"   => "basic",
+                    "level"  => 2
+                )
+            ),
+            "links" => array(
+                0 => array(
+                    "raw" => "[Install](https://doc.repo.io/doc)",
+                    "links" => array(
+                        0 => array(
+                            "text" => "Install",
+                            "url"  => "https://doc.repo.io/doc"
+                        )
+                    )
+                )
+            )
+        );
+        $parser = $this->getMockBuilder('Checker\Parser')->setMethods(['parse', 'setFile'])
+        ->getMock();
+        $parser->method('parse')->will($this->returnValue($parsed));
+        $parser->method('setFile')->will($this->returnValue(true));
+
+        $metric->setParser($parser);
+
+
+        $this->assertTrue($metric->check($files)["status"]);
     }
 }

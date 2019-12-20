@@ -59,6 +59,15 @@ class ReadmeInstallationExistsMetric extends Metric
             }
         }
 
+        // Traverse  the links texts
+        foreach ($parsed["links"] as $ln => $line) {
+            foreach ($line["links"] as $key => $link) {
+                if (strpos(strtolower($link["text"]), 'install') !== false) {
+                    return true;
+                }
+            }
+        }
+
         return false;
     }
 
