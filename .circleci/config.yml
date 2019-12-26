@@ -50,13 +50,18 @@ jobs:
           no_output_timeout: 20m
           command: cd ./src && phpmnd .
       - run:
-          name: Dead-Code-Checker
-          no_output_timeout: 20m
-          command: cd ./src && phpdcd -vvv --exclude vendor --exclude tests .
-      - run:
           name: Copy-Paste-Checker
           no_output_timeout: 20m
           command: cd ./src && phpcpd --exclude=vendor .
+  code-check:
+    docker:
+      - image: umutphp/php-docker-images-for-ci:7.1
+    steps:
+      - checkout
+      - run:
+          name: Dead-Code-Checker
+          no_output_timeout: 20m
+          command: cd ./src && phpdcd -vvv --exclude vendor --exclude tests .
       - run:
           name: PHP-Code-Sniffer
           no_output_timeout: 20m
@@ -156,27 +161,36 @@ workflows:
       - code-lint:
           requires:
             - wospm-checker
+      - code-check:
+          require:
+            - wospm-checker
       - test-5.6:
           requires:
             - doc-lint
             - code-lint
+            - code-check
       - test-7.0:
           requires:
             - doc-lint
             - code-lint
+            - code-check
       - test-7.1:
           requires:
             - doc-lint
             - code-lint
+            - code-check
       - test-7.2:
           requires:
             - doc-lint
             - code-lint
+            - code-check
       - test-7.3:
           requires:
             - doc-lint
             - code-lint
+            - code-check
       - test-7.4:
           requires:
             - doc-lint
             - code-lint
+            - code-check
