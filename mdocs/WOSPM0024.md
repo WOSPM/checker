@@ -6,7 +6,7 @@
 | ------------- |-------------|
 | code      | WOSPM0024 |
 | title      | CONTRIBUTORS_SECTION      |
-| message | README file should have an installation section.     |
+| message | README file should have a contributors section.     |
 | type | MetricType::ERROR      |
 
 ## Rationale
