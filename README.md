@@ -123,6 +123,7 @@ To see the details of the metrics, click the metric code for detailed document.
 | [WOSPM0021](./mdocs/WOSPM0021.md)      | GITHUB_RESPONSIVENESS | Responsive owners encourage users to be contributors. |
 | [WOSPM0022](./mdocs/WOSPM0022.md)      | GITHUB_CUSTOM_LABEL_DESCRIPTON | Custom labels should have descriptions. |
 | [WOSPM0023](./mdocs/WOSPM0023.md)      | NO_BROKEN_LINKS_IN_README | No broken links exists in README. |
+| [WOSPM0024](./mdocs/WOSPM0024.md)      | CONTRIBUTORS_SECTION | README file should have an installation section. |
 
 ### Badges
 

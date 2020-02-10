@@ -394,6 +394,9 @@ function processor($arguments, $repo)
     $processor->addMetric(
         new Checker\NoBrokenLinksInReadmeMetric($repo)
     );
+    $processor->addMetric(
+        new Checker\ReadmeContributorsExistsMetric($repo)
+    );
 
     return $processor;
 }
