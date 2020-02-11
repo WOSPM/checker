@@ -10,8 +10,10 @@ class ReadmeContributorsExistsMetric extends Metric
 
     /**
      * Contructor function that initializes the Metric definitions
+     *
+     * @param Vendor $repo The repository object of the project
      */
-    public function __construct()
+    public function __construct($repo)
     {
         $this->code       = "WOSPM0024";
         $this->title      = "CONTRIBUTORS_SECTION";
@@ -20,6 +22,7 @@ class ReadmeContributorsExistsMetric extends Metric
         $this->dependency = array("WOSPM0002");
         $this->project    = new Project();
         $this->parser     = new ParseMd();
+        $this->repo       = $repo;
     }
 
     /**
@@ -31,6 +34,12 @@ class ReadmeContributorsExistsMetric extends Metric
      */
     public function check($files)
     {
+        $contributors = $this->repo->getContributors();
+
+        if (count($contributors) <= 1) {
+            return $this->success();
+        }
+
         $readme = $this->project->getReadmeFileName($files);
         $this->parser->setFile(PROJECT_FOLDER . $readme);
 

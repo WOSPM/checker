@@ -227,6 +227,31 @@ class GithubVendor extends Vendor
     }
 
     /**
+     * Get the list of contributors
+     *
+     * @return array Array of contributors
+     */
+    public function getContributors()
+    {
+        $headers  = $this->getDefaultHeaders();
+        $response = $this->client->request(
+            'GET',
+            $this->api . $this->repo . "/contributors",
+            array(
+                "headers" => $headers
+            )
+        );
+        
+        if ($response->getStatusCode() == 200) {
+            $body = $response->getBody();
+            $body = json_decode($body, true);
+            return $body;
+        }
+
+        return array();
+    }
+
+    /**
      * Getter for repo propoerty
      *
      * @return string
