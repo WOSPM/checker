@@ -3,7 +3,7 @@ use WOSPM\Checker;
 
 class ReadmeContributorsExistsTest extends PHPUnit_Framework_TestCase
 {
-    public function testContributorsNotExists()
+    public function testContributorsNotExistsRemote()
     {
         $repo = $this->getMockBuilder('Checker\GithubVendor')->setMethods(['getContributors'])
         ->getMock();
@@ -201,7 +201,7 @@ class ReadmeContributorsExistsTest extends PHPUnit_Framework_TestCase
                 )
             )
         );
-        
+
         $metric = new Checker\ReadmeContributorsExistsMetric($repo);
         // Upper case 1
         $files = array(
