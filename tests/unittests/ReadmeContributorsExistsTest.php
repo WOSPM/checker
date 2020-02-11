@@ -5,6 +5,11 @@ class ReadmeContributorsExistsTest extends PHPUnit_Framework_TestCase
 {
     public function testContributorsNotExistsRemote()
     {
+        $files = array(
+            "README",
+            "CODE_OF_CONDUCT"
+        );
+        
         $repo = $this->getMockBuilder('Checker\GithubVendor')->setMethods(['getContributors'])
         ->getMock();
 
