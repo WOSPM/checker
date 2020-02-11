@@ -3,9 +3,40 @@ use WOSPM\Checker;
 
 class ReadmeContributorsExistsTest extends PHPUnit_Framework_TestCase
 {
+    public function testContributorsNotExists()
+    {
+        $repo = $this->getMockBuilder('Checker\GithubVendor')->setMethods(['getContributors'])
+        ->getMock();
+
+        $repo->method('getContributors')->will(
+            $this->returnValue(
+                array(
+                    array('login' => 'user1')
+                )
+            )
+        );
+
+        $metric = new Checker\ReadmeContributorsExistsMetric($repo);
+
+        $this->assertTrue($metric->check($files)["status"]);
+    }
+
     public function testContributorsExists()
     {
-        $metric = new Checker\ReadmeContributorsExistsMetric();
+
+        $repo = $this->getMockBuilder('Checker\GithubVendor')->setMethods(['getContributors'])
+        ->getMock();
+
+        $repo->method('getContributors')->will(
+            $this->returnValue(
+                array(
+                    array('login' => 'user1'),
+                    array('login' => 'user2')
+                )
+            )
+        );
+
+        $metric = new Checker\ReadmeContributorsExistsMetric($repo);
         // Upper case 1
         $files = array(
             "README",
@@ -88,7 +119,19 @@ class ReadmeContributorsExistsTest extends PHPUnit_Framework_TestCase
 
     public function testContributorsNotExists()
     {
-        $metric = new Checker\ReadmeContributorsExistsMetric();
+        $repo = $this->getMockBuilder('Checker\GithubVendor')->setMethods(['getContributors'])
+        ->getMock();
+
+        $repo->method('getContributors')->will(
+            $this->returnValue(
+                array(
+                    array('login' => 'user1'),
+                    array('login' => 'user2')
+                )
+            )
+        );
+
+        $metric = new Checker\ReadmeContributorsExistsMetric($repo);
         // Upper case 1
         $files = array(
             "README",
@@ -147,7 +190,19 @@ class ReadmeContributorsExistsTest extends PHPUnit_Framework_TestCase
 
     public function testContributorsLinkExists()
     {
-        $metric = new Checker\ReadmeContributorsExistsMetric();
+        $repo = $this->getMockBuilder('Checker\GithubVendor')->setMethods(['getContributors'])
+        ->getMock();
+
+        $repo->method('getContributors')->will(
+            $this->returnValue(
+                array(
+                    array('login' => 'user1'),
+                    array('login' => 'user2')
+                )
+            )
+        );
+        
+        $metric = new Checker\ReadmeContributorsExistsMetric($repo);
         // Upper case 1
         $files = array(
             "README",
