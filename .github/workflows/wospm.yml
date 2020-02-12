@@ -1,3 +1,4 @@
+name: WOSPM Checker
 on: [push]
 
 jobs:
