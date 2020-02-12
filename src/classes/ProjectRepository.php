@@ -18,12 +18,30 @@ class ProjectRepository extends \Cz\Git\GitRepository
             'trim'
         );
 
-        $remote[0] = str_replace('.git', '', $remote[0]);
-        $output    = explode('@', str_replace(':', '@', $remote[0]));
+        //$remote[0] = "https://github.com/WOSPM/checker-github-action";
 
+        if (substr($remote[0], 0, 3) == "git") {
+            $remote[0] = str_replace('.git', '', $remote[0]);
+            $output    = explode('@', str_replace(':', '@', $remote[0]));
+
+            return array(
+                "vendor" => $output[1],
+                "repo"   => $output[2]
+            );
+        }
+
+        if (substr($remote[0], 0, 4) == "http") {
+            $parsed = parse_url($remote[0]);
+    
+            return array(
+                "vendor" => $parsed["host"],
+                "repo"   => trim($parsed["path"], '/')
+            );
+        }
+        
         return array(
-            "vendor" => $output[1],
-            "repo"   => $output[2]
+            "vendor" => "",
+            "repo"   => ""
         );
     }
 
