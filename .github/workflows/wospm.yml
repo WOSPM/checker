@@ -8,8 +8,8 @@ jobs:
       # To use this repository's private action, you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: WOSPM Checker action step
-        uses: actions/wospm-checker-github-action@v1
+      - name: WOSPM Checker Github Action
+        uses: WOSPM/wospm-checker-github-action@v1
       - name: Upload HTML Report When Success
         uses: actions/upload-artifact@v1
         with:
