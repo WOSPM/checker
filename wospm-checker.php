@@ -78,6 +78,7 @@ try {
     
     $status  = status($result);
     $percent = percent($result);
+    
     if ($status === true) {
         die(SUCCESS);
     } else {

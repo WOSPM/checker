@@ -12,6 +12,7 @@ A checker for project owners to measure their open source project.
 
 - [Introduction](#introduction)
 - [How To Install And Use](#how-to-install-and-use)
+  - [Github Action](#github-action)
 - [To Be Considered](#to-be-considered)
 - [WOSPM Metrics](#wospm-metrics)
   - [Metric Rules](#metric-rules)
@@ -33,6 +34,7 @@ A checker for project owners to measure their open source project.
 Install the package with composer.
 
 ```bash
+
 composer global require wospm/checker
 
 ```
@@ -61,6 +63,10 @@ You can check your project by running the `wospm-checker` command in the root fo
 ```
 
 ![alt text](./assets/screenshot-1.png)
+
+### Github Action
+
+It is also ready on Github marketplace as an action with name "[WOSPM Checker Github Action](https://github.com/marketplace/actions/wospm-checker-github-action)" to use in your pipeline.  
 
 ## To Be Considered
 
