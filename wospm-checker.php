@@ -7,6 +7,8 @@ const SUCCESS   = 0,
     WITH_ERRORS = 1,
     FAILED      = 255;
 
+const READLINE  = 70
+
 if (PHP_VERSION < '5.4.0') {
     fwrite(STDERR, "WOSPM Checker requires PHP 5.4.0 and newer");
     die(FAILED);
@@ -79,7 +81,7 @@ try {
     if ($status === true) {
         die(SUCCESS);
     } else {
-        if ($percent >= 90) {
+        if ($percent >= READLINE) {
             die(SUCCESS);
         } else {
             die(WITH_ERRORS);
