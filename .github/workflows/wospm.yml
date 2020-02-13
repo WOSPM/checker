@@ -1,10 +1,10 @@
-name: WOSPM Checker
+name: Welcoming Open Source Metrics
 on: [push]
 
 jobs:
   wospm_checker:
     runs-on: ubuntu-latest
-    name: WOSPM Checker
+    name: Checker
     steps:
       # To use this repository's private action, you must check out the repository
       - name: Checkout
