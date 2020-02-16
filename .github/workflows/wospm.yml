@@ -1,4 +1,4 @@
-name: Welcoming Open Source Metrics
+name: WOSPM
 on: [push]
 
 jobs:
