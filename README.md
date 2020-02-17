@@ -2,7 +2,7 @@
 
 A checker for project owners to measure their open source project.
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CONTRIBUTING.md) [![CircleCI](https://circleci.com/gh/WOSPM/checker.svg?style=svg)](https://circleci.com/gh/WOSPM/checker) ![WOSPM](https://github.com/WOSPM/checker/workflows/WOSPM/badge.svg) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/WOSPM/checker/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/WOSPM/checker/?branch=master) [![codecov](https://codecov.io/gh/WOSPM/checker/branch/master/graph/badge.svg)](https://codecov.io/gh/WOSPM/checker)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CONTRIBUTING.md) [![CircleCI](https://circleci.com/gh/WOSPM/checker.svg?style=svg)](https://circleci.com/gh/WOSPM/checker) ![WOSPM](https://github.com/WOSPM/checker/workflows/WOSPM/badge.svg) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/WOSPM/checker/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/WOSPM/checker/?branch=master) [![codecov](https://codecov.io/gh/WOSPM/checker/branch/master/graph/badge.svg)](https://codecov.io/gh/WOSPM/checker) [![Open Source Helpers](https://www.codetriage.com/wospm/checker/badges/users.svg)](https://www.codetriage.com/wospm/checker)
 
 ---
 
