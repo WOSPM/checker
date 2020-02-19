@@ -17,6 +17,7 @@ Options:
     --verbose           Show the progress or not. (0 => No, 1 => Detailed,
                         2 => Dots)
     --no-colors         Disable the console colors. It is enabled by default.
+    --strict            Enable strict mode. The script will have a higher bound to give success code.
     --version           Show version.
     --help              Print this help.
     <?php

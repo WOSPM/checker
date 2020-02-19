@@ -34,6 +34,14 @@ class Arguments
      */
     public $verbose = 0;
 
+
+    /**
+     * Strict mode level for the level that the script gives exit code > 0
+     *
+     * @var integer
+     */
+    public $strict = false;
+
     /**
      * Filename that is generated when the output option is HTML
      * 
@@ -68,6 +76,9 @@ class Arguments
                     break;
                 case '--no-colors':
                     $setting->colors = false;
+                    break;
+                case '--strict':
+                    $setting->strict = true;
                     break;
                 default:
                     throw new \Exception("Invalid argument $argument");

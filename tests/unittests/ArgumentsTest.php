@@ -22,6 +22,28 @@ class ArgumentsTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($arguments->colors);
     }
 
+
+    public function testStrictMode()
+    {
+        // Strict mode = false
+        $inputs = array(
+            "./wospm-checker"
+        );
+
+        $arguments = Checker\Arguments::parseArguments($inputs);
+
+        $this->assertFalse($arguments->strict);
+
+        // Strict mode = true
+        $inputs = array(
+            "./wospm-checker", "--strict"
+        );
+
+        $arguments = Checker\Arguments::parseArguments($inputs);
+
+        $this->assertTrue($arguments->strict);
+    }
+
     public function testParserArgumentsInvalidArgumentFormat()
     {
         $inputs = array(

@@ -1,13 +1,12 @@
 <?php
 use WOSPM\Checker;
 
-const VERSION = '0.2.7';
-
-const SUCCESS   = 0,
-    WITH_ERRORS = 1,
-    FAILED      = 255;
-
-const READLINE  = 70;
+const VERSION    = '0.2.8';
+const SUCCESS    = 0,
+    WITH_ERRORS  = 1,
+    FAILED       = 255;
+const REDLINE    = 70;
+const STRICTLINE = 90;
 
 if (PHP_VERSION < '5.4.0') {
     fwrite(STDERR, "WOSPM Checker requires PHP 5.4.0 and newer");
@@ -82,7 +81,13 @@ try {
     if ($status === true) {
         die(SUCCESS);
     } else {
-        if ($percent >= READLINE) {
+        $bound = REDLINE;
+
+        if ($arguments->strict === true) {
+            $bound = STRICTLINE;
+        }
+
+        if ($percent >= bound) {
             die(SUCCESS);
         } else {
             die(WITH_ERRORS);
