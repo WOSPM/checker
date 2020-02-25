@@ -1,7 +1,7 @@
 <?php
 use WOSPM\Checker;
 
-const VERSION    = '0.3.0';
+const VERSION    = '0.3.1';
 const SUCCESS    = 0,
     WITH_ERRORS  = 1,
     FAILED       = 255;
