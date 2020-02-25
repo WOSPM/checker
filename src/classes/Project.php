@@ -195,7 +195,8 @@ class Project
         if ($options['transliterate']) {
             $str = str_replace(
                 array_keys($char_map),
-                $char_map,$str
+                $char_map,
+                $str
             );
         }
         
