@@ -25,6 +25,8 @@ A checker for project owners to measure their open source project.
 
 ---
 
+![WOSPM Checker](./assets/WOSPM_checker_tool.png)
+
 ## Introduction
 
 `wospm-checker` is a commandline tool to measure how an open source project welcomes users and possible contributors. The tool checks the repository against a list of metrics. The metrics are mostly inspired by [Github's Open Source Guides](https://opensource.guide/).
