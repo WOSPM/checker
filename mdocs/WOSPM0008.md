@@ -6,7 +6,7 @@
 | ------------- |-------------|
 | code      | WOSPM0008 |
 | title      | LINK_TO_CODE_OF_CONDUCT      |
-| message | README should have a link to NO_LINK_TO_CODE_OF_CONDUCT file.     |
+| message | README should have a link to CODE_OF_CONDUCT file.     |
 | type | MetricType::ERROR      |
 
 ## Rationale

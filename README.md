@@ -117,13 +117,13 @@ To see the details of the metrics, click the metric code for detailed document.
 | [WOSPM0005](./mdocs/WOSPM0005.md)      | CODE_OF_CONDUCT | Every open source project should have a CODE_OF_CONDUCT file. |
 | [WOSPM0006](./mdocs/WOSPM0006.md)      | README_TOC | Every README file should have table of contents list. |
 | [WOSPM0007](./mdocs/WOSPM0007.md)      | LINK_TO_CONTRIBUTE | README should have a link to CONTRIBUTING file. |
-| [WOSPM0008](./mdocs/WOSPM0008.md)      | LINK_TO_CODE_OF_CONDUCT | README should have a link to NO_LINK_TO_CODE_OF_CONDUCT file. |
+| [WOSPM0008](./mdocs/WOSPM0008.md)      | LINK_TO_CODE_OF_CONDUCT | README should have a link to CODE_OF_CONDUCT file. |
 | [WOSPM0009](./mdocs/WOSPM0009.md)      | README_ADEQUATE | README should have atleast 200 words. |
 | [WOSPM0010](./mdocs/WOSPM0010.md)      | INSTALLATION_SECTION | README file should have an installation section. |
 | [WOSPM0011](./mdocs/WOSPM0011.md)      | GITHUB_ISSUE_TEMPLATE | You should have issue templates on Github. |
 | [WOSPM0012](./mdocs/WOSPM0012.md)      | GITHUB_PR_TEMPLATE | You should have PR template on Github. |
 | [WOSPM0013](./mdocs/WOSPM0013.md)      | GITHUB_SHORT_DESCRIPTION | Project should have a short description on Github. |
-| [WOSPM0014](./mdocs/WOSPM0014.md)      | GITHUB_TOPICS | Related topics should be added to the repository. |
+| [WOSPM0014](./mdocs/WOSPM0014.md)      | GITHUB_TOPICS | Related Github topics should be added to the repository. |
 | [WOSPM0015](./mdocs/WOSPM0015.md)      | GITHUB_LABELS | Project should have issue labels. |
 | [WOSPM0016](./mdocs/WOSPM0016.md)      | GITHUB_LABELS_USED | Labels should be used to highlight the issues. |
 | [WOSPM0017](./mdocs/WOSPM0017.md)      | GITHUB_CUSTOM_LABELS | Creating custom labels is a good practice. |

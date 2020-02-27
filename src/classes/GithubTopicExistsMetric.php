@@ -15,7 +15,7 @@ class GithubTopicExistsMetric extends Metric
     {
         $this->code       = "WOSPM0014";
         $this->title      = "GITHUB_TOPICS";
-        $this->message    = "Related topics should be added to the repository.";
+        $this->message    = "Related Github topics should be added to the repository.";
         $this->type       = MetricType::ERROR;
         $this->dependency = array("WOSPM0003");
         $this->repo       = $repo;

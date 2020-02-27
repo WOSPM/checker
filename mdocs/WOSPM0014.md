@@ -6,9 +6,9 @@
 | ------------- |-------------|
 | code      | WOSPM0014 |
 | title      | GITHUB_TOPICS      |
-| message | Related topics should be added to the repository.     |
+| message | Related Github topics should be added to the repository.     |
 | type | MetricType::ERROR      |
 
 ## Rationale
 
-At least one topic or topics should be added to the repository. Topics helps people to find your repo.
+At least one topic or more topics should be added to the repository on Github. Topics help people to discover your repo.
