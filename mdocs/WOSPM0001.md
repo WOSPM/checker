@@ -11,4 +11,4 @@
 
 ## Rationale
 
-It is just an hello world` metric for the checker. If you are using this checker, this means that you want to be a hospitable project owner.
+It is just an `hello world` metric for the checker. If you are using this checker, this means that you want to be a hospitable project owner.
