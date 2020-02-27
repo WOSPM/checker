@@ -11,4 +11,4 @@
 
 ## Rationale
 
-A code of conduct helps set ground rules for behavior for your project’s participants. Adopting, and enforcing, a code of conduct can help create a positive social atmosphere for your community.
+A code of conduct helps set ground rules for behavior for your project’s participants. Adopting, and enforcing, a code of conduct can help create a positive social atmosphere for your community. It is important to link to code of conduct file with a descriptive short text.
