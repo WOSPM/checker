@@ -11,4 +11,4 @@
 
 ## Rationale
 
-Using custom labels is a good practice and you should describe what each custom label means to the contributors.
+Using custom labels is a good practice but you should describe what each custom label means to the contributors.
