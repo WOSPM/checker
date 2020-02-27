@@ -11,7 +11,7 @@
 
 ## Rationale
 
-README document is the first place that user faces before using your project or contributing to it. You should create as it is ablog post or article describing your project simply. The 200 is arguable.
+README document is the first place that user faces before using your project or contributing to it. You should create as it is a blog post or article describing your project simply. Unfurtunately, there is no scientific metric about the word count and the `200` as word count is arguable, but It can be accepted that a README file with the word count less than `200` is a short document.
 
 The word count is calculated by;
 
