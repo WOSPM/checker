@@ -11,4 +11,4 @@
 
 ## Rationale
 
-README files are the first places that the users and contributors will see. It is important to link to contributing file.
+README files are the first places that the users and contributors will see. It is important to link to contributing file with a descriptive short text.
