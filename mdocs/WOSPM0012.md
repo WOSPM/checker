@@ -11,7 +11,7 @@
 
 ## Rationale
 
-The repo should contain at least one PR template to help your contributors.
+The repo should contain at least one PR template to help your contributors. Formatting PR templates will help you and other reviewers to review the PR easily.
 
 See also;
 

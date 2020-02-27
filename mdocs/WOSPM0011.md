@@ -11,7 +11,7 @@
 
 ## Rationale
 
-The repo should contain at least one issue template to help your contributors.
+The repo should contain at least one issue template to help your contributors when they are creating an issue. Formatting the isues will also help other people (other than you and the issue creator) to get involved in the discussion.
 
 See also;
 

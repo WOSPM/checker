@@ -11,4 +11,4 @@
 
 ## Rationale
 
-At least one label or labels should be added to the repository. Labels helps possible contributors to find contribution opportunities easily.
+At least one label or more labels should be added to the repository. Labels helps possible contributors to find contribution opportunities easily.

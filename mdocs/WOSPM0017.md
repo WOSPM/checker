@@ -11,4 +11,4 @@
 
 ## Rationale
 
-If you create custom labels for your issues, you will give more information about your development process. It will also helps contributers to narrow the results by labels, using the label qualifier.
+If you create custom labels for your issues, you will give more information about your labels. It will also helps contributers to narrow the results by labels, using the label qualifier.
