@@ -1,4 +1,7 @@
 # WOSPM Checker
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 A checker for project owners to measure their open source project if it is a welcoming project for contributors or not.
 
@@ -153,3 +156,22 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for information.
 ## Code of Conduct
 
 See [CODE_OF_CONDUCT](CODE_OF_CONDUCT) for information.
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/tommens"><img src="https://avatars0.githubusercontent.com/u/8276015?v=4" width="100px;" alt=""/><br /><sub><b>Tom Mens</b></sub></a><br /><a href="#ideas-tommens" title="Ideas, Planning, & Feedback">🤔</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
