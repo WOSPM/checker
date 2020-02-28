@@ -7,8 +7,6 @@ A checker for project owners to measure their open source project if it is a wel
 
 ![WOSPM Checker](./assets/WOSPM_checker_tool.png)
 
-
-
 ---
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
