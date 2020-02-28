@@ -87,7 +87,7 @@ try {
             $bound = STRICTLINE;
         }
 
-        if ($percent >= bound) {
+        if ($percent >= $bound) {
             die(SUCCESS);
         } else {
             die(WITH_ERRORS);
