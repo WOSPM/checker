@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "tommens",
+      "name": "Tom Mens",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/8276015?v=4",
+      "profile": "https://github.com/tommens",
+      "contributions": [
+        "ideas"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "checker",
+  "projectOwner": "WOSPM",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
