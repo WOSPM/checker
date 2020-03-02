@@ -172,6 +172,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-We follow the [all-contributors](https://github.com/all-contributors/all-contributors) specs.
+By [all-contributors](https://github.com/all-contributors/all-contributors).
 
 Contributions of any kind welcome!
