@@ -399,6 +399,9 @@ function processor($arguments, $repo)
     $processor->addMetric(
         new Checker\ReadmeContributorsExistsMetric($repo)
     );
+    $processor->addMetric(
+        new Checker\ChangelogExistsMetric($repo)
+    );
 
     return $processor;
 }
