@@ -11,9 +11,9 @@
 
 ## Rationale
 
-A changelog is a file which contains a chronologically ordered list of notable changes for each version of a project to make it easier for users and contributors to see precisely what notable changes have been made between each release. 
+A changelog is a file which contains a chronologically ordered list of notable changes for each version of a project to make it easier for users and contributors to see precisely what notable changes have been made between each release.
 
-A changelog should be displayed to users out of the context of the version control service (GitHub, Gitlab etc.). 
+A changelog should be displayed to users out of the context of the version control service (GitHub, Gitlab etc.).
 
 > Changelogs are for humans, not machines.
 >
