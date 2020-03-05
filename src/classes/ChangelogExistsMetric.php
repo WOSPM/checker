@@ -51,7 +51,7 @@ class ChangelogExistsMetric extends Metric
      * Check if there is an changelog section
      *
      * @param array $parsed The array creating by parsing the MD document
-     * @param array $files Array of the files in root directory
+     * @param array $files  Array of the files in root directory
      *
      * @return boolean
      */
