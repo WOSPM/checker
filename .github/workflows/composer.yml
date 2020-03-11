@@ -1,0 +1,12 @@
+on: [push]
+name: Composer Checks
+jobs:
+  wp_vulnerability_check_github_action:
+    runs-on: ubuntu-latest
+    name: SensioLabs Security Check
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    - name: Check
+      id: check
+      uses: umutphp/sensiolabs-security-checker-action@v13
