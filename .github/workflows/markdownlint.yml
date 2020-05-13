@@ -3,7 +3,7 @@ name: Markdown Linter Checks
 jobs:
   markdown_linter_checks:
     runs-on: ubuntu-latest
-    name: SensioLabs Security Check
+    name: Markdown Files
     steps:
     - name: Checkout
       uses: actions/checkout@master
