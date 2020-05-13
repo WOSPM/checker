@@ -1,6 +1,6 @@
 # WOSPM Checker
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-) ![Markdown Linter Checks](https://github.com/WOSPM/checker/workflows/Markdown%20Linter%20Checks/badge.svg) ![WOSPM](https://github.com/WOSPM/checker/workflows/WOSPM/badge.svg) [![CircleCI](https://circleci.com/gh/WOSPM/checker.svg?style=svg)](https://circleci.com/gh/WOSPM/checker)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 A checker for project owners to measure their open source project if it is a welcoming project for contributors or not.
