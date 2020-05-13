@@ -62,30 +62,6 @@ jobs:
           name: Install-Check
           no_output_timeout: 20m
           command: composer install --no-interaction --prefer-source
-  test-5.6:
-    docker:
-        - image: umutphp/php-docker-images-for-ci:5.6
-    steps:
-      - checkout
-      - run: 
-          name: Install-5-6
-          no_output_timeout: 20m
-          command: composer install --no-interaction --prefer-source
-      - run:
-          name: Unittest
-          command: ./phpunit
-  test-7.0:
-    docker:
-        - image: umutphp/php-docker-images-for-ci:7.0
-    steps:
-      - checkout
-      - run:
-          name: Install-7-0
-          no_output_timeout: 20m
-          command: composer install --no-interaction --prefer-source
-      - run:
-          name: Unittest
-          command: ./phpunit
   test-7.1:
     docker:
       - image: umutphp/php-docker-images-for-ci:7.1
@@ -148,14 +124,6 @@ workflows:
       - code-check:
           requires:
             - wospm-checker
-      - test-5.6:
-          requires:
-            - code-lint
-            - code-check
-      - test-7.0:
-          requires:
-            - code-lint
-            - code-check
       - test-7.1:
           requires:
             - code-lint
