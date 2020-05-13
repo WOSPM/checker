@@ -1,6 +1,7 @@
 <?php
 use WOSPM\Checker;
 use Symfony\Component\Yaml\Yaml;
+use League\CLImate\CLImate;
 
 /**
  * Shows the commandline options
@@ -151,30 +152,31 @@ function outputREADABLE($array, $colors = true)
 {
     $succes = "+ ";
     $fail   = "X ";
+    $coloredOutput = new CLImate;
+    $failColors = [Checker\MetricType::WARNING => "LightYellow",
+                   Checker\MetricType::INFO => "LightBlue"];
 
     foreach ($array as $code => $metric) {
-        if ($colors === true) {
-            $succes = "\e[0;42;30m+\e[0m ";
-            $fail   = "\e[0;41;30mX\e[0m ";
+        $color = "white";
+        $marker = $succes;
 
-            switch ($metric["type"]) {
-            case Checker\MetricType::WARNING:
-                $fail   = "\e[0;43;30mX\e[0m ";
-                break;
-            case Checker\MetricType::INFO:
-                $fail   = "\e[0;44;30mX\e[0m ";
-                break;
-            default:
-                $fail   = "\e[0;41;30mX\e[0m ";
-                break;
+        if ($colors === true) {
+            $color = "green";
+            if ($metric["status"] !== true) {
+                $color = (array_key_exists($metric["type"], $failColors)) ? $failColors[$metric["type"]] : "LightRed";
             }
         }
-        if ($metric["status"] === true) {
-            echo $succes;
-        } else {
-            echo $fail;
+
+        if ($metric["status"] !== true) {
+            $marker = $fail;
         }
-        echo "$code - " . $metric["title"] . ": " .$metric["message"] . PHP_EOL;
+
+        $coloredOutput->$color()->inline($marker);
+        $coloredOutput->inline($code);
+        $coloredOutput->inline(" - ");
+        $coloredOutput->inline($metric["title"]);
+        $coloredOutput->inline(": ");
+        $coloredOutput->$color()->out($metric["message"]);
     }
     echo PHP_EOL;
 }
