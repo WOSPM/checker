@@ -1,6 +1,6 @@
 # WOSPM Checker
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![WOSPM Checker Docker Image](https://img.shields.io/badge/WOSPM-Docker%20Image-blue)](https://hub.docker.com/r/wospm/checker) ![WOSPM](https://github.com/WOSPM/checker/workflows/WOSPM/badge.svg) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CONTRIBUTING.md) [![CircleCI](https://circleci.com/gh/WOSPM/checker.svg?style=svg)](https://circleci.com/gh/WOSPM/checker) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/WOSPM/checker/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/WOSPM/checker/?branch=master) [![codecov](https://codecov.io/gh/WOSPM/checker/branch/master/graph/badge.svg)](https://codecov.io/gh/WOSPM/checker) [![Open Source Helpers](https://www.codetriage.com/wospm/checker/badges/users.svg)](https://www.codetriage.com/wospm/checker) [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 A checker for project owners to measure their open source project if it is a welcoming project for contributors or not.
@@ -166,6 +166,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/tommens"><img src="https://avatars0.githubusercontent.com/u/8276015?v=4" width="100px;" alt=""/><br /><sub><b>Tom Mens</b></sub></a><br /><a href="#ideas-tommens" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/cmohammadc"><img src="https://avatars2.githubusercontent.com/u/34370960?v=4" width="100px;" alt=""/><br /><sub><b>Mohammad Reza</b></sub></a><br /><a href="https://github.com/WOSPM/checker/commits?author=cmohammadc" title="Code">💻</a></td>
   </tr>
 </table>
 
