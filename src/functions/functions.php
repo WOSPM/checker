@@ -163,7 +163,11 @@ function outputREADABLE($array, $colors = true)
         if ($colors === true) {
             $color = "green";
             if ($metric["status"] !== true) {
-                $color = (array_key_exists($metric["type"], $failColors)) ? $failColors[$metric["type"]] : "LightRed";
+                $color = "LightRed";
+
+                if (array_key_exists($metric["type"], $failColors)) {
+                    $color = $failColors[$metric["type"]];
+                }
             }
         }
 
