@@ -17,7 +17,7 @@ class ReadmeContributorsExistsMetric extends Metric
     {
         $this->code       = "WOSPM0024";
         $this->title      = "CONTRIBUTORS_SECTION";
-        $this->message    = "README file should have an installation section.";
+        $this->message    = "README file should have a contributors section.";
         $this->type       = MetricType::ERROR;
         $this->dependency = array("WOSPM0002");
         $this->project    = new Project();
