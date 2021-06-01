@@ -1,13 +1,11 @@
 <?php
-use WOSPM\Checker;
-class ArgumentsTest extends PHPUnit_Framework_TestCase
-{
-    private $metric;
-    public function __construct()
-    {
-        $this->arguments = new Checker\Arguments();
-    }
+namespace WOSPM\Checker\Tests;
 
+use WOSPM\Checker;
+use PHPUnit\Framework\TestCase;
+
+class ArgumentsTest extends TestCase
+{
     public function testArguments()
     {
         // Upper case 1
@@ -50,7 +48,7 @@ class ArgumentsTest extends PHPUnit_Framework_TestCase
             'wospm-checker', 'invalidformat'
         );
 
-        $this->setExpectedException(\Exception::class);
+        $this->expectException(\Exception::class);
         
         Checker\Arguments::parseArguments($inputs);
     }
@@ -61,7 +59,7 @@ class ArgumentsTest extends PHPUnit_Framework_TestCase
             'wospm-checker', '--invalid'
         );
 
-        $this->setExpectedException(\Exception::class);
+        $this->expectException(\Exception::class);
         
         Checker\Arguments::parseArguments($inputs);
     }

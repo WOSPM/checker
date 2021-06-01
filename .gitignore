@@ -2,3 +2,4 @@
 composer.lock
 wospm.html
 .wospm
+.phpunit.result.cache

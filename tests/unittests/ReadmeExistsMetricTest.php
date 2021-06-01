@@ -1,6 +1,10 @@
 <?php
+namespace WOSPM\Checker\Tests;
+
 use WOSPM\Checker;
-class ReadmeExistsMetricTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class ReadmeExistsMetricTest extends TestCase
 {
     public function testReadmeExists()
     {

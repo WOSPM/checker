@@ -1,6 +1,10 @@
 <?php
+namespace WOSPM\Checker\Tests;
+
 use WOSPM\Checker;
-class GithubIssueTemplateExistsMetricTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class GithubIssueTemplateExistsMetricTest extends TestCase
 {
     public function testTemplatesExist()
     {

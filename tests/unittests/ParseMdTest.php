@@ -1,7 +1,10 @@
 <?php
-use WOSPM\Checker;
+namespace WOSPM\Checker\Tests;
 
-class ParseMdTest extends PHPUnit_Framework_TestCase
+use WOSPM\Checker;
+use PHPUnit\Framework\TestCase;
+
+class ParseMdTest extends TestCase
 {
     public function testParseHeadline()
     {

@@ -1,6 +1,10 @@
 <?php
+namespace WOSPM\Checker\Tests;
+
 use WOSPM\Checker;
-class ContributingExistsMetricTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class ContributingExistsMetricTest extends TestCase
 {
     public function testContributingExists()
     {

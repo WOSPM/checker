@@ -46,37 +46,13 @@ jobs:
           command: phpcs --ignore=./vendor/,*/tests/*,*/data/* .
   install-check:
     docker:
-      - image: umutphp/php-docker-images-for-ci:7.3
+      - image: umutphp/php-docker-images-for-ci:7.4
     steps:
       - checkout 
       - run: 
           name: Install-Check
           no_output_timeout: 20m
           command: composer install --no-interaction --prefer-source
-  test-7.1:
-    docker:
-      - image: umutphp/php-docker-images-for-ci:7.1
-    steps:
-      - checkout
-      - run:
-          name: Install-7-1
-          no_output_timeout: 20m
-          command: composer install --no-interaction --prefer-source
-      - run:
-          name: Unittest
-          command: ./phpunit
-  test-7.2:
-    docker:
-      - image: umutphp/php-docker-images-for-ci:7.2
-    steps:
-      - checkout
-      - run:
-          name: Install-7-2
-          no_output_timeout: 20m
-          command: composer install --no-interaction --prefer-source
-      - run:
-          name: Unittest
-          command: ./phpunit
   test-7.3:
     docker:
       - image: umutphp/php-docker-images-for-ci:7.3
@@ -122,23 +98,19 @@ workflows:
     jobs:
       - code-lint
       - code-check
-      - test-7.1:
-          requires:
-            - code-lint
-            - code-check
-      - test-7.2:
-          requires:
-            - code-lint
-            - code-check
+      - install-check
       - test-7.3:
           requires:
             - code-lint
             - code-check
+            - install-check
       - test-7.4:
           requires:
             - code-lint
             - code-check
+            - install-check
       - test-8.0:
           requires:
             - code-lint
             - code-check
+            - install-check

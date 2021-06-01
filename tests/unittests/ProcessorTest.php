@@ -1,9 +1,10 @@
 <?php
-namespace WOSPM\Test;
+namespace WOSPM\Checker\Tests;
 
 use WOSPM\Checker;
+use PHPUnit\Framework\TestCase;
 
-class ProcessorTest extends \PHPUnit_Framework_TestCase
+class ProcessorTest extends TestCase
 {
     public function testAddMetric()
     {

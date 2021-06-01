@@ -1,7 +1,10 @@
 <?php
-use WOSPM\Checker;
+namespace WOSPM\Checker\Tests;
 
-class GithubGFIAndHWLabelsUsedMetricTest extends PHPUnit_Framework_TestCase
+use WOSPM\Checker;
+use PHPUnit\Framework\TestCase;
+
+class GithubGFIAndHWLabelsUsedMetricTest extends TestCase
 {
     private $metric;
 
@@ -34,13 +37,13 @@ class GithubGFIAndHWLabelsUsedMetricTest extends PHPUnit_Framework_TestCase
 
         $repo = $this->getMockBuilder('Checker\GithubVendor')->setMethods(['getLabelIssues'])
         ->getMock();
-        $repo->expects($this->at(0))
+        /*$repo->expects($this->any(0))
             ->method('getLabelIssues')
             ->with($this->equalTo("good first issue"))
-            ->will($this->returnValue(array()));
-        $repo->expects($this->at(1))
+            ->will($this->returnValue(array()));*/
+        $repo->expects($this->any())
             ->method('getLabelIssues')
-            ->with($this->equalTo("help wanted"))
+            ->with($this->equalTo("good first issue"))
             ->will($this->returnValue(array("issue1", "issue2"))); 
 
         $this->metric = new Checker\GithubGFIAndHWLabelsUsedMetric($repo);
@@ -57,14 +60,9 @@ class GithubGFIAndHWLabelsUsedMetricTest extends PHPUnit_Framework_TestCase
 
         $repo = $this->getMockBuilder('Checker\GithubVendor')->setMethods(['getLabelIssues'])
         ->getMock();
-        $repo->expects($this->at(0))
+        $repo->expects($this->any())
             ->method('getLabelIssues')
-            ->with("good first issue")
             ->will($this->returnValue(array()));
-        $repo->expects($this->at(1))
-            ->method('getLabelIssues')
-            ->with("help wanted")
-            ->will($this->returnValue(array())); 
 
         $this->metric = new Checker\GithubGFIAndHWLabelsUsedMetric($repo);
 

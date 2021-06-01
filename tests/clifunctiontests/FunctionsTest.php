@@ -1,11 +1,14 @@
 <?php
+namespace WOSPM\Checker\Tests;
+
 use WOSPM\Checker;
+use PHPUnit\Framework\TestCase;
 
 require_once "." . DIRECTORY_SEPARATOR .
     "src" . DIRECTORY_SEPARATOR . "functions" . DIRECTORY_SEPARATOR .
     "functions.php";
 
-class FunctionsTest extends PHPUnit_Framework_TestCase
+class FunctionsTest extends TestCase
 {
     public function testStatusEmptyTrue()
     {

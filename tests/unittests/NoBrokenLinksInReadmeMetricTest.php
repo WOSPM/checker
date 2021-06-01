@@ -1,7 +1,10 @@
 <?php
-use WOSPM\Checker;
+namespace WOSPM\Checker\Tests;
 
-class NoBrokenLinksInReadmeMetricTest extends PHPUnit_Framework_TestCase
+use WOSPM\Checker;
+use PHPUnit\Framework\TestCase;
+
+class NoBrokenLinksInReadmeMetricTest extends TestCase
 {
     public function testAllHeadlineLinksExist()
     {

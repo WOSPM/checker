@@ -1,6 +1,10 @@
 <?php
+namespace WOSPM\Checker\Tests;
+
 use WOSPM\Checker;
-class LicenseExistsMetricTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class LicenseExistsMetricTest extends TestCase
 {
     public function testLicenseExists()
     {

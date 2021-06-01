@@ -1,13 +1,11 @@
 <?php
-use WOSPM\Checker;
-class CocExistsMetricTest extends PHPUnit_Framework_TestCase
-{
-    private $metric;
-    public function __construct()
-    {
-        $this->metric = new Checker\CocExistsMetric();
-    }
+namespace WOSPM\Checker\Tests;
 
+use WOSPM\Checker;
+use PHPUnit\Framework\TestCase;
+
+class CocExistsMetricTest extends TestCase
+{
     public function testCocExists()
     {
         $metric = new Checker\CocExistsMetric();
