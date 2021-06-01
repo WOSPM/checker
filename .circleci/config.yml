@@ -120,8 +120,8 @@ workflows:
   version: 2
   build_and_create:
     jobs:
-      - code-lint:
-      - code-check:
+      - code-lint
+      - code-check
       - test-7.1:
           requires:
             - code-lint
