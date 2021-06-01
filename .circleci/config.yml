@@ -2,15 +2,6 @@
 #
 version: 2
 jobs:
-  wospm-checker:
-    docker:
-      - image: umutphp/php-docker-images-for-ci:7.3
-    steps:
-      - checkout
-      - run: 
-          name: WOSPM-Checker
-          no_output_timeout: 20m
-          command: mkdir /tmp/tool && cd /tmp/tool && composer require --dev wospm/checker && cd - && /tmp/tool/wospm-checker
   code-lint:
     docker:
       - image: umutphp/php-docker-images-for-ci:7.3
@@ -129,13 +120,8 @@ workflows:
   version: 2
   build_and_create:
     jobs:
-      - wospm-checker
       - code-lint:
-          requires:
-            - wospm-checker
       - code-check:
-          requires:
-            - wospm-checker
       - test-7.1:
           requires:
             - code-lint
