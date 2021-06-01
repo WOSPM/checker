@@ -64,7 +64,7 @@ class Arguments
         $setting         = new self;
 
         foreach ($arguments as $argument) {
-            if ($argument{0} !== '-') {
+            if ($argument[0] !== '-') {
                 throw new \Exception("Invalid argument $argument");
             } else {
                 switch ($argument) {
