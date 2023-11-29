@@ -39,7 +39,7 @@ jobs:
       - run:
           name: Dead-Code-Checker
           no_output_timeout: 20m
-          command: cd ./src && phpdcd -vvv --exclude vendor --exclude tests .
+          command: cd ./src/classes && phpdcd -vvv --exclude vendor --exclude tests .
       - run:
           name: PHP-Code-Sniffer
           no_output_timeout: 20m
