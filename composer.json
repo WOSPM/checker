@@ -12,9 +12,6 @@
     "require-dev": {
         "phpunit/phpunit": "*"
     },
-    "config": {
-        "bin-dir": "vendor/bin/"
-    },
     "autoload": {
         "psr-4": {
             "WOSPM\\Checker\\": "src/classes"
@@ -22,5 +19,8 @@
     },
     "bin": [
         "wospm-checker"
-    ]
+    ],
+    "config": {
+        "bin-dir": "vendor/bin/"
+    }
 }
