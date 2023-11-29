@@ -1,4 +1,4 @@
-name: Test In All PHP Versions
+name: Install In All PHP Versions
 
 on:
   pull_request:
