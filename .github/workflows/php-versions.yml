@@ -3,6 +3,8 @@ name: Install In All PHP Versions
 on:
   pull_request:
     branches: [master]
+  push:
+    branches: [master, develop]
 
 jobs:
   phpunit:
