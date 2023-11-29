@@ -33,7 +33,7 @@ jobs:
           command: cd ./src && phpcpd --exclude=vendor .
   code-check:
     docker:
-      - image: umutphp/php-docker-images-for-ci:7.1
+      - image: umutphp/php-docker-images-for-ci:7.4
     steps:
       - checkout
       - run:
